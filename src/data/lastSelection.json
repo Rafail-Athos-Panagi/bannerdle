@@ -1,0 +1,13 @@
+{
+  "name": "Hillman",
+  "tier": 2,
+  "type": "Infantry",
+  "banner": "Factions/None.png",
+  "faction": "None",
+  "culture": "Mountain Bandits",
+  "occupation": "Bandit",
+  "used": true,
+  "image": "Units/Mountain Bandits/Hillman.PNG",
+  "date": "2025-04-11T01:05:19.142Z",
+  "lastNumber": 2
+}

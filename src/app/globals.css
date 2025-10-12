@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+body {
+  font-family: "MedievalSharp", cursive;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Ensure touch targets are at least 44px */
+  button, 
+  [role="button"], 
+  input[type="submit"], 
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile navbar improvements */
+  .mobile-navbar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Mobile menu animations */
+  .mobile-menu-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .mobile-menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  }
+  
+  .mobile-menu-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .mobile-menu-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  }
+  
+  /* Improve text readability on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  /* Mobile-specific improvements for Map Quest */
+  .mobile-sidebar {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  
+  /* Better spacing for mobile inputs */
+  input[type="text"] {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+  
+  /* Mobile-friendly dropdown suggestions */
+  .suggestions-dropdown {
+    max-height: 40vh;
+    font-size: 14px;
+  }
+  
+  /* Mobile map controls */
+  .map-controls {
+    gap: 8px;
+  }
+  
+  /* Prevent text selection on map */
+  .map-container {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Better mobile scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Smaller settlement points on mobile */
+  .mobile-point {
+    transform: translate(-50%, -50%) scale(0.4) !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
+  }
+  
+  /* Smaller area markers on mobile */
+  .mobile-area-icon {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  .mobile-area-icon svg {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  
+  /* Smaller area name labels on mobile */
+  .mobile-area-label {
+    font-size: 3px !important;
+    padding: 1px 2px !important;
+    margin-bottom: 0px !important;
+    line-height: 0.9 !important;
+  }
+  
+  /* Smaller input boxes on mobile */
+  .mobile-input {
+    padding: 6px 8px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Tablet responsiveness improvements */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mobile-area-label {
+    font-size: 7px !important;
+    padding: 2px 4px !important;
+    margin-bottom: 1px !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Tablet navbar adjustments */
+  .tablet-navbar {
+    padding: 0 1rem;
+  }
+}
+
+/* Desktop responsiveness improvements */
+@media (min-width: 1025px) {
+  .mobile-area-label {
+    font-size: 7px !important;
+    padding: 2px 4px !important;
+    margin-bottom: 1px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+:root {
+  --color-deep-red: #8b0000;
+  --color-dark-gray: #a4a08f;
+  --color-muted-gold: #c5af7d;
+  --color-light-gold: #9f8958;
+  --color-steel-blue: #4682b4;
+  --color-soft-blue: #131a25;
+  --color-earthy-brown: #8b4513;
+
+  /* For Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}
+
+/* For Chrome, Edge, and Safari */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 4px;
+}
+
+
+  /* ------------------------------------------
+     1) Patch Notes v1.2.12 (Knight & Horse)
+     ------------------------------------------ */
+  --bannerlord-patch-deep-bg: #2c2822; /* Deep background brown/gray */
+  --bannerlord-patch-warm-tan: #8b6f54; /* Warm tan (banner bg) */
+  --bannerlord-patch-gold-text: #b79c5e; /* Gold text */
+  --bannerlord-patch-dark-text: #2d2b28; /* Dark text/outline */
+  --bannerlord-patch-rust-orange: #c08332; /* Rust orange (knight's surcoat) */
+  --bannerlord-patch-very-dark-brown: #2a201b; /* Very dark brown (horse) */
+  --bannerlord-patch-brassy-gold: #9c8344; /* Brassy gold (buttons) */
+
+  /* ------------------------------------------
+        2) "Custom" Bar
+        ------------------------------------------ */
+  --bannerlord-custom-dark-brown: #3b2f24; /* Dark brown (main background) */
+  --bannerlord-custom-med-brown: #5a4638; /* Medium brown (border/trim) */
+  --bannerlord-custom-very-dark-brown: #221b16; /* Very dark brown (corner accents) */
+  --bannerlord-custom-light-cream: #d7b587; /* Light gold/cream (text color) */
+
+  /* ------------------------------------------
+        3) Arrow Button
+        ------------------------------------------ */
+  --bannerlord-arrow-dark-brown: #3c3429; /* Dark brown background */
+  --bannerlord-arrow-grayish-brown: #5c5247; /* Grayish-brown border */
+  --bannerlord-arrow-med-light-brown: #7c6a49; /* Medium/light brown interior */
+  --bannerlord-arrow-cream-gold: #cec19b; /* Light cream/gold arrow color */
+
+  /* ------------------------------------------
+        4) Orange Silhouette Circle
+        ------------------------------------------ */
+  --bannerlord-circle-dark-ring: #2c2922; /* Dark ring (outer border) */
+  --bannerlord-circle-brown-bg: #4e3c2d; /* Brown background (inside the circle) */
+  --bannerlord-circle-orange-figure: #e88a24; /* Orange silhouette (figure) */
+  --bannerlord-circle-backdrop: #6f6453; /* Surrounding backdrop (outer area) */
+
+  /* ------------------------------------------
+        5) "Next" Button
+        ------------------------------------------ */
+  --bannerlord-next-dark-bg: #3c3428; /* Dark outer background */
+  --bannerlord-next-border: #5a5046; /* Button border frame */
+  --bannerlord-next-olive-fill: #7b7f4e; /* Olive-green fill (button) */
+  --bannerlord-next-text-cream: #e8d2a6; /* Light cream text color */
+
+  /* ------------------------------------------
+        6) "You were born into a family of..." Menu
+        ------------------------------------------ */
+  --bannerlord-family-very-dark-bg: #2c241c; /* Very dark brown background */
+  --bannerlord-family-med-brown: #6a4d39; /* Medium brown (unselected) */
+  --bannerlord-family-lighter-brown: #8b6f54; /* Lighter brown (selected row) */
+  --bannerlord-family-dark-border: #3a2f26; /* Dark brown border/trim */
+  --bannerlord-family-text-cream: #e8d2a6; /* Warm cream text color */
+
+  /* ------------------------------------------
+        7) "Telemachus" Bar
+        ------------------------------------------ */
+  --bannerlord-telemachus-outer-bg: #2c241b; /* Very dark brown/black (outer) */
+  --bannerlord-telemachus-brown-fill: #8b6f54; /* Medium-brown fill (bar) */
+  --bannerlord-telemachus-text-cream: #e8d2a6; /* Cream/off-white text */
+  /* ------------------------------------------
+        8) Main Menu Panel
+        ------------------------------------------ */
+  --bannerlord-menu-stone-bg: #5c5b4f; /* Stone pillar background */
+  --bannerlord-menu-mossy-green: #707142; /* Mossy green tint on pillar */
+  --bannerlord-menu-border: #5a5046; /* Button border (dark gray-brown) */
+  --bannerlord-menu-brownish-gray: #726952; /* Unselected button fill */
+  --bannerlord-menu-highlight-green: #7b7f4e; /* Highlighted button fill */
+  --bannerlord-menu-text-cream: #e8d2a6; /* Text color (warm cream) */
+
+  /* ------------------------------------------
+        9) "Your relation is decreased..." Banner
+        ------------------------------------------ */
+  --bannerlord-relation-gold-fill: #c6a45a; /* Main gold banner fill */
+  --bannerlord-relation-gold-brown: #9e8142; /* Darker gold/brown shading */
+  --bannerlord-relation-text-dark: #2d2b28; /* Text color (dark brown/black) */
+  --bannerlord-relation-map-bg: #4e6074; /* Background map (muted blue-gray) */
+
+  /* ------------------------------------------
+        10) "Diorcos Thalion Party" Panel
+        ------------------------------------------ */
+  --bannerlord-party-stone-bg: #5c5b4f; /* Stone-like background (top panel) */
+  --bannerlord-party-dark-bg: #2c2922; /* Very dark brown/black panel */
+  --bannerlord-party-progress-green: #88c057; /* Bright green progress bar */
+  --bannerlord-party-text-cream: #e8d2a6; /* Cream/off-white text */
+  --bannerlord-party-gold-accent: #b79c5e; /* Gold/brown accent (icons, edges) */
+
+  /* ------------------------------------------
+        11) Tooltip ("During battles...")
+        ------------------------------------------ */
+  --bannerlord-tooltip-dark-bg: #2d2b28; /* Very dark background */
+  --bannerlord-tooltip-text-cream: #e8d2a6; /* Main cream/off-white text */
+  --bannerlord-tooltip-arrow-cream: #d8cab3; /* Arrow icons (light beige) */
+  --bannerlord-tooltip-alt-bg: #f2f2f2; /* ALT key background (near-white) */
+  --bannerlord-tooltip-alt-text: #2c2922; /* ALT key text color (dark brown/black) */
+}
+
+/* https://fonts.adobe.com/fonts/mason-serif#fonts-section 
+   https://www.dafont.com/windlass.font
+*/
+
+@layer utilities {
+  @keyframes flip {
+    0% {
+      transform: rotateX(90deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+  .animate-flip {
+    animation: flip 0.8s ease-out both;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleAnimation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-scaleAnimation {
+  animation: scaleAnimation 2s infinite;
+}
+
+
+/* Use 'both' to fill both backwards (during delay) and forwards (after animation ends) */
+.animate-flip {
+  animation: flip 0.8s both; /* 0.8s duration */
+}
+
+/* Homepage game card backgrounds */
+.troop-quest-bg {
+  background-image: url('/home_troop_game.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.map-quest-bg {
+  background-image: url('/home_map_game.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
