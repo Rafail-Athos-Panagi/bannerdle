@@ -1,0 +1,12 @@
+{
+  "name": "Sturgian Heavy Axeman",
+  "tier": 5,
+  "type": "Infantry",
+  "banner": "Factions/Principality_of_Sturgia.png",
+  "occupation": "Soldier",
+  "faction": "Principality of Sturgia",
+  "culture": "Sturgia",
+  "used": true,
+  "image": "Units/Sturgia/Sturgian_Heavy_Axeman.PNG",
+  "date": "2025-04-11T01:05:27.301Z"
+}
