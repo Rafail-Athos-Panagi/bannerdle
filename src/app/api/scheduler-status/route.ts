@@ -9,11 +9,11 @@ export async function GET() {
       map_area_selection: "POST /api/dailyMapAreaSelection - Manual map area selection"
     },
     cron_schedule: {
-      description: "Vercel cron jobs run automatically at 02:12 UTC daily (05:12 Cyprus time)",
-      schedule: "12 2 * * * (UTC time)",
+      description: "Vercel cron jobs run automatically at 06:00 UTC daily (09:00 Cyprus time)",
+      schedule: "0 6 * * * (UTC time)",
       troop_selection: "/api/dailyTroopSelection",
       map_area_selection: "/api/dailyMapAreaSelection",
-      next_run: "Today at 02:12 UTC (05:12 Cyprus time) in about " + getTimeUntilNextRun()
+      next_run: "Today at 06:00 UTC (09:00 Cyprus time) in about " + getTimeUntilNextRun()
     },
     note: "Local scheduler is disabled. Production uses Vercel cron jobs only."
   });
@@ -22,9 +22,9 @@ export async function GET() {
 function getTimeUntilNextRun(): string {
   const now = new Date();
   const nextRun = new Date();
-  nextRun.setUTCHours(2, 12, 0, 0);
+  nextRun.setUTCHours(6, 0, 0, 0);
   
-  // If it's already past 02:12 today, set for tomorrow
+  // If it's already past 06:00 today, set for tomorrow
   if (now >= nextRun) {
     nextRun.setUTCDate(nextRun.getUTCDate() + 1);
   }
