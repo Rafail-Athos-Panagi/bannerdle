@@ -45,7 +45,7 @@ export async function POST() {
     return NextResponse.json({
       message: "Scheduler started successfully",
       status: "Running",
-      schedule: "Daily at 15:26 UTC",
+      schedule: "Daily at 15:37 UTC",
       timestamp: new Date().toISOString()
     });
   } catch (error) {

@@ -12,5 +12,5 @@ scheduler.start();
 
 // Log startup completion
 console.log('✅ [STARTUP] Built-in scheduler initialized');
-console.log('⏰ [STARTUP] Daily selections will run at 15:26 UTC');
+console.log('⏰ [STARTUP] Daily selections will run at 15:37 UTC');
 console.log('🌐 [STARTUP] Server is ready with automatic scheduling');

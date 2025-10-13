@@ -2,7 +2,7 @@ import cron from 'node-cron';
 
 /**
  * Built-in Scheduler Service
- * Runs daily selections at 15:00 UTC while the server is active
+ * Runs daily selections at 15:37 UTC while the server is active
  */
 class SchedulerService {
   private static instance: SchedulerService;
@@ -29,7 +29,7 @@ class SchedulerService {
 
   /**
    * Start the scheduler
-   * Runs daily at 15:26 UTC (3:26 PM UTC)
+   * Runs daily at 15:37 UTC (3:37 PM UTC)
    */
   start(): void {
     if (this.isRunning) {
@@ -44,19 +44,19 @@ class SchedulerService {
     }
 
     console.log('🚀 [SCHEDULER] Starting built-in scheduler...');
-    console.log('⏰ [SCHEDULER] Will run daily selections at 15:26 UTC');
+    console.log('⏰ [SCHEDULER] Will run daily selections at 15:37 UTC');
 
-    // Schedule daily selections at 15:26 UTC
+    // Schedule daily selections at 15:37 UTC
     // Cron format: minute hour day month dayOfWeek
-    // '26 15 * * *' = At 15:26 UTC every day
-    this.cronJob = cron.schedule('26 15 * * *', async () => {
-      console.log('🕐 [SCHEDULER] 15:26 UTC reached - triggering daily selections');
+    // '37 15 * * *' = At 15:37 UTC every day
+    this.cronJob = cron.schedule('37 15 * * *', async () => {
+      console.log('🕐 [SCHEDULER] 15:37 UTC reached - triggering daily selections');
       await this.triggerDailySelections();
     }, {
       timezone: "UTC"
     });
 
-    // Also run immediately if it's past 15:26 UTC today and no selections made
+    // Also run immediately if it's past 15:37 UTC today and no selections made
     this.checkAndRunIfNeeded();
 
     this.isRunning = true;
