@@ -96,8 +96,8 @@ export class CalradiaGlobuleService {
   }
 
   // Make a guess
-  static makeGuess(guessedSettlement: Settlement): { success: boolean; guess?: Guess; gameState?: GameState } {
-    const currentState = this.getGameState();
+  static async makeGuess(guessedSettlement: Settlement): Promise<{ success: boolean; guess?: Guess; gameState?: GameState }> {
+    const currentState = await this.getGameState();
     
     // Check if game is already over
     if (currentState.gameStatus !== 'playing') {
