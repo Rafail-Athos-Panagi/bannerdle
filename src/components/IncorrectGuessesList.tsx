@@ -1,4 +1,4 @@
-import { TroopStatus } from "../src/types/Troop.type";
+import { TroopStatus } from "@/types/Troop.type";
 interface IncorrectListProps {
   incorrectGuesses: TroopStatus[];
 }

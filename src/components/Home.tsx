@@ -1,4 +1,4 @@
-import { Troop } from "./types/Troop.type";
+import { Troop } from "@/types/Troop.type";
 import VictoryBanner from "./VictoryBanner";
 
 export const Home = ({ correctGuess }: { correctGuess: Troop }) => {

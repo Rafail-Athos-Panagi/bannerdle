@@ -21,7 +21,7 @@ export class TroopService {
   private static readonly STORAGE_KEY = 'troopGame'
 
   // Mapping function to normalize faction and culture names
-  private static normalizeFactionAndCulture(data: any) {
+  private static normalizeFactionAndCulture(data: Record<string, any>): Record<string, any> {
     const factionMap: { [key: string]: string } = {
       'Vlandia': 'Kingdom of Vlandia',
       'Empire': 'Calradic Empire',
@@ -51,9 +51,9 @@ export class TroopService {
 
     return {
       ...data,
-      faction: factionMap[data.faction] || data.faction,
-      culture: cultureMap[data.culture] || data.culture,
-      banner: bannerMap[data.banner] || data.banner
+      faction: factionMap[data.faction as string] || data.faction,
+      culture: cultureMap[data.culture as string] || data.culture,
+      banner: bannerMap[data.banner as string] || data.banner
     };
   };
 
@@ -312,7 +312,7 @@ export class TroopService {
       const currentSelection = usedTroops[0];
 
       // Normalize the current selection data to match Troops.json format
-      const normalizedCurrentSelection = this.normalizeFactionAndCulture(currentSelection);
+      const normalizedCurrentSelection = this.normalizeFactionAndCulture(currentSelection) as Troop;
 
       const isCorrect = normalizedCurrentSelection.name.toLowerCase() === troopName.toLowerCase();
 
@@ -370,6 +370,45 @@ export class TroopService {
       console.error('Error fetching last selection:', error);
       throw error;
     }
+  }
+
+  // Daily troop selection method
+  static async dailyTroopSelection(): Promise<void> {
+    try {
+      // This method would typically handle the daily troop selection logic
+      // For now, it's a placeholder that can be implemented based on your requirements
+      console.log('Daily troop selection called');
+      
+      // Example implementation - you can modify this based on your needs:
+      // 1. Select a random troop from TroopsData
+      // 2. Insert it into the used_troops table
+      // 3. Handle any other daily selection logic
+      
+      const randomTroop = TroopsData[Math.floor(Math.random() * TroopsData.length)];
+      
+      const { error } = await supabase
+        .from('used_troops')
+        .insert([
+          {
+            ...randomTroop,
+            used_date: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Daily troop selection completed:', randomTroop.name);
+    } catch (error) {
+      console.error('Error in daily troop selection:', error);
+      throw error;
+    }
+  }
+
+  // Select troop method (alias for dailyTroopSelection)
+  static async selectTroop(): Promise<void> {
+    return this.dailyTroopSelection();
   }
 
 }

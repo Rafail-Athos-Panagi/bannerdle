@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TroopService } from "./services/TroopService";
+import { TroopService } from "@/services/TroopService";
 
 const UpdateButton = () => {
   const [loading, setLoading] = useState(false);
