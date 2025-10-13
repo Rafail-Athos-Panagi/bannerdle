@@ -27,6 +27,11 @@ export class MapAreaService {
 
   // Initialize or get current game state
   static getGameState(): MapGameState {
+    // Only run on client side to prevent SSR errors
+    if (typeof window === 'undefined') {
+      return this.initializeNewGame();
+    }
+
     const today = this.getTodayString();
     const stored = localStorage.getItem(this.STORAGE_KEY);
     
@@ -60,6 +65,9 @@ export class MapAreaService {
 
   // Save game state to localStorage
   private static saveGameState(gameState: MapGameState): void {
+    // Only run on client side to prevent SSR errors
+    if (typeof window === 'undefined') return;
+    
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(gameState));
   }
 
@@ -137,6 +145,9 @@ export class MapAreaService {
 
   // Reset game (for testing purposes)
   static resetGame(): void {
+    // Only run on client side to prevent SSR errors
+    if (typeof window === 'undefined') return;
+    
     localStorage.removeItem(this.STORAGE_KEY);
   }
 
