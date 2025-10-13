@@ -22,7 +22,7 @@ const CustomSelect = ({
   const [availableTroops, setAvailableTroops] = useState<Troop[]>(
     initialTroops as Troop[]
   );
-  const [, setCheckResult] = useState<any>(null);
+  const [, setCheckResult] = useState<unknown>(null);
 
   // Fetch lastSelection from Supabase and store it to localStorage
   useEffect(() => {
@@ -41,7 +41,7 @@ const CustomSelect = ({
       };
       fetchLastSelection();
     }
-  }, [troopGameState.lastSelection, setTroopGameState]);
+  }, [troopGameState, setTroopGameState]);
 
   useEffect(() => {
     const incorrectGuesses = troopGameState.guesses.filter(guess => !guess.isCorrect);
@@ -90,7 +90,7 @@ const CustomSelect = ({
       {troopGameState.lastSelection && (
         <div className="flex justify-center items-center mt-4 rounded bg-[#23282E] border-2 border-[#AF9767] p-2 md:p-1.5 mb-6 md:mb-8 mx-4">
           <p className="font-bold text-[#AF9767] text-sm md:text-lg text-center">
-            Yesterday's troop was{" "}
+            Yesterday&apos;s troop was{" "}
             <span className="text-[#ae8f41]">
               {troopGameState.lastSelection ? troopGameState.lastSelection.name : "Loading..."}
             </span>{" "}

@@ -30,7 +30,7 @@ export const Home = ({ correctGuess }: { correctGuess: Troop }) => {
         </svg>
         <div className="bg-[var(--bannerlord-patch-deep-bg)] border-2 border-[var(--bannerlord-patch-warm-tan)] p-3 md:p-4 rounded-lg z-10 text-center mt-2 shadow-lg">
           <h1 className="text-base md:text-lg font-bold text-[var(--bannerlord-patch-warm-tan)] mb-2 md:mb-3">
-            Guess Today's Bannerlord Troop
+            Guess Today&apos;s Bannerlord Troop
           </h1>
 
           <p className="text-sm md:text-md text-[var(--bannerlord-patch-gold-text)] mb-3 md:mb-4">

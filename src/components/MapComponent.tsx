@@ -8,15 +8,14 @@ import { GiVillage, GiCastle } from 'react-icons/gi';
 import { PiCastleTurretFill } from 'react-icons/pi';
 
 // Dynamic import for Leaflet to avoid SSR issues
-let L: any = null;
-let DefaultIcon: any = null;
+let L: typeof import('leaflet') | null = null;
+let DefaultIcon: import('leaflet').Icon | null = null;
 
 const loadLeaflet = async () => {
   if (typeof window === 'undefined') return;
   
   try {
     L = await import('leaflet');
-    await import('leaflet/dist/leaflet.css');
     
     // Import icons
     const icon = await import('leaflet/dist/images/marker-icon.png');
@@ -428,7 +427,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
 
         {/* Explored Areas Markers */}
         {guesses.map((guess, index) => {
-          const mapArea = (guess as any).mapArea;
+          const mapArea = (guess as MapGuess).mapArea;
           if (!mapArea || !mapArea.coordinates) return null;
           
           // Determine pin color based on distance

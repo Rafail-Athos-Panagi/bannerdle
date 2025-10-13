@@ -4,7 +4,7 @@ import TroopsData from '@/data/Troops.json';
 import type { Troop, TroopStatus } from '@/types/Troop.type';
 
 // Mapping function to normalize faction and culture names
-function normalizeFactionAndCulture(data: any) {
+function normalizeFactionAndCulture(data: Record<string, unknown>) {
   const factionMap: { [key: string]: string } = {
     'Vlandia': 'Kingdom of Vlandia',
     'Empire': 'Calradic Empire',
@@ -34,10 +34,10 @@ function normalizeFactionAndCulture(data: any) {
 
   return {
     ...data,
-    faction: factionMap[data.faction] || data.faction,
-    culture: cultureMap[data.culture] || data.culture,
-    banner: bannerMap[data.banner] || data.banner
-  };
+    faction: factionMap[data.faction as string] || data.faction,
+    culture: cultureMap[data.culture as string] || data.culture,
+    banner: bannerMap[data.banner as string] || data.banner
+  } as Record<string, unknown>;
 }
 
 interface CheckTroopResponse {
@@ -96,34 +96,34 @@ export async function GET(request: NextRequest) {
     const normalizedCurrentSelection = normalizeFactionAndCulture(currentSelection);
 
     const isCorrect: boolean =
-      normalizedCurrentSelection.name.toLowerCase() === queryName.toLowerCase();
+      (normalizedCurrentSelection.name as string).toLowerCase() === queryName.toLowerCase();
 
     // Calculate status for each property with proper validation
     const troopStatus: TroopStatus = {
       ...troopData,
       nameStatus: isCorrect ? "Same" : "Wrong",
       tierStatus: (() => {
-        if (troopData.tier === normalizedCurrentSelection.tier) return "Same";
-        return troopData.tier > normalizedCurrentSelection.tier ? "Higher" : "Lower";
+        if (troopData.tier === (normalizedCurrentSelection.tier as number)) return "Same";
+        return troopData.tier > (normalizedCurrentSelection.tier as number) ? "Higher" : "Lower";
       })(),
       typeStatus: (() => {
-        if (troopData.type === normalizedCurrentSelection.type) return "Same";
+        if (troopData.type === (normalizedCurrentSelection.type as string)) return "Same";
         // Check for partial match between Archer and Mounted Archer
-        if ((troopData.type === "Archer" && normalizedCurrentSelection.type === "Mounted Archer") ||
-            (troopData.type === "Mounted Archer" && normalizedCurrentSelection.type === "Archer")) {
+        if ((troopData.type === "Archer" && (normalizedCurrentSelection.type as string) === "Mounted Archer") ||
+            (troopData.type === "Mounted Archer" && (normalizedCurrentSelection.type as string) === "Archer")) {
           return "Partial";
         }
         return "Wrong";
       })(),
-      occupationStatus: troopData.occupation === normalizedCurrentSelection.occupation ? "Same" : "Wrong",
-      factionStatus: troopData.faction === normalizedCurrentSelection.faction ? "Same" : "Wrong",
-      bannerStatus: troopData.banner === normalizedCurrentSelection.banner ? "Same" : "Wrong",
-      cultureStatus: troopData.culture === normalizedCurrentSelection.culture ? "Same" : "Wrong",
+      occupationStatus: troopData.occupation === (normalizedCurrentSelection.occupation as string) ? "Same" : "Wrong",
+      factionStatus: troopData.faction === (normalizedCurrentSelection.faction as string) ? "Same" : "Wrong",
+      bannerStatus: troopData.banner === (normalizedCurrentSelection.banner as string) ? "Same" : "Wrong",
+      cultureStatus: troopData.culture === (normalizedCurrentSelection.culture as string) ? "Same" : "Wrong",
     };
 
     const responseData: CheckTroopResponse = {
       correct: isCorrect,
-      currentSelection: normalizedCurrentSelection,
+      currentSelection: normalizedCurrentSelection as unknown as Troop,
       troopStatus,
     };
 

@@ -21,7 +21,7 @@ export class TroopService {
   private static readonly STORAGE_KEY = 'troopGame'
 
   // Mapping function to normalize faction and culture names
-  private static normalizeFactionAndCulture(data: Record<string, any>): Record<string, any> {
+  private static normalizeFactionAndCulture(data: Record<string, unknown>): Record<string, unknown> {
     const factionMap: { [key: string]: string } = {
       'Vlandia': 'Kingdom of Vlandia',
       'Empire': 'Calradic Empire',
@@ -312,7 +312,7 @@ export class TroopService {
       const currentSelection = usedTroops[0];
 
       // Normalize the current selection data to match Troops.json format
-      const normalizedCurrentSelection = this.normalizeFactionAndCulture(currentSelection) as Troop;
+      const normalizedCurrentSelection = this.normalizeFactionAndCulture(currentSelection) as unknown as Troop;
 
       const isCorrect = normalizedCurrentSelection.name.toLowerCase() === troopName.toLowerCase();
 

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import MapComponent from '@/components/MapComponent';
 import MedievalNavbar from '@/components/MedievalNavbar';
 import { MapArea } from '@/types/MapArea.type';
-import { MapAreaService, MapGameState } from '@/services/MapAreaService';
+import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
 import mapAreasData from '@/data/map_areas.json';
 
@@ -199,7 +199,7 @@ export default function CalradiaGlobuleGame() {
                       >
                         <div className="flex items-center justify-between">
                           <div className="font-medium text-xs text-[var(--bannerlord-custom-light-cream)]">
-                            {(guess as any).mapArea.name}
+                            {(guess as MapGuess).mapArea.name}
                           </div>
                           <div className="text-xs">
                             {guess.isCorrect ? '✅' : '❌'}

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import TroopsData from '@/data/Troops.json';
 import type { Troop } from '@/types/Troop.type';

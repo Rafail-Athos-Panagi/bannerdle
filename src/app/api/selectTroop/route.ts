@@ -1,16 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import TroopsData from '@/data/Troops.json';
 import type { Troop } from '@/types/Troop.type';
-
-interface ApiResponse {
-  success: boolean;
-  troop?: Troop;
-  message?: string;
-  timestamp?: string;
-  error?: string;
-  details?: string;
-}
 
 /**
  * Manual Troop Selection API (for testing/admin purposes)
@@ -18,7 +9,7 @@ interface ApiResponse {
  * The daily selection is handled by dailyTroopSelection.ts
  * Updated to work with new schema using used_troops table
  */
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     console.log(`Starting manual troop selection at ${new Date().toISOString()}`);
 

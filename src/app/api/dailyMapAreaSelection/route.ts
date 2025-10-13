@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import mapAreasData from '@/data/map_areas.json';
 import type { MapArea } from '@/types/MapArea.type';
