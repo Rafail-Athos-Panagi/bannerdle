@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { FaUser, FaFlag } from "react-icons/fa";
 import { LuSwords } from "react-icons/lu";
 import { MdCastle } from "react-icons/md";
-import { Troop } from "./types/Troop.type";
+import Image from "next/image";
+import { Troop } from "@/types/Troop.type";
 import Countdown from "./Countdown";
 import DonationPopup from "./DonationPopup";
 import { CONFIG } from "@/config";
@@ -56,9 +57,11 @@ const VictoryBanner = ({ correctGuess }: Props) => {
             >
               <div className="w-24 h-24 md:w-32 md:h-32 border-4 border-yellow-700 rounded-md overflow-hidden bg-gray-800 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-700 opacity-10"></div>
-                <img
+                <Image
                   src={correctGuess.image}
                   alt="Desert Bandit Boss"
+                  width={96}
+                  height={96}
                   className="w-18 h-18 md:w-24 md:h-24"
                 />
               </div>

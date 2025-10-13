@@ -1,7 +1,7 @@
 // components/ComboBox.tsx
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { Troop } from "../src/types/Troop.type";
+import { Troop } from "@/types/Troop.type";
 interface ComboBoxProps {
   availableTroops: Troop[];
   onSelect: (troop: Troop) => void;
