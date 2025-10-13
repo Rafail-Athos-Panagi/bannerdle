@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import initialTroops from "@/data/Troops.json";
 import ComboBox from "@/components/ComboBox";
 import IncorrectList from "@/components/IncorrectGuessesList";
 import { Troop } from "@/types/Troop.type";
@@ -19,10 +18,27 @@ const CustomSelect = ({
   troopGameState,
   setTroopGameState,
 }: CustomSelectProps) => {
-  const [availableTroops, setAvailableTroops] = useState<Troop[]>(
-    initialTroops as Troop[]
-  );
+  const [availableTroops, setAvailableTroops] = useState<Troop[]>([]);
   const [, setCheckResult] = useState<unknown>(null);
+
+  // Fetch troops from database on component mount
+  useEffect(() => {
+    const fetchTroops = async () => {
+      try {
+        const response = await fetch('/api/troops');
+        if (response.ok) {
+          const troops = await response.json();
+          setAvailableTroops(troops);
+        } else {
+          console.error('Failed to fetch troops');
+        }
+      } catch (error) {
+        console.error('Error fetching troops:', error);
+      }
+    };
+    
+    fetchTroops();
+  }, []);
 
   // Fetch lastSelection from Supabase and store it to localStorage
   useEffect(() => {
@@ -95,7 +111,7 @@ const CustomSelect = ({
               {troopGameState.lastSelection ? troopGameState.lastSelection.name : "Loading..."}
             </span>{" "}
             <span className="text-blue-500">
-              {troopGameState.lastSelection ? `#${troopGameState.lastSelection.id}` : ""}
+              {troopGameState.lastSelection?.id ? `#${troopGameState.lastSelection.id}` : ""}
             </span>
           </p>
         </div>

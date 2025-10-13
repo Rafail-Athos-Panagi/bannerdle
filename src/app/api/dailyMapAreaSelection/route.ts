@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import mapAreasData from '@/data/map_areas.json';
 import type { MapArea } from '@/types/MapArea.type';
 
 /**
@@ -17,7 +16,7 @@ export async function GET() {
 export async function POST() {
   try {
         console.log(`🚀 [MAP AREA SELECTION] Starting daily map area selection at ${new Date().toISOString()}`);
-        console.log(`📅 [MAP AREA SELECTION] Called by: ${process.env.VERCEL ? 'Vercel Cron Job (00:55 UTC daily)' : 'Manual/Development'}`);
+        console.log(`📅 [MAP AREA SELECTION] Called by: External Cron Service (15:20 UTC daily)`);
 
     // Get list of used map areas from Supabase
     console.log('🔍 [MAP AREA SELECTION] Fetching used map areas...');
@@ -40,9 +39,25 @@ export async function POST() {
     const usedMapAreaNames: string[] = usedMapAreas?.map(a => a.name) || [];
     console.log(`📊 [MAP AREA SELECTION] Found ${usedMapAreaNames.length} used map areas:`, usedMapAreaNames);
 
-    // Filter available map areas from static JSON (exclude used map areas)
-    console.log('🎯 [MAP AREA SELECTION] Filtering available map areas...');
-    const availableMapAreas: MapArea[] = (mapAreasData as MapArea[]).filter(
+    // Get all available map areas from database
+    console.log('🎯 [MAP AREA SELECTION] Fetching available map areas from database...');
+    const { data: allMapAreas, error: mapAreasError } = await supabase
+      .from('map_areas')
+      .select('*');
+
+    if (mapAreasError) {
+      console.error('Error fetching map areas from database:', mapAreasError);
+      return NextResponse.json(
+        { 
+          success: false,
+          error: "Failed to fetch map areas from database" 
+        },
+        { status: 500 }
+      );
+    }
+
+    // Filter available map areas (exclude used map areas)
+    const availableMapAreas: MapArea[] = (allMapAreas as MapArea[]).filter(
       (mapArea: MapArea) => !usedMapAreaNames.includes(mapArea.name)
     );
 
@@ -70,9 +85,9 @@ export async function POST() {
         );
       }
 
-      // Now select from all map areas
-      const randomIndex = Math.floor(Math.random() * (mapAreasData as MapArea[]).length);
-      selectedMapArea = (mapAreasData as MapArea[])[randomIndex];
+      // Now select from all map areas in database
+      const randomIndex = Math.floor(Math.random() * (allMapAreas as MapArea[]).length);
+      selectedMapArea = (allMapAreas as MapArea[])[randomIndex];
       console.log(`🎲 [MAP AREA SELECTION] Selected map area after reset: ${selectedMapArea.name}`);
     } else {
       // Randomly select one map area from the available ones

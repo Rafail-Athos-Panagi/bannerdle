@@ -6,7 +6,6 @@ import MedievalNavbar from '@/components/MedievalNavbar';
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
-import mapAreasData from '@/data/map_areas.json';
 
 export default function CalradiaGlobuleGame() {
   const [mapGameState, setMapGameState] = useState<MapGameState | null>(null);
@@ -47,20 +46,30 @@ export default function CalradiaGlobuleGame() {
   }, [isClient, mapGameState]);
 
   // Area search handlers
-  const handleAreaInputChange = (value: string) => {
+  const handleAreaInputChange = async (value: string) => {
     setAreaInputValue(value);
     
     if (value.length > 0) {
-      // Get list of already guessed area names
-      const guessedAreaNames = mapGameState?.guesses.map(guess => guess.mapArea.name) || [];
-      
-      const filteredAreas = mapAreasData.filter(
-        area => 
-          area.name.toLowerCase().startsWith(value.toLowerCase()) &&
-          !guessedAreaNames.includes(area.name)
-      ) as MapArea[];
-      setAreaSuggestions(filteredAreas);
-      setShowAreaSuggestions(true);
+      try {
+        // Get list of already guessed area names
+        const guessedAreaNames = mapGameState?.guesses.map(guess => guess.mapArea.name) || [];
+        
+        // Fetch map areas from API
+        const response = await fetch('/api/map-areas');
+        if (response.ok) {
+          const allAreas = await response.json();
+          const filteredAreas = allAreas.filter(
+            (area: MapArea) => 
+              area.name.toLowerCase().startsWith(value.toLowerCase()) &&
+              !guessedAreaNames.includes(area.name)
+          ) as MapArea[];
+          setAreaSuggestions(filteredAreas);
+          setShowAreaSuggestions(true);
+        }
+      } catch (error) {
+        console.error('Error fetching map areas:', error);
+        setAreaSuggestions([]);
+      }
     } else {
       setAreaSuggestions([]);
       setShowAreaSuggestions(false);

@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import TroopsData from '@/data/Troops.json';
 import type { Troop } from '@/types/Troop.type';
 
 /**
@@ -31,8 +30,24 @@ export async function POST() {
 
     const usedTroopNames: string[] = usedTroops?.map(t => t.name) || [];
 
-    // Filter available troops from static JSON
-    const availableTroops = (TroopsData as Troop[]).filter(
+    // Get all available troops from database
+    const { data: allTroops, error: troopsError } = await supabase
+      .from('troops')
+      .select('*');
+
+    if (troopsError) {
+      console.error('Error fetching troops from database:', troopsError);
+      return NextResponse.json(
+        { 
+          success: false,
+          error: "Failed to fetch troops from database" 
+        },
+        { status: 500 }
+      );
+    }
+
+    // Filter available troops (exclude used troops)
+    const availableTroops = (allTroops as Troop[]).filter(
       (troop) => !usedTroopNames.includes(troop.name)
     );
 
@@ -56,9 +71,9 @@ export async function POST() {
         );
       }
 
-      // Now select from all troops
-      const randomIndex = Math.floor(Math.random() * (TroopsData as Troop[]).length);
-      const selectedTroop = (TroopsData as Troop[])[randomIndex];
+      // Now select from all troops in database
+      const randomIndex = Math.floor(Math.random() * (allTroops as Troop[]).length);
+      const selectedTroop = (allTroops as Troop[])[randomIndex];
       console.log(`Selected troop after reset: ${selectedTroop.name}`);
     } else {
       // Randomly select one troop
@@ -70,7 +85,7 @@ export async function POST() {
     // Select the new troop
     const newTroop = availableTroops.length > 0 
       ? availableTroops[Math.floor(Math.random() * availableTroops.length)]
-      : (TroopsData as Troop[])[Math.floor(Math.random() * (TroopsData as Troop[]).length)];
+      : (allTroops as Troop[])[Math.floor(Math.random() * (allTroops as Troop[]).length)];
 
     // Add the new troop to used_troops table with all attributes
     const troopData = {

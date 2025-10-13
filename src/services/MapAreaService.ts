@@ -1,5 +1,4 @@
 import { MapArea } from '@/types/MapArea.type';
-import mapAreasData from '@/data/map_areas.json';
 import { MapAreaGameService, LastMapArea } from '@/services/MapAreaGameService';
 
 export interface MapGuess {
@@ -85,62 +84,89 @@ export class MapAreaService {
       return { success: false };
     }
 
-    // Get the current target area from database
-    const targetArea = await MapAreaGameService.getCurrentMapArea();
-    
-    let distance = 0;
-    let direction: 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW' = 'E';
-    let isCorrect = false;
+    try {
+      // Use the secure API endpoint instead of direct database access
+      const response = await fetch(`/api/checkMapArea?name=${encodeURIComponent(guessedMapArea.name)}`);
+      
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
 
-    if (targetArea) {
-      // Calculate distance and direction if we have a target
-      distance = MapAreaGameService.calculateDistance(
-        guessedMapArea.coordinates!,
-        targetArea.coordinates
-      );
-      direction = this.calculateDirection(
-        guessedMapArea.coordinates!,
-        targetArea.coordinates
-      );
-      isCorrect = MapAreaGameService.isCorrectArea(guessedMapArea, targetArea);
+      // Create guess with data from secure API
+      const guess: MapGuess = {
+        mapArea: guessedMapArea,
+        distance: data.distance,
+        direction: data.direction,
+        isCorrect: data.correct,
+        timestamp: new Date()
+      };
+
+      // Update game state
+      const newGuesses = [...currentState.guesses, guess];
+
+      const newGameState: MapGameState = {
+        ...currentState,
+        guesses: newGuesses,
+        // Store the correct guess if this is the right answer
+        correctGuess: data.correct ? guess : currentState.correctGuess
+      };
+
+      this.saveGameState(newGameState);
+
+      return {
+        success: true,
+        guess,
+        gameState: newGameState
+      };
+    } catch (error) {
+      console.error('Error making map area guess:', error);
+      return { success: false };
     }
-
-    // Create guess with proper distance and direction calculation
-    const guess: MapGuess = {
-      mapArea: guessedMapArea,
-      distance: Math.round(distance),
-      direction,
-      isCorrect,
-      timestamp: new Date()
-    };
-
-    // Update game state
-    const newGuesses = [...currentState.guesses, guess];
-
-    const newGameState: MapGameState = {
-      ...currentState,
-      guesses: newGuesses,
-      // Store the correct guess if this is the right answer
-      correctGuess: isCorrect ? guess : currentState.correctGuess
-    };
-
-    this.saveGameState(newGameState);
-
-    return {
-      success: true,
-      guess,
-      gameState: newGameState
-    };
   }
 
   // Get all map areas
-  static getMapAreas(): MapArea[] {
-    return mapAreasData as MapArea[];
+  static async getMapAreas(): Promise<MapArea[]> {
+    try {
+      const response = await fetch('/api/map-areas');
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      return data as MapArea[];
+    } catch (error) {
+      console.error('Error fetching map areas:', error);
+      return [];
+    }
   }
 
   // Get map area by name
-  static getMapAreaByName(name: string): MapArea | undefined {
-    return (mapAreasData as MapArea[]).find(area => area.name === name);
+  static async getMapAreaByName(name: string): Promise<MapArea | undefined> {
+    try {
+      const response = await fetch(`/api/map-areas?name=${encodeURIComponent(name)}`);
+      if (!response.ok) {
+        if (response.status === 404) {
+          return undefined;
+        }
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      const data = await response.json();
+      if (data.error) {
+        return undefined;
+      }
+      return data as MapArea;
+    } catch (error) {
+      console.error('Error fetching map area:', error);
+      return undefined;
+    }
   }
 
   // Reset game (for testing purposes)

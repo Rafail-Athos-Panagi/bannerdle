@@ -1,9 +1,8 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Settlement, Guess } from '@/types/Settlement.type';
 import { MapArea } from '@/types/MapArea.type';
 import { MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
-import { settlements } from '@/data/settlements';
 import { GiVillage, GiCastle } from 'react-icons/gi';
 import { PiCastleTurretFill } from 'react-icons/pi';
 
@@ -50,6 +49,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
   selectedArea
 }) => {
   const [isClient, setIsClient] = useState(false);
+  const [settlements, setSettlements] = useState<Settlement[]>([]);
   const [mapBounds] = useState<[[number, number], [number, number]]>([
     [0, 0], [1000, 1000]
   ]);
@@ -66,6 +66,27 @@ const MapComponent: React.FC<MapComponentProps> = ({
     setIsClient(true);
     loadLeaflet();
   }, []);
+
+  // Fetch settlements from API
+  useEffect(() => {
+    const fetchSettlements = async () => {
+      try {
+        const response = await fetch('/api/settlements');
+        if (response.ok) {
+          const settlementsData = await response.json();
+          setSettlements(settlementsData);
+        } else {
+          console.error('Failed to fetch settlements');
+        }
+      } catch (error) {
+        console.error('Error fetching settlements:', error);
+      }
+    };
+
+    if (isClient) {
+      fetchSettlements();
+    }
+  }, [isClient]);
 
   // Helper function to check if a guess is a settlement guess
   const isSettlementGuess = (guess: Guess | MapGuess): guess is Guess => {

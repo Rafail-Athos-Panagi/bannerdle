@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import TroopsData from '@/data/Troops.json';
 import type { Troop } from '@/types/Troop.type';
 
 /**
@@ -16,10 +15,36 @@ export async function GET() {
 
 export async function POST() {
   try {
-        console.log(`🚀 [TROOP SELECTION] Starting daily troop selection at ${new Date().toISOString()}`);
-        console.log(`📅 [TROOP SELECTION] Called by: ${process.env.VERCEL ? 'Vercel Cron Job (00:55 UTC daily)' : 'Manual/Development'}`);
+    console.log(`🚀 [TROOP SELECTION] Starting daily troop selection at ${new Date().toISOString()}`);
+    console.log(`📅 [TROOP SELECTION] Called by: External Cron Service (15:20 UTC daily)`);
 
-    // Get list of used troops from Supabase
+    // Check if selections were already made today
+    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+    const { data: todaySelections, error: todayError } = await supabase
+      .from('used_troops')
+      .select('used_date')
+      .gte('used_date', `${today}T00:00:00`)
+      .lt('used_date', `${today}T23:59:59`);
+
+    if (todayError) {
+      console.error('Error checking today\'s selections:', todayError);
+      return NextResponse.json(
+        { 
+          success: false,
+          error: "Failed to check today's selections" 
+        },
+        { status: 500 }
+      );
+    }
+
+    if (todaySelections && todaySelections.length > 0) {
+      console.log('✅ [TROOP SELECTION] Selections already made today, skipping');
+      return NextResponse.json({
+        success: true,
+        message: "Selections already made today",
+        timestamp: new Date().toISOString()
+      });
+    }
     console.log('🔍 [TROOP SELECTION] Fetching used troops...');
     const { data: usedTroops, error: usedError } = await supabase
       .from('used_troops')
@@ -40,9 +65,25 @@ export async function POST() {
     const usedTroopNames: string[] = usedTroops?.map(t => t.name) || [];
     console.log(`📊 [TROOP SELECTION] Found ${usedTroopNames.length} used troops:`, usedTroopNames);
 
-    // Filter available troops from static JSON (exclude used troops)
-    console.log('🎯 [TROOP SELECTION] Filtering available troops...');
-    const availableTroops: Troop[] = (TroopsData as Troop[]).filter(
+    // Get all available troops from database
+    console.log('🎯 [TROOP SELECTION] Fetching available troops from database...');
+    const { data: allTroops, error: troopsError } = await supabase
+      .from('troops')
+      .select('*');
+
+    if (troopsError) {
+      console.error('Error fetching troops from database:', troopsError);
+      return NextResponse.json(
+        { 
+          success: false,
+          error: "Failed to fetch troops from database" 
+        },
+        { status: 500 }
+      );
+    }
+
+    // Filter available troops (exclude used troops)
+    const availableTroops: Troop[] = (allTroops as Troop[]).filter(
       (troop: Troop) => !usedTroopNames.includes(troop.name)
     );
 
@@ -70,9 +111,9 @@ export async function POST() {
         );
       }
 
-      // Now select from all troops
-      const randomIndex = Math.floor(Math.random() * (TroopsData as Troop[]).length);
-      selectedTroop = (TroopsData as Troop[])[randomIndex];
+      // Now select from all troops in database
+      const randomIndex = Math.floor(Math.random() * (allTroops as Troop[]).length);
+      selectedTroop = (allTroops as Troop[])[randomIndex];
       console.log(`🎲 [TROOP SELECTION] Selected troop after reset: ${selectedTroop.name}`);
     } else {
       // Randomly select one troop from the available ones

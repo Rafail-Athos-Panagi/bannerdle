@@ -8,6 +8,18 @@ import Countdown from "./Countdown";
 import DonationPopup from "./DonationPopup";
 import { CONFIG } from "@/config";
 
+// Helper function to validate image URLs
+const isValidImageUrl = (url: string): boolean => {
+  try {
+    // Check if it's a valid URL
+    new URL(url);
+    return true;
+  } catch {
+    // If it's not a full URL, check if it's a valid relative path
+    return url.length > 1 && (url.startsWith('/') || url.startsWith('Units/') || url.startsWith('Factions/'));
+  }
+};
+
 interface Props {
   correctGuess: Troop;
 }
@@ -39,7 +51,7 @@ const VictoryBanner = ({ correctGuess }: Props) => {
         className={`relative w-full max-w-4xl mx-auto mt-10 flex justify-center items-center bg-cover bg-center border-2 border-yellow-700 rounded-lg shadow-lg transition-all duration-700 ease-out transform ${
           isAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
-        style={{ backgroundImage: `url(/${correctGuess.banner})` }}
+        style={{ backgroundImage: correctGuess.banner ? `url(/${correctGuess.banner})` : undefined }}
       >
         <div className="w-full bg-black/60 backdrop-blur-sm rounded-xl p-3 md:p-4">
           <div className="relative border-b-2 border-yellow-700 py-3 md:py-4 text-center">
@@ -57,17 +69,32 @@ const VictoryBanner = ({ correctGuess }: Props) => {
             >
               <div className="w-24 h-24 md:w-32 md:h-32 border-4 border-yellow-700 rounded-md overflow-hidden bg-gray-800 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-700 opacity-10"></div>
-                <Image
-                  src={correctGuess.image}
-                  alt="Desert Bandit Boss"
-                  width={96}
-                  height={96}
-                  className="w-18 h-18 md:w-24 md:h-24"
-                />
+                {correctGuess.image && correctGuess.image.trim() !== '' && isValidImageUrl(correctGuess.image) ? (
+                  <Image
+                    src={correctGuess.image.startsWith('/') ? correctGuess.image : `/${correctGuess.image}`}
+                    alt={correctGuess.name || "Troop"}
+                    width={96}
+                    height={96}
+                    className="w-18 h-18 md:w-24 md:h-24"
+                    onError={(e) => {
+                      console.log('Image failed to load:', correctGuess.image);
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={() => {
+                      console.log('Image loaded successfully:', correctGuess.image);
+                    }}
+                  />
+                ) : (
+                  <div className="w-18 h-18 md:w-24 md:h-24 flex items-center justify-center text-yellow-400">
+                    <span className="text-2xl">⚔️</span>
+                  </div>
+                )}
               </div>
-              <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 bg-yellow-600 text-black text-xs font-bold px-1 py-0.5 md:px-2 md:py-1 rounded-full border border-black">
-                TIER {correctGuess.tier}
-              </div>
+              {correctGuess.tier && (
+                <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 bg-yellow-600 text-black text-xs font-bold px-1 py-0.5 md:px-2 md:py-1 rounded-full border border-black">
+                  TIER {correctGuess.tier}
+                </div>
+              )}
             </div>
             <div
               className={`transition-all duration-700 ease-out transform ${
@@ -77,7 +104,7 @@ const VictoryBanner = ({ correctGuess }: Props) => {
               }`}
             >
               <h2 className="text-xl md:text-2xl text-yellow-500 font-bold mb-3 md:mb-4 text-center md:text-left">
-                {correctGuess.name}
+                {correctGuess.name || "Unknown Troop"}
               </h2>
               <div className="space-y-3 md:space-y-4 text-center md:text-left">
                 <div className={`flex items-center justify-center md:justify-start transition-all duration-800 ease-out transform ${
@@ -87,7 +114,7 @@ const VictoryBanner = ({ correctGuess }: Props) => {
                     <LuSwords className="text-yellow-400" size={14} />
                   </div>
                   <span className="text-yellow-200 text-sm md:text-base min-w-0 flex-shrink-0">TYPE:</span>
-                  <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.type}</span>
+                  <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.type || "Unknown"}</span>
                 </div>
                 <div className={`flex items-center justify-center md:justify-start transition-all duration-800 ease-out transform ${
                   isAnimated ? "opacity-100 translate-x-0 delay-1400" : "opacity-0 -translate-x-4"
@@ -97,7 +124,7 @@ const VictoryBanner = ({ correctGuess }: Props) => {
                   </div>
                   <span className="text-yellow-200 text-sm md:text-base min-w-0 flex-shrink-0">OCCUPATION:</span>
                   <span className="text-gray-300 text-sm md:text-base ml-1">
-                    {correctGuess.occupation}
+                    {correctGuess.occupation || "Unknown"}
                   </span>
                 </div>
                 <div className={`flex items-center justify-center md:justify-start transition-all duration-800 ease-out transform ${
@@ -107,7 +134,7 @@ const VictoryBanner = ({ correctGuess }: Props) => {
                     <MdCastle className="text-yellow-400" size={14} />
                   </div>
                   <span className="text-yellow-200 text-sm md:text-base min-w-0 flex-shrink-0">FACTION:</span>
-                  <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.faction}</span>
+                  <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.faction || "Unknown"}</span>
                 </div>
                 <div className={`flex items-center justify-center md:justify-start transition-all duration-800 ease-out transform ${
                   isAnimated ? "opacity-100 translate-x-0 delay-2200" : "opacity-0 -translate-x-4"
@@ -116,7 +143,7 @@ const VictoryBanner = ({ correctGuess }: Props) => {
                     <FaFlag className="text-yellow-400" size={12} />
                   </div>
                   <span className="text-yellow-200 text-sm md:text-base min-w-0 flex-shrink-0">CULTURE:</span>
-                  <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.culture}</span>
+                  <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.culture || "Unknown"}</span>
                 </div>
               </div>
             </div>

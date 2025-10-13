@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import TroopsData from '@/data/Troops.json';
 import type { Troop, TroopStatus } from '@/types/Troop.type';
 
 // Mapping function to normalize faction and culture names
@@ -42,7 +41,6 @@ function normalizeFactionAndCulture(data: Record<string, unknown>) {
 
 interface CheckTroopResponse {
   correct: boolean;
-  currentSelection: Troop;
   troopStatus: TroopStatus;
 }
 
@@ -58,25 +56,35 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Find troop data from static JSON
-    const troopData: Troop | undefined = (TroopsData as Troop[]).find(
-      (troop: Troop) => troop.name.toLowerCase() === queryName.toLowerCase()
-    );
-    
-    if (!troopData) {
+    // Find troop data from database
+    const { data: troopData, error: troopError } = await supabase
+      .from('troops')
+      .select('*')
+      .eq('name', queryName)
+      .single();
+
+    if (troopError) {
+      if (troopError.code === 'PGRST116') {
+        return NextResponse.json(
+          { error: "Troop not found" },
+          { status: 404 }
+        );
+      }
+      console.error('Error fetching troop:', troopError);
       return NextResponse.json(
-        { error: "Troop not found" },
-        { status: 404 }
+        { error: "Failed to fetch troop" },
+        { status: 500 }
       );
     }
 
-    // Get current selection from Supabase
-    const { data: currentSelection, error: selectionError } = await supabase
-      .from('current_troop_selection')
+    // Get current selection from Supabase (last entry from used_troops table)
+    const { data: usedTroops, error: selectionError } = await supabase
+      .from('used_troops')
       .select('*')
-      .single();
+      .order('used_date', { ascending: false })
+      .limit(1);
 
-    if (selectionError && selectionError.code !== 'PGRST116') {
+    if (selectionError) {
       console.error('Error fetching current selection:', selectionError);
       return NextResponse.json(
         { error: "Failed to fetch current selection" },
@@ -84,13 +92,14 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Validate current selection data structure
-    if (!currentSelection.name || !currentSelection.tier || !currentSelection.type) {
+    if (!usedTroops || usedTroops.length === 0) {
       return NextResponse.json(
-        { error: "Invalid current selection data structure" },
+        { error: "No current troop selection found" },
         { status: 500 }
       );
     }
+
+    const currentSelection = usedTroops[0];
 
     // Normalize the current selection data to match Troops.json format
     const normalizedCurrentSelection = normalizeFactionAndCulture(currentSelection);
@@ -123,7 +132,6 @@ export async function GET(request: NextRequest) {
 
     const responseData: CheckTroopResponse = {
       correct: isCorrect,
-      currentSelection: normalizedCurrentSelection as unknown as Troop,
       troopStatus,
     };
 
