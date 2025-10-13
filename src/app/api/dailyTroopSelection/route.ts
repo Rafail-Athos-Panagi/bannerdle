@@ -10,6 +10,10 @@ import type { Troop } from '@/types/Troop.type';
  * Current selection = last entry in used_troops table
  * Last selection = second-to-last entry in used_troops table
  */
+export async function GET() {
+  return POST();
+}
+
 export async function POST() {
   try {
         console.log(`🚀 [TROOP SELECTION] Starting daily troop selection at ${new Date().toISOString()}`);

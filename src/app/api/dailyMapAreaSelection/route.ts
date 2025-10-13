@@ -10,6 +10,10 @@ import type { MapArea } from '@/types/MapArea.type';
  * Current selection = last entry in used_map_areas table
  * Last selection = second-to-last entry in used_map_areas table
  */
+export async function GET() {
+  return POST();
+}
+
 export async function POST() {
   try {
         console.log(`🚀 [MAP AREA SELECTION] Starting daily map area selection at ${new Date().toISOString()}`);

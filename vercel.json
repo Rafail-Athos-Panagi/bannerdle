@@ -2,11 +2,11 @@
   "crons": [
     {
       "path": "/api/dailyTroopSelection",
-      "schedule": "12 2 * * *"
+      "schedule": "18 2 * * *"
     },
     {
       "path": "/api/dailyMapAreaSelection",
-      "schedule": "12 2 * * *"
+      "schedule": "18 2 * * *"
     }
   ]
 }
