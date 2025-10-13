@@ -11,8 +11,8 @@ export async function GET() {
       map_area_selection: "POST /api/dailyMapAreaSelection - Manual map area selection"
     },
     schedule: {
-      description: "Database scheduler runs daily selections at 15:37 UTC",
-      time: "15:37 UTC (17:37 Cyprus time)",
+      description: "Database scheduler runs daily selections at 15:50 UTC",
+      time: "15:50 UTC (17:50 Cyprus time)",
       troop_selection: "/api/dailyTroopSelection",
       map_area_selection: "/api/dailyMapAreaSelection",
       next_check: "Scheduler checks every minute for due selections"

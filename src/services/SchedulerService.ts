@@ -1,8 +1,9 @@
 import cron from 'node-cron';
+import { DailySelectionService } from './DailySelectionService';
 
 /**
  * Built-in Scheduler Service
- * Runs daily selections at 15:37 UTC while the server is active
+ * Runs daily selections at 15:50 UTC while the server is active
  */
 class SchedulerService {
   private static instance: SchedulerService;
@@ -29,7 +30,7 @@ class SchedulerService {
 
   /**
    * Start the scheduler
-   * Runs daily at 15:37 UTC (3:37 PM UTC)
+   * Runs daily at 15:50 UTC (3:50 PM UTC)
    */
   start(): void {
     if (this.isRunning) {
@@ -44,19 +45,19 @@ class SchedulerService {
     }
 
     console.log('🚀 [SCHEDULER] Starting built-in scheduler...');
-    console.log('⏰ [SCHEDULER] Will run daily selections at 15:37 UTC');
+    console.log('⏰ [SCHEDULER] Will run daily selections at 15:50 UTC');
 
-    // Schedule daily selections at 15:37 UTC
+    // Schedule daily selections at 15:50 UTC
     // Cron format: minute hour day month dayOfWeek
-    // '37 15 * * *' = At 15:37 UTC every day
-    this.cronJob = cron.schedule('37 15 * * *', async () => {
-      console.log('🕐 [SCHEDULER] 15:37 UTC reached - triggering daily selections');
+    // '50 15 * * *' = At 15:50 UTC every day
+    this.cronJob = cron.schedule('50 15 * * *', async () => {
+      console.log('🕐 [SCHEDULER] 15:50 UTC reached - triggering daily selections');
       await this.triggerDailySelections();
     }, {
       timezone: "UTC"
     });
 
-    // Also run immediately if it's past 15:37 UTC today and no selections made
+    // Also run immediately if it's past 15:50 UTC today and no selections made
     this.checkAndRunIfNeeded();
 
     this.isRunning = true;
@@ -128,28 +129,14 @@ class SchedulerService {
 
       console.log('🎯 [SCHEDULER] Triggering daily troop selection...');
       
-      // Trigger troop selection
-      const troopResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/dailyTroopSelection`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      
-      const troopResult = await troopResponse.json();
+      // Trigger troop selection directly
+      const troopResult = await DailySelectionService.selectDailyTroop();
       console.log('📊 [SCHEDULER] Troop selection result:', troopResult.success ? '✅ Success' : '❌ Failed');
 
       console.log('🗺️ [SCHEDULER] Triggering daily map area selection...');
       
-      // Trigger map area selection
-      const mapResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/dailyMapAreaSelection`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      
-      const mapResult = await mapResponse.json();
+      // Trigger map area selection directly
+      const mapResult = await DailySelectionService.selectDailyMapArea();
       console.log('📊 [SCHEDULER] Map area selection result:', mapResult.success ? '✅ Success' : '❌ Failed');
 
       console.log('🎉 [SCHEDULER] Daily selections completed!');
@@ -164,27 +151,7 @@ class SchedulerService {
 
   private async checkSelectionsForToday(today: string): Promise<boolean> {
     try {
-      // Check both troop and map area selections for today
-      const [troopResponse, mapResponse] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/lastSelection`),
-        fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/lastMapAreaSelection`)
-      ]);
-
-      if (!troopResponse.ok || !mapResponse.ok) return false;
-      
-      const [troopData, mapData] = await Promise.all([
-        troopResponse.json(),
-        mapResponse.json()
-      ]);
-
-      // Check if both have selections for today
-      const troopHasToday = troopData.lastSelection?.used_date && 
-        new Date(troopData.lastSelection.used_date).toISOString().split('T')[0] === today;
-      
-      const mapHasToday = mapData.lastSelection?.used_date && 
-        new Date(mapData.lastSelection.used_date).toISOString().split('T')[0] === today;
-
-      return troopHasToday && mapHasToday;
+      return await DailySelectionService.checkSelectionsForToday(today);
     } catch (error) {
       console.error('❌ [SCHEDULER] Error checking selections for today:', error);
       return false;
@@ -197,9 +164,9 @@ class SchedulerService {
   getStatus(): { isRunning: boolean; nextRun: string } {
     const now = new Date();
     const nextRun = new Date();
-    nextRun.setUTCHours(15, 26, 0, 0);
+    nextRun.setUTCHours(15, 50, 0, 0);
     
-    // If it's already past 15:26 today, set for tomorrow
+    // If it's already past 15:50 today, set for tomorrow
     if (nextRun <= now) {
       nextRun.setUTCDate(nextRun.getUTCDate() + 1);
     }
