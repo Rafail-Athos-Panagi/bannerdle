@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import initialTroops from "@/data/Troops.json";
 import ComboBox from "@/components/ComboBox";
 import IncorrectList from "@/components/IncorrectGuessesList";
 import { Troop } from "@/types/Troop.type";
@@ -19,10 +18,27 @@ const CustomSelect = ({
   troopGameState,
   setTroopGameState,
 }: CustomSelectProps) => {
-  const [availableTroops, setAvailableTroops] = useState<Troop[]>(
-    initialTroops as Troop[]
-  );
-  const [, setCheckResult] = useState<any>(null);
+  const [availableTroops, setAvailableTroops] = useState<Troop[]>([]);
+  const [, setCheckResult] = useState<unknown>(null);
+
+  // Fetch troops from database on component mount
+  useEffect(() => {
+    const fetchTroops = async () => {
+      try {
+        const response = await fetch('/api/troops');
+        if (response.ok) {
+          const troops = await response.json();
+          setAvailableTroops(troops);
+        } else {
+          console.error('Failed to fetch troops');
+        }
+      } catch (error) {
+        console.error('Error fetching troops:', error);
+      }
+    };
+    
+    fetchTroops();
+  }, []);
 
   // Fetch lastSelection from Supabase and store it to localStorage
   useEffect(() => {
@@ -41,7 +57,7 @@ const CustomSelect = ({
       };
       fetchLastSelection();
     }
-  }, [troopGameState.lastSelection, setTroopGameState]);
+  }, [troopGameState, setTroopGameState]);
 
   useEffect(() => {
     const incorrectGuesses = troopGameState.guesses.filter(guess => !guess.isCorrect);
@@ -90,12 +106,12 @@ const CustomSelect = ({
       {troopGameState.lastSelection && (
         <div className="flex justify-center items-center mt-4 rounded bg-[#23282E] border-2 border-[#AF9767] p-2 md:p-1.5 mb-6 md:mb-8 mx-4">
           <p className="font-bold text-[#AF9767] text-sm md:text-lg text-center">
-            Yesterday's troop was{" "}
+            Yesterday&apos;s troop was{" "}
             <span className="text-[#ae8f41]">
               {troopGameState.lastSelection ? troopGameState.lastSelection.name : "Loading..."}
             </span>{" "}
             <span className="text-blue-500">
-              {troopGameState.lastSelection ? `#${troopGameState.lastSelection.id}` : ""}
+              {troopGameState.lastSelection?.id ? `#${troopGameState.lastSelection.id}` : ""}
             </span>
           </p>
         </div>

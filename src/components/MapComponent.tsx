@@ -1,30 +1,41 @@
-import React, { useState, useRef, useCallback } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Settlement, Guess } from '@/types/Settlement.type';
 import { MapArea } from '@/types/MapArea.type';
 import { MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
-import { settlements } from '@/data/settlements';
 import { GiVillage, GiCastle } from 'react-icons/gi';
 import { PiCastleTurretFill } from 'react-icons/pi';
 
-// Fix for default markers in react-leaflet
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
+// Dynamic import for Leaflet to avoid SSR issues
+let L: typeof import('leaflet') | null = null;
+let DefaultIcon: import('leaflet').Icon | null = null;
 
-const DefaultIcon = L.icon({
-  iconUrl: icon.src,
-  shadowUrl: iconShadow.src,
-  iconRetinaUrl: iconRetina.src,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+const loadLeaflet = async () => {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    L = await import('leaflet');
+    
+    // Import icons
+    const icon = await import('leaflet/dist/images/marker-icon.png');
+    const iconShadow = await import('leaflet/dist/images/marker-shadow.png');
+    const iconRetina = await import('leaflet/dist/images/marker-icon-2x.png');
+    
+    DefaultIcon = L.icon({
+      iconUrl: icon.default.src,
+      shadowUrl: iconShadow.default.src,
+      iconRetinaUrl: iconRetina.default.src,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
 
-L.Marker.prototype.options.icon = DefaultIcon;
+    L.Marker.prototype.options.icon = DefaultIcon;
+  } catch (error) {
+    console.error('Failed to load Leaflet:', error);
+  }
+};
 
 interface MapComponentProps {
   guesses: (Guess | MapGuess)[];
@@ -37,6 +48,8 @@ const MapComponent: React.FC<MapComponentProps> = ({
   highlightedSettlement,
   selectedArea
 }) => {
+  const [isClient, setIsClient] = useState(false);
+  const [settlements, setSettlements] = useState<Settlement[]>([]);
   const [mapBounds] = useState<[[number, number], [number, number]]>([
     [0, 0], [1000, 1000]
   ]);
@@ -47,6 +60,33 @@ const MapComponent: React.FC<MapComponentProps> = ({
   const [mapOffset, setMapOffset] = useState({ x: 0, y: 0 });
   const [zoomLevel, setZoomLevel] = useState(1.5); // Dynamic zoom level
   const mapRef = useRef<HTMLDivElement>(null);
+
+  // Initialize client-side only
+  React.useEffect(() => {
+    setIsClient(true);
+    loadLeaflet();
+  }, []);
+
+  // Fetch settlements from API
+  useEffect(() => {
+    const fetchSettlements = async () => {
+      try {
+        const response = await fetch('/api/settlements');
+        if (response.ok) {
+          const settlementsData = await response.json();
+          setSettlements(settlementsData);
+        } else {
+          console.error('Failed to fetch settlements');
+        }
+      } catch (error) {
+        console.error('Error fetching settlements:', error);
+      }
+    };
+
+    if (isClient) {
+      fetchSettlements();
+    }
+  }, [isClient]);
 
   // Helper function to check if a guess is a settlement guess
   const isSettlementGuess = (guess: Guess | MapGuess): guess is Guess => {
@@ -339,6 +379,15 @@ const MapComponent: React.FC<MapComponentProps> = ({
   console.log('MapComponent rendering with bounds:', mapBounds);
   console.log('Settlements count:', settlements.length);
 
+  // Don't render during SSR
+  if (!isClient) {
+    return (
+      <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+        <div className="text-white">Loading map...</div>
+      </div>
+    );
+  }
+
   return (
     <div 
       ref={mapRef}
@@ -399,7 +448,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
 
         {/* Explored Areas Markers */}
         {guesses.map((guess, index) => {
-          const mapArea = (guess as any).mapArea;
+          const mapArea = (guess as MapGuess).mapArea;
           if (!mapArea || !mapArea.coordinates) return null;
           
           // Determine pin color based on distance

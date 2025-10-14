@@ -10,8 +10,8 @@ const UpdateButton = () => {
     setError(null);
     try {
       await TroopService.selectTroop();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An unknown error occurred');
     } finally {
       setLoading(false);
     }

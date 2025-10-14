@@ -28,12 +28,12 @@ const DonationPopup = memo(({ isOpen, onClose, donationUrl = "https://ko-fi.com/
     };
   }, [isOpen]);
 
-  const handleOverlayClick = useCallback((_e: React.MouseEvent) => {
+  const handleOverlayClick = useCallback(() => {
     // Disabled overlay click to close - only allow button clicks
     // if (e.target === e.currentTarget) {
     //   onClose();
     // }
-  }, [onClose]);
+  }, []);
 
   const handleDonateClick = useCallback(() => {
     window.open(donationUrl, '_blank', 'noopener,noreferrer');

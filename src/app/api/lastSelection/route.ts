@@ -1,10 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-
-interface ApiResponse {
-  error?: string;
-  [key: string]: unknown;
-}
 
 export async function GET() {
   try {

@@ -86,7 +86,7 @@ export default function MedievalCountdownModal() {
 
         <div className="border-t border-yellow-600 p-3 text-center">
           <p className="text-yellow-600 text-sm font-serif italic">
-            "New troop is arriving at 23:59"
+            &quot;New troop is arriving at 23:59&quot;
           </p>
         </div>
       </div>

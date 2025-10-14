@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import TroopsData from '@/data/Troops.json';
 import type { Troop, TroopStatus } from '@/types/Troop.type';
 
 // Mapping function to normalize faction and culture names
-function normalizeFactionAndCulture(data: any) {
+function normalizeFactionAndCulture(data: Record<string, unknown>) {
   const factionMap: { [key: string]: string } = {
     'Vlandia': 'Kingdom of Vlandia',
     'Empire': 'Calradic Empire',
@@ -34,15 +33,14 @@ function normalizeFactionAndCulture(data: any) {
 
   return {
     ...data,
-    faction: factionMap[data.faction] || data.faction,
-    culture: cultureMap[data.culture] || data.culture,
-    banner: bannerMap[data.banner] || data.banner
-  };
+    faction: factionMap[data.faction as string] || data.faction,
+    culture: cultureMap[data.culture as string] || data.culture,
+    banner: bannerMap[data.banner as string] || data.banner
+  } as Record<string, unknown>;
 }
 
 interface CheckTroopResponse {
   correct: boolean;
-  currentSelection: Troop;
   troopStatus: TroopStatus;
 }
 
@@ -58,25 +56,35 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Find troop data from static JSON
-    const troopData: Troop | undefined = (TroopsData as Troop[]).find(
-      (troop: Troop) => troop.name.toLowerCase() === queryName.toLowerCase()
-    );
-    
-    if (!troopData) {
+    // Find troop data from database
+    const { data: troopData, error: troopError } = await supabase
+      .from('troops')
+      .select('*')
+      .eq('name', queryName)
+      .single();
+
+    if (troopError) {
+      if (troopError.code === 'PGRST116') {
+        return NextResponse.json(
+          { error: "Troop not found" },
+          { status: 404 }
+        );
+      }
+      console.error('Error fetching troop:', troopError);
       return NextResponse.json(
-        { error: "Troop not found" },
-        { status: 404 }
+        { error: "Failed to fetch troop" },
+        { status: 500 }
       );
     }
 
-    // Get current selection from Supabase
-    const { data: currentSelection, error: selectionError } = await supabase
-      .from('current_troop_selection')
+    // Get current selection from Supabase (last entry from used_troops table)
+    const { data: usedTroops, error: selectionError } = await supabase
+      .from('used_troops')
       .select('*')
-      .single();
+      .order('used_date', { ascending: false })
+      .limit(1);
 
-    if (selectionError && selectionError.code !== 'PGRST116') {
+    if (selectionError) {
       console.error('Error fetching current selection:', selectionError);
       return NextResponse.json(
         { error: "Failed to fetch current selection" },
@@ -84,46 +92,46 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Validate current selection data structure
-    if (!currentSelection.name || !currentSelection.tier || !currentSelection.type) {
+    if (!usedTroops || usedTroops.length === 0) {
       return NextResponse.json(
-        { error: "Invalid current selection data structure" },
+        { error: "No current troop selection found" },
         { status: 500 }
       );
     }
+
+    const currentSelection = usedTroops[0];
 
     // Normalize the current selection data to match Troops.json format
     const normalizedCurrentSelection = normalizeFactionAndCulture(currentSelection);
 
     const isCorrect: boolean =
-      normalizedCurrentSelection.name.toLowerCase() === queryName.toLowerCase();
+      (normalizedCurrentSelection.name as string).toLowerCase() === queryName.toLowerCase();
 
     // Calculate status for each property with proper validation
     const troopStatus: TroopStatus = {
       ...troopData,
       nameStatus: isCorrect ? "Same" : "Wrong",
       tierStatus: (() => {
-        if (troopData.tier === normalizedCurrentSelection.tier) return "Same";
-        return troopData.tier > normalizedCurrentSelection.tier ? "Higher" : "Lower";
+        if (troopData.tier === (normalizedCurrentSelection.tier as number)) return "Same";
+        return troopData.tier > (normalizedCurrentSelection.tier as number) ? "Higher" : "Lower";
       })(),
       typeStatus: (() => {
-        if (troopData.type === normalizedCurrentSelection.type) return "Same";
+        if (troopData.type === (normalizedCurrentSelection.type as string)) return "Same";
         // Check for partial match between Archer and Mounted Archer
-        if ((troopData.type === "Archer" && normalizedCurrentSelection.type === "Mounted Archer") ||
-            (troopData.type === "Mounted Archer" && normalizedCurrentSelection.type === "Archer")) {
+        if ((troopData.type === "Archer" && (normalizedCurrentSelection.type as string) === "Mounted Archer") ||
+            (troopData.type === "Mounted Archer" && (normalizedCurrentSelection.type as string) === "Archer")) {
           return "Partial";
         }
         return "Wrong";
       })(),
-      occupationStatus: troopData.occupation === normalizedCurrentSelection.occupation ? "Same" : "Wrong",
-      factionStatus: troopData.faction === normalizedCurrentSelection.faction ? "Same" : "Wrong",
-      bannerStatus: troopData.banner === normalizedCurrentSelection.banner ? "Same" : "Wrong",
-      cultureStatus: troopData.culture === normalizedCurrentSelection.culture ? "Same" : "Wrong",
+      occupationStatus: troopData.occupation === (normalizedCurrentSelection.occupation as string) ? "Same" : "Wrong",
+      factionStatus: troopData.faction === (normalizedCurrentSelection.faction as string) ? "Same" : "Wrong",
+      bannerStatus: troopData.banner === (normalizedCurrentSelection.banner as string) ? "Same" : "Wrong",
+      cultureStatus: troopData.culture === (normalizedCurrentSelection.culture as string) ? "Same" : "Wrong",
     };
 
     const responseData: CheckTroopResponse = {
       correct: isCorrect,
-      currentSelection: normalizedCurrentSelection,
       troopStatus,
     };
 

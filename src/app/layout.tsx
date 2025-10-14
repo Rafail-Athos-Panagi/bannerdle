@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import LocalStorageInitializer from "@/components/LocalStorageInitializer";
+import "@/lib/scheduler-startup"; // Auto-start the scheduler
 
 export const metadata: Metadata = {
   title: "Bannerlord Quest",

@@ -1,6 +1,4 @@
-import { supabase } from '@/lib/supabase';
 import { Troop, TroopStatus, LastTroop } from '@/types/Troop.type';
-import TroopsData from '@/data/Troops.json';
 
 export interface TroopGuess {
   troop: Troop;
@@ -21,7 +19,7 @@ export class TroopService {
   private static readonly STORAGE_KEY = 'troopGame'
 
   // Mapping function to normalize faction and culture names
-  private static normalizeFactionAndCulture(data: Record<string, any>): Record<string, any> {
+  private static normalizeFactionAndCulture(data: Record<string, unknown>): Record<string, unknown> {
     const factionMap: { [key: string]: string } = {
       'Vlandia': 'Kingdom of Vlandia',
       'Empire': 'Calradic Empire',
@@ -281,67 +279,25 @@ export class TroopService {
   // Check if a troop guess is correct
   static async checkTroop(troopName: string): Promise<{
     correct: boolean;
-    currentSelection: Troop;
     troopStatus: TroopStatus;
   }> {
     try {
-      // Find troop data from static JSON
-      const troopData = (TroopsData as Troop[]).find(
-        (troop) => troop.name.toLowerCase() === troopName.toLowerCase()
-      );
-
-      if (!troopData) {
-        throw new Error('Troop not found');
+      // Use the secure API endpoint instead of direct Supabase access
+      const response = await fetch(`/api/checkTroop?name=${encodeURIComponent(troopName)}`);
+      
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
       }
-
-      // Get current selection from Supabase (last entry from used_troops table)
-      const { data: usedTroops, error: selectionError } = await supabase
-        .from('used_troops')
-        .select('*')
-        .order('used_date', { ascending: false })
-        .limit(1);
-
-      if (selectionError) {
-        throw selectionError;
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
       }
-
-      if (!usedTroops || usedTroops.length === 0) {
-        throw new Error('No current troop selection found');
-      }
-
-      const currentSelection = usedTroops[0];
-
-      // Normalize the current selection data to match Troops.json format
-      const normalizedCurrentSelection = this.normalizeFactionAndCulture(currentSelection) as Troop;
-
-      const isCorrect = normalizedCurrentSelection.name.toLowerCase() === troopName.toLowerCase();
-
-      const troopStatus: TroopStatus = {
-        ...troopData,
-        nameStatus: isCorrect ? "Same" : "Wrong",
-        tierStatus: (() => {
-          if (troopData.tier === normalizedCurrentSelection.tier) return "Same";
-          return troopData.tier > normalizedCurrentSelection.tier ? "Higher" : "Lower";
-        })(),
-        typeStatus: (() => {
-          if (troopData.type === normalizedCurrentSelection.type) return "Same";
-          // Check for partial match between Archer and Mounted Archer
-          if ((troopData.type === "Archer" && normalizedCurrentSelection.type === "Mounted Archer") ||
-              (troopData.type === "Mounted Archer" && normalizedCurrentSelection.type === "Archer")) {
-            return "Partial";
-          }
-          return "Wrong";
-        })(),
-        occupationStatus: troopData.occupation === normalizedCurrentSelection.occupation ? "Same" : "Wrong",
-        factionStatus: troopData.faction === normalizedCurrentSelection.faction ? "Same" : "Wrong",
-        bannerStatus: troopData.banner === normalizedCurrentSelection.banner ? "Same" : "Wrong",
-        cultureStatus: troopData.culture === normalizedCurrentSelection.culture ? "Same" : "Wrong",
-      };
-
+      
       return {
-        correct: isCorrect,
-        currentSelection: normalizedCurrentSelection,
-        troopStatus,
+        correct: data.correct,
+        troopStatus: data.troopStatus,
       };
     } catch (error) {
       console.error('Error checking troop:', error);
@@ -352,20 +308,21 @@ export class TroopService {
   // Get last selection (second-to-last entry from used_troops table)
   static async getLastSelection(): Promise<LastTroop> {
     try {
-      const { data: usedTroops, error } = await supabase
-        .from('used_troops')
-        .select('*')
-        .order('used_date', { ascending: false })
-        .limit(2);
-
-      if (error) {
-        throw error;
-      }
-
-      // Return the second entry (last selection) or empty object if not enough entries
-      const lastSelection = usedTroops && usedTroops.length >= 2 ? usedTroops[1] : {};
+      // Use the secure API endpoint instead of direct Supabase access
+      const response = await fetch('/api/lastSelection');
       
-      return lastSelection || {};
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      
+      console.log('LastSelection API response:', data);
+      return data || {};
     } catch (error) {
       console.error('Error fetching last selection:', error);
       throw error;
@@ -375,31 +332,25 @@ export class TroopService {
   // Daily troop selection method
   static async dailyTroopSelection(): Promise<void> {
     try {
-      // This method would typically handle the daily troop selection logic
-      // For now, it's a placeholder that can be implemented based on your requirements
-      console.log('Daily troop selection called');
+      // Use the secure API endpoint instead of direct Supabase access
+      const response = await fetch('/api/dailyTroopSelection', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       
-      // Example implementation - you can modify this based on your needs:
-      // 1. Select a random troop from TroopsData
-      // 2. Insert it into the used_troops table
-      // 3. Handle any other daily selection logic
-      
-      const randomTroop = TroopsData[Math.floor(Math.random() * TroopsData.length)];
-      
-      const { error } = await supabase
-        .from('used_troops')
-        .insert([
-          {
-            ...randomTroop,
-            used_date: new Date().toISOString()
-          }
-        ]);
-
-      if (error) {
-        throw error;
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
       }
-
-      console.log('Daily troop selection completed:', randomTroop.name);
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      
+      console.log('Daily troop selection completed via API');
     } catch (error) {
       console.error('Error in daily troop selection:', error);
       throw error;

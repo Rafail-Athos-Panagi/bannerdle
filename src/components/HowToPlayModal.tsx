@@ -25,12 +25,12 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
     };
   }, [isOpen]);
 
-  const handleOverlayClick = useCallback((_e: React.MouseEvent) => {
+  const handleOverlayClick = useCallback(() => {
     // Disabled overlay click to close - only allow close button click
     // if (e.target === e.currentTarget) {
     //   onClose();
     // }
-  }, [onClose]);
+  }, []);
 
   if (!isOpen) return null;
 
@@ -69,7 +69,7 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
               Objective
             </h3>
             <p className="text-[#D4C4A8] text-base">
-              Guess today's Bannerlord troop! Each day, a new troop is selected. Use the hints provided 
+              Guess today&apos;s Bannerlord troop! Each day, a new troop is selected. Use the hints provided 
               by your incorrect guesses to narrow down the possibilities and find the correct troop.
             </p>
           </section>
@@ -99,25 +99,25 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
                 <h4 className="font-bold text-[#AF9767] mb-2">Tier</h4>
                 <p className="text-[#D4C4A8] text-sm">
-                  The troop's level/rank (1-6). Higher tiers are more powerful and expensive.
+                  The troop&apos;s level/rank (1-6). Higher tiers are more powerful and expensive.
                 </p>
               </div>
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
                 <h4 className="font-bold text-[#AF9767] mb-2">Type</h4>
                 <p className="text-[#D4C4A8] text-sm">
-                  The troop's combat role (Infantry, Archer, Cavalry, etc.)
+                  The troop&apos;s combat role (Infantry, Archer, Cavalry, etc.)
                 </p>
               </div>
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
                 <h4 className="font-bold text-[#AF9767] mb-2">Occupation</h4>
                 <p className="text-[#D4C4A8] text-sm">
-                  The troop's profession or role in society (Soldier, Guard, Noble, etc.)
+                  The troop&apos;s profession or role in society (Soldier, Guard, Noble, etc.)
                 </p>
               </div>
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
                 <h4 className="font-bold text-[#AF9767] mb-2">Banner</h4>
                 <p className="text-[#D4C4A8] text-sm">
-                  The visual banner/flag associated with the troop's faction
+                  The visual banner/flag associated with the troop&apos;s faction
                 </p>
               </div>
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
@@ -201,7 +201,7 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
             </h3>
             <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
               <p className="text-[#D4C4A8] mb-4">
-                Here's an example showing an <strong className="text-[#AF9767]">"Aserai Archer"</strong> troop with its indicators:
+                Here&apos;s an example showing an <strong className="text-[#AF9767]">&quot;Aserai Archer&quot;</strong> troop with its indicators:
               </p>
               
               {/* Example Image */}
@@ -243,7 +243,7 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
                   <span className="font-bold text-[#AF9767]">Tier:</span>
                   <span className="text-[#D4C4A8] ml-2">RED - Tier 4 (incorrect) - Sword points up</span>
                   <p className="text-[#B8A082] text-sm mt-1 ml-4">
-                    The correct troop has a HIGHER tier than 4. Look for tier 5 or tier 6 troops. The upward-pointing sword indicates "higher tier".
+                    The correct troop has a HIGHER tier than 4. Look for tier 5 or tier 6 troops. The upward-pointing sword indicates &quot;higher tier&quot;.
                   </p>
                 </div>
                 
@@ -251,7 +251,7 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
                   <span className="font-bold text-[#AF9767]">Occupation:</span>
                   <span className="text-[#D4C4A8] ml-2">GREEN - Soldier (correct!)</span>
                   <p className="text-[#B8A082] text-sm mt-1 ml-4">
-                    ✅ The correct troop DOES have "Soldier" occupation. Focus on troops with this occupation but different culture, faction, type, and higher tier.
+                    ✅ The correct troop DOES have &quot;Soldier&quot; occupation. Focus on troops with this occupation but different culture, faction, type, and higher tier.
                   </p>
                 </div>
               </div>
@@ -259,8 +259,8 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
               <div className="mt-4 p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
                 <p className="text-[#D4C4A8] text-sm">
                   <strong className="text-[#AF9767]">Strategy Summary:</strong> This example shows how to interpret indicators. 
-                  You guessed "Aserai Archer" but the correct troop is NOT Aserai, NOT an Archer, and has a HIGHER tier than 4. 
-                  However, it DOES have "Soldier" occupation. So your next guess should be a tier 5-6 troop with "Soldier" occupation 
+                  You guessed &quot;Aserai Archer&quot; but the correct troop is NOT Aserai, NOT an Archer, and has a HIGHER tier than 4. 
+                  However, it DOES have &quot;Soldier&quot; occupation. So your next guess should be a tier 5-6 troop with &quot;Soldier&quot; occupation 
                   from a different culture (like Empire, Sturgia, Khuzait, Vlandia, or Battania) and different type (Infantry, Cavalry, or Crossbowman).
                 </p>
               </div>
@@ -269,7 +269,7 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
               <div className="mt-6">
                 <h4 className="text-lg font-bold text-[#AF9767] mb-3">Winning Condition</h4>
                 <p className="text-[#D4C4A8] mb-4">
-                  When you guess the correct troop, you'll see the victory screen:
+                  When you guess the correct troop, you&apos;ll see the victory screen:
                 </p>
                 
                 <div className="flex justify-center mb-4">
@@ -283,7 +283,7 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
                 
                 <div className="p-3 bg-gradient-to-r from-[#AF9767] to-[#8B6F47] rounded-lg">
                   <p className="text-black font-bold text-center">
-                    🏆 Victory! You've successfully guessed today's troop and conquered Calradia!
+                    🏆 Victory! You&apos;ve successfully guessed today&apos;s troop and conquered Calradia!
                   </p>
                 </div>
               </div>

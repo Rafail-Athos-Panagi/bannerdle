@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import MapComponent from '@/components/MapComponent';
 import MedievalNavbar from '@/components/MedievalNavbar';
 import { MapArea } from '@/types/MapArea.type';
-import { MapAreaService, MapGameState } from '@/services/MapAreaService';
+import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
-import mapAreasData from '@/data/map_areas.json';
 
 export default function CalradiaGlobuleGame() {
   const [mapGameState, setMapGameState] = useState<MapGameState | null>(null);
+  const [isClient, setIsClient] = useState(false);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -17,42 +17,59 @@ export default function CalradiaGlobuleGame() {
   const [showAreaSuggestions, setShowAreaSuggestions] = useState(false);
   const [selectedArea, setSelectedArea] = useState<MapArea | null>(null);
 
+  // Ensure we're on the client side before initializing
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
     const mapInitialState = MapAreaService.getGameState();
     setMapGameState(mapInitialState);
-  }, []);
+  }, [isClient]);
 
   // Fetch lastSelection from Supabase and store it to localStorage
   useEffect(() => {
-    if (mapGameState && !mapGameState.lastSelection) {
-      const fetchLastSelection = async () => {
-        try {
-          const data = await MapAreaGameService.getLastSelection();
-          MapAreaService.updateLastSelection(data);
-          setMapGameState(prevState => prevState ? { ...prevState, lastSelection: data } : null);
-        } catch (error) {
-          console.error("Error fetching lastSelection:", error);
-        }
-      };
-      fetchLastSelection();
-    }
-  }, [mapGameState]);
+    if (!isClient || !mapGameState || mapGameState.lastSelection) return;
+    
+    const fetchLastSelection = async () => {
+      try {
+        const data = await MapAreaGameService.getLastSelection();
+        MapAreaService.updateLastSelection(data);
+        setMapGameState(prevState => prevState ? { ...prevState, lastSelection: data } : null);
+      } catch (error) {
+        console.error("Error fetching lastSelection:", error);
+      }
+    };
+    fetchLastSelection();
+  }, [isClient, mapGameState]);
 
   // Area search handlers
-  const handleAreaInputChange = (value: string) => {
+  const handleAreaInputChange = async (value: string) => {
     setAreaInputValue(value);
     
     if (value.length > 0) {
-      // Get list of already guessed area names
-      const guessedAreaNames = mapGameState?.guesses.map(guess => guess.mapArea.name) || [];
-      
-      const filteredAreas = mapAreasData.filter(
-        area => 
-          area.name.toLowerCase().startsWith(value.toLowerCase()) &&
-          !guessedAreaNames.includes(area.name)
-      ) as MapArea[];
-      setAreaSuggestions(filteredAreas);
-      setShowAreaSuggestions(true);
+      try {
+        // Get list of already guessed area names
+        const guessedAreaNames = mapGameState?.guesses.map(guess => guess.mapArea.name) || [];
+        
+        // Fetch map areas from API
+        const response = await fetch('/api/map-areas');
+        if (response.ok) {
+          const allAreas = await response.json();
+          const filteredAreas = allAreas.filter(
+            (area: MapArea) => 
+              area.name.toLowerCase().startsWith(value.toLowerCase()) &&
+              !guessedAreaNames.includes(area.name)
+          ) as MapArea[];
+          setAreaSuggestions(filteredAreas);
+          setShowAreaSuggestions(true);
+        }
+      } catch (error) {
+        console.error('Error fetching map areas:', error);
+        setAreaSuggestions([]);
+      }
     } else {
       setAreaSuggestions([]);
       setShowAreaSuggestions(false);
@@ -105,7 +122,7 @@ export default function CalradiaGlobuleGame() {
     return arrows[direction] || '?';
   };
 
-  if (!mapGameState) {
+  if (!isClient || !mapGameState) {
     return (
       <div 
         className="h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col"
@@ -191,7 +208,7 @@ export default function CalradiaGlobuleGame() {
                       >
                         <div className="flex items-center justify-between">
                           <div className="font-medium text-xs text-[var(--bannerlord-custom-light-cream)]">
-                            {(guess as any).mapArea.name}
+                            {(guess as MapGuess).mapArea.name}
                           </div>
                           <div className="text-xs">
                             {guess.isCorrect ? '✅' : '❌'}

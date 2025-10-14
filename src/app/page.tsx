@@ -97,7 +97,7 @@ export default function HomePage() {
                 backgroundColor: 'rgba(0,0,0,0.25)',
                 backdropFilter: 'blur(1px)'
               }}>
-                Explore Calradia's settlements! Find the hidden location using distance and direction hints.
+                Explore Calradia&apos;s settlements! Find the hidden location using distance and direction hints.
               </p>
               <div className="text-sm text-[var(--bannerlord-custom-light-cream)] px-3 py-2 rounded-md" style={{ 
                 textShadow: '2px 2px 4px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.6)',

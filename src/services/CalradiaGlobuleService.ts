@@ -1,9 +1,52 @@
 import { Settlement, Guess, GameState } from '@/types/Settlement.type';
-import { settlements, getRandomSettlement, calculateDistance, calculateDirection } from '@/data/settlements';
 
 export class CalradiaGlobuleService {
   private static readonly STORAGE_KEY = 'calradiaGlobuleGame';
   private static readonly MAX_GUESSES = 6;
+
+  // Utility functions (previously imported from settlements)
+  private static async getSettlements(): Promise<Settlement[]> {
+    try {
+      const response = await fetch('/api/settlements');
+      if (response.ok) {
+        return await response.json();
+      }
+      return [];
+    } catch (error) {
+      console.error('Error fetching settlements:', error);
+      return [];
+    }
+  }
+
+  private static async getRandomSettlement(): Promise<Settlement | null> {
+    const settlements = await this.getSettlements();
+    if (settlements.length === 0) return null;
+    return settlements[Math.floor(Math.random() * settlements.length)];
+  }
+
+  private static calculateDistance(point1: [number, number], point2: [number, number]): number {
+    const dx = point1[0] - point2[0];
+    const dy = point1[1] - point2[1];
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  private static calculateDirection(point1: [number, number], point2: [number, number]): 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW' {
+    const dx = point2[0] - point1[0];
+    const dy = point2[1] - point1[1];
+    const angle = Math.atan2(dy, dx);
+    const degrees = (angle * 180) / Math.PI;
+    
+    if (degrees >= -22.5 && degrees < 22.5) return 'E';
+    if (degrees >= 22.5 && degrees < 67.5) return 'NE';
+    if (degrees >= 67.5 && degrees < 112.5) return 'N';
+    if (degrees >= 112.5 && degrees < 157.5) return 'NW';
+    if (degrees >= 157.5 || degrees < -157.5) return 'W';
+    if (degrees >= -157.5 && degrees < -112.5) return 'SW';
+    if (degrees >= -112.5 && degrees < -67.5) return 'S';
+    if (degrees >= -67.5 && degrees < -22.5) return 'SE';
+    
+    return 'E'; // Default fallback
+  }
 
   // Get today's date in YYYY-MM-DD format
   private static getTodayString(): string {
@@ -11,7 +54,7 @@ export class CalradiaGlobuleService {
   }
 
   // Initialize or get current game state
-  static getGameState(): GameState {
+  static async getGameState(): Promise<GameState> {
     const today = this.getTodayString();
     const stored = localStorage.getItem(this.STORAGE_KEY);
     
@@ -20,22 +63,23 @@ export class CalradiaGlobuleService {
         const parsedState = JSON.parse(stored) as GameState;
         // Check if it's a new day
         if (parsedState.currentDay !== today) {
-          return this.initializeNewGame();
+          return await this.initializeNewGame();
         }
         return parsedState;
       } catch (error) {
         console.error('Error parsing stored game state:', error);
-        return this.initializeNewGame();
+        return await this.initializeNewGame();
       }
     }
     
-    return this.initializeNewGame();
+    return await this.initializeNewGame();
   }
 
   // Initialize a new game for today
-  private static initializeNewGame(): GameState {
+  private static async initializeNewGame(): Promise<GameState> {
+    const targetSettlement = await this.getRandomSettlement();
     const newState: GameState = {
-      targetSettlement: getRandomSettlement(),
+      targetSettlement,
       guesses: [],
       gameStatus: 'playing',
       maxGuesses: this.MAX_GUESSES,
@@ -52,8 +96,8 @@ export class CalradiaGlobuleService {
   }
 
   // Make a guess
-  static makeGuess(guessedSettlement: Settlement): { success: boolean; guess?: Guess; gameState?: GameState } {
-    const currentState = this.getGameState();
+  static async makeGuess(guessedSettlement: Settlement): Promise<{ success: boolean; guess?: Guess; gameState?: GameState }> {
+    const currentState = await this.getGameState();
     
     // Check if game is already over
     if (currentState.gameStatus !== 'playing') {
@@ -75,11 +119,11 @@ export class CalradiaGlobuleService {
     }
 
     // Calculate distance and direction
-    const distance = calculateDistance(
+    const distance = this.calculateDistance(
       guessedSettlement.center,
       currentState.targetSettlement!.center
     );
-    const direction = calculateDirection(
+    const direction = this.calculateDirection(
       guessedSettlement.center,
       currentState.targetSettlement!.center
     );
@@ -119,12 +163,13 @@ export class CalradiaGlobuleService {
   }
 
   // Get all settlements
-  static getSettlements(): Settlement[] {
-    return settlements;
+  static async getAllSettlements(): Promise<Settlement[]> {
+    return await this.getSettlements();
   }
 
   // Get settlement by ID
-  static getSettlementById(id: string): Settlement | undefined {
+  static async getSettlementById(id: string): Promise<Settlement | undefined> {
+    const settlements = await this.getSettlements();
     return settlements.find(settlement => settlement.id === id);
   }
 
