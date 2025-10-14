@@ -24,17 +24,17 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
   };
 
   return (
-    <div className="relative inline-block w-full max-w-md mt-4 md:mt-10">
+    <div className="relative inline-block w-full max-w-sm mt-10 md:mt-10">
       <svg
-        className="absolute top-[-20px] left-0 w-full h-8"
+        className="absolute top-[-13px] left-0 w-full h-5.5"
         viewBox="0 0 400 40"
         preserveAspectRatio="none"
       >
         <rect
           x="0"
-          y="20"
+          y="13"
           width="400"
-          height="30"
+          height="22"
           fill="var(--bannerlord-patch-brassy-gold)"
         />
 
@@ -44,23 +44,23 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
             x={x}
             y="0"
             width="40"
-            height="20"
+            height="13"
             fill="var(--bannerlord-menu-brownish-gray)"
           />
         ))}
       </svg>
-      <div className="bg-[var(--bannerlord-party-dark-bg)] p-4 border-l-2 border-r-2  border-[var(--bannerlord-patch-warm-tan)] shadow-2xl rounded-lg relative  mt-2">
+      <div className="bg-[var(--bannerlord-party-dark-bg)] p-2 sm:p-2.5 border-l-2 border-r-2  border-[var(--bannerlord-patch-warm-tan)] shadow-2xl rounded-lg relative  mt-1">
         <div className="flex flex-col items-center">
           <img
             src="/logo2.png"
             alt="logo_image"
-            className="text-center w-50 h-50 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
+            className="text-center w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
           />
 
           {/* <p className="text-sm text-[var(--bannerlord-party-text-cream)] text-center italic">
             Let it be known across the lands, reinforcements are coming...
           </p> */}
-          <div className="flex flex-row space-x-4 md:space-x-5 justify-center">
+          <div className="flex flex-row space-x-1.5 sm:space-x-2.5 md:space-x-3.5 justify-center">
             <Tooltip 
               content={showIndicator ? "Hide status indicators" : "Show status indicators"} 
               position="bottom"
@@ -68,11 +68,11 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
             >
               <FaInfoCircle
                 onClick={() => toggleIndicator(showIndicator)}
-                className={`hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-lg transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer ${
+                className={`hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-sm transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer ${
                   showIndicator ? "opacity-100" : "opacity-30"
                 }`}
-                size={window.innerWidth < 768 ? 50 : 60}
-                style={{ padding: window.innerWidth < 768 ? "8px" : "10px" }}
+                size={window.innerWidth < 768 ? 32 : window.innerWidth < 1024 ? 40 : 48}
+                style={{ padding: window.innerWidth < 768 ? "5px" : window.innerWidth < 1024 ? "7px" : "9px" }}
               />
             </Tooltip>
             
@@ -83,9 +83,9 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
             >
               <IoIosHelpCircle
                 onClick={() => setShowHowToPlay(true)}
-                className="hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-lg transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer opacity-100"
-                size={window.innerWidth < 768 ? 50 : 60}
-                style={{ padding: window.innerWidth < 768 ? "8px" : "10px" }}
+                className="hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-sm transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer opacity-100"
+                size={window.innerWidth < 768 ? 32 : window.innerWidth < 1024 ? 40 : 48}
+                style={{ padding: window.innerWidth < 768 ? "5px" : window.innerWidth < 1024 ? "7px" : "9px" }}
               />
             </Tooltip>
             
@@ -98,15 +98,15 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
                 onClick={() => window.open(CONFIG.DONATION_URL, '_blank', 'noopener,noreferrer')}
                 className="hover:bg-gray-700 bg-[#39352D] border-2 border-yellow-700 rounded transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer opacity-100 flex items-center justify-center"
                 style={{ 
-                  padding: window.innerWidth < 768 ? "8px" : "10px", 
-                  width: window.innerWidth < 768 ? "50px" : "60px", 
-                  height: window.innerWidth < 768 ? "50px" : "60px" 
+                  padding: window.innerWidth < 768 ? "5px" : window.innerWidth < 1024 ? "7px" : "9px", 
+                  width: window.innerWidth < 768 ? "32px" : window.innerWidth < 1024 ? "40px" : "48px", 
+                  height: window.innerWidth < 768 ? "32px" : window.innerWidth < 1024 ? "40px" : "48px" 
                 }}
               >
                 <img 
                   src="/kofi_symbol.png" 
                   alt="Ko-Fi" 
-                  className="w-8 h-8"
+                  className="w-5 h-5"
                 />
               </div>
             </Tooltip>

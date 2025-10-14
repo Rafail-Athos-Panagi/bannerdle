@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import BannerHint from "@/components/BannerHint";
 import { Home } from "@/components/Home";
 import MedievalNavbar from "@/components/MedievalNavbar";
+import PageRefreshLoader from "@/components/PageRefreshLoader";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { Troop } from "@/types/Troop.type";
 import { TroopService, TroopGameState } from "@/services/TroopService";
 
@@ -108,43 +110,45 @@ export default function TroopGuessGame() {
   };
 
   if (!troopGameState) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner message="Loading Troop Quest..." size="large" />;
   }
 
   return (
-    <div 
-      className="h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col"
-      style={{ 
-        backgroundImage: 'url(/bg-1.jpg)',
-        backgroundAttachment: 'fixed'
-      }}
-      suppressHydrationWarning={true}
-    >
-      <MedievalNavbar />
-      <div
-        className="relative scrollbar-thin h-screen flex justify-center overflow-y-auto scroll-smooth mt-12"
-        ref={scrollContainerRef}
+    <PageRefreshLoader loadingMessage="Refreshing Troop Quest...">
+      <div 
+        className="h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col"
+        style={{ 
+          backgroundImage: 'url(/bg-1.jpg)',
+          backgroundAttachment: 'fixed'
+        }}
+        suppressHydrationWarning={true}
       >
-        <div className="flex flex-col z-10 rounded-lg w-full max-w-4xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-center">
-            <BannerHint
-              scrollTo={scrollTo}
-              setShowIndicatorApp={(showIndicator) => {
-                TroopService.updateShowIndicator(showIndicator);
-                setTroopGameState(prev => prev ? { ...prev, showIndicator } : null);
-              }}
-            />
-          </div>
-          <Home correctGuess={troopGameState.correctGuess?.troop || {} as Troop} />
-          <div className="flex flex-col">
-            <CustomSelect
-              scrollTo={scrollTo}
-              troopGameState={troopGameState}
-              setTroopGameState={setTroopGameState}
-            />
+        <MedievalNavbar />
+        <div
+          className="relative scrollbar-thin h-screen flex justify-center overflow-y-auto scroll-smooth mt-9 lg:mt-11"
+          ref={scrollContainerRef}
+        >
+          <div className="flex flex-col z-10 rounded-lg w-full max-w-2xl mx-auto px-1.5 sm:px-2.5 py-1.5">
+            <div className="flex items-center justify-center">
+              <BannerHint
+                scrollTo={scrollTo}
+                setShowIndicatorApp={(showIndicator) => {
+                  TroopService.updateShowIndicator(showIndicator);
+                  setTroopGameState(prev => prev ? { ...prev, showIndicator } : null);
+                }}
+              />
+            </div>
+            <Home correctGuess={troopGameState.correctGuess?.troop || {} as Troop} />
+            <div className="flex flex-col">
+              <CustomSelect
+                scrollTo={scrollTo}
+                troopGameState={troopGameState}
+                setTroopGameState={setTroopGameState}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </PageRefreshLoader>
   );
 }
