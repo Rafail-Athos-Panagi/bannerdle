@@ -1,25 +1,19 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import fs from 'fs';
+import path from 'path';
 
 export async function GET() {
   try {
-    // Get the second-to-last entry from used_map_areas table (last selection)
-    const { data: usedMapAreas, error } = await supabase
-      .from('used_map_areas')
-      .select('*')
-      .order('used_date', { ascending: false })
-      .limit(2);
+    const yesterday = new Date();
+    yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+    const yesterdayString = yesterday.toISOString().split('T')[0]; // UTC date
 
-    if (error) {
-      console.error('Error fetching last map area selection:', error);
-      return NextResponse.json(
-        { error: "Failed to retrieve last map area selection" },
-        { status: 500 }
-      );
-    }
+    // Read guessed map areas data from JSON file
+    const guessedMapAreasFilePath = path.join(process.cwd(), 'src', 'data', 'guessed_map_areas.json');
+    const guessedMapAreasData = JSON.parse(fs.readFileSync(guessedMapAreasFilePath, 'utf8'));
 
-    // Return the second entry (last selection) or empty object if not enough entries
-    const lastSelection = usedMapAreas && usedMapAreas.length >= 2 ? usedMapAreas[1] : {};
+    // Get last selection (yesterday's map area in UTC)
+    const lastSelection = guessedMapAreasData[yesterdayString];
     
     return NextResponse.json({ lastSelection: lastSelection || {} });
   } catch (error) {

@@ -49,7 +49,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
               A Dark Omen Has Befallen Calradia
             </h2>
             <p className="text-[var(--bannerlord-custom-light-cream)] mb-4">
-              The realm has encountered an unexpected disturbance. Our scouts report an error in the kingdom's magic.
+              The realm has encountered an unexpected disturbance. Our scouts report an error in the kingdom&apos;s magic.
             </p>
             <div className="bg-red-900 bg-opacity-50 rounded p-3 border border-red-700">
               <p className="text-sm text-red-200 font-mono">

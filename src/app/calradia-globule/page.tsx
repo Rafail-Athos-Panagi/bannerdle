@@ -31,7 +31,7 @@ export default function CalradiaGlobuleGame() {
     setMapGameState(mapInitialState);
   }, [isClient]);
 
-  // Fetch lastSelection from Supabase and store it to localStorage
+  // Fetch lastSelection from API and store it to localStorage
   useEffect(() => {
     if (!isClient || !mapGameState || mapGameState.lastSelection) return;
     

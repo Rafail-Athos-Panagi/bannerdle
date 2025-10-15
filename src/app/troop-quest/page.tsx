@@ -29,64 +29,6 @@ export default function TroopGuessGame() {
     setTroopGameState(gameState);
   }, []);
 
-  // Scheduling logic: clear localStorage and then call selectTroop
-  useEffect(() => {
-    // Only run on client side to prevent hydration mismatches
-    if (typeof window === 'undefined') return;
-
-    function scheduleLocalStorageClearAndSelectTroop(
-      targetHour: number,
-      targetMinute: number
-    ) {
-      const now = new Date();
-      const targetTime = new Date();
-
-      // Set target time to today at targetHour:targetMinute:00
-      targetTime.setHours(targetHour, targetMinute, 0, 0);
-
-      // If the target time is already past for today, schedule for tomorrow
-      if (targetTime <= now) {
-        targetTime.setDate(targetTime.getDate() + 1);
-      }
-
-      // Calculate the delay until the target time
-      const delay = targetTime.getTime() - now.getTime();
-      console.log(`Action scheduled for: ${targetTime.toLocaleString()}`);
-
-      // Set a timeout for the initial action at targetTime
-      setTimeout(async () => {
-        // Clear localStorage
-        localStorage.clear();
-        console.log(
-          `localStorage cleared at ${new Date().toLocaleTimeString()}`
-        );
-
-        // Call the dailyTroopSelection service
-        try {
-          await TroopService.dailyTroopSelection();
-        } catch (error) {
-          console.error("Error calling dailyTroopSelection service:", error);
-        }
-
-        // Set an interval to repeat the clear and API call every 24 hours
-        setInterval(async () => {
-          localStorage.clear();
-          console.log(
-            `localStorage cleared at ${new Date().toLocaleTimeString()}`
-          );
-          try {
-            await TroopService.dailyTroopSelection();
-          } catch (error) {
-            console.error("Error calling dailyTroopSelection service:", error);
-          }
-        }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
-      }, delay);
-    }
-
-    // Schedule the action for 21:05 (9:05 PM)
-    scheduleLocalStorageClearAndSelectTroop(2, 20);
-  }, []);
-
   const scrollTo = (direction: string) => {
     console.log(`scrollTo called with direction: ${direction}`);
     if (scrollContainerRef.current) {

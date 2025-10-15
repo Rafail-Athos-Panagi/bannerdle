@@ -5,21 +5,30 @@ export class CalradiaGlobuleService {
   private static readonly MAX_GUESSES = 6;
 
   // Utility functions (previously imported from settlements)
-  private static async getSettlements(): Promise<Settlement[]> {
+  private static async getMapAreas(): Promise<Settlement[]> {
     try {
-      const response = await fetch('/api/settlements');
+      const response = await fetch('/api/map-areas');
       if (response.ok) {
-        return await response.json();
+        const mapAreasData = await response.json();
+        // Convert map areas to settlements format
+        return mapAreasData.map((area: any, index: number) => ({
+          id: (index + 1).toString(),
+          name: area.name,
+          type: area.type.toLowerCase() as 'town' | 'castle' | 'village',
+          faction: area.faction,
+          center: area.coordinates as [number, number],
+          radius: 20 // Default radius for clickable area
+        }));
       }
       return [];
     } catch (error) {
-      console.error('Error fetching settlements:', error);
+      console.error('Error fetching map areas:', error);
       return [];
     }
   }
 
   private static async getRandomSettlement(): Promise<Settlement | null> {
-    const settlements = await this.getSettlements();
+    const settlements = await this.getMapAreas();
     if (settlements.length === 0) return null;
     return settlements[Math.floor(Math.random() * settlements.length)];
   }
@@ -164,12 +173,12 @@ export class CalradiaGlobuleService {
 
   // Get all settlements
   static async getAllSettlements(): Promise<Settlement[]> {
-    return await this.getSettlements();
+    return await this.getMapAreas();
   }
 
   // Get settlement by ID
   static async getSettlementById(id: string): Promise<Settlement | undefined> {
-    const settlements = await this.getSettlements();
+    const settlements = await this.getMapAreas();
     return settlements.find(settlement => settlement.id === id);
   }
 

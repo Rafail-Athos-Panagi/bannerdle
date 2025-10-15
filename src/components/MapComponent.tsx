@@ -67,24 +67,33 @@ const MapComponent: React.FC<MapComponentProps> = ({
     loadLeaflet();
   }, []);
 
-  // Fetch settlements from API
+  // Fetch map areas from API
   useEffect(() => {
-    const fetchSettlements = async () => {
+    const fetchMapAreas = async () => {
       try {
-        const response = await fetch('/api/settlements');
+        const response = await fetch('/api/map-areas');
         if (response.ok) {
-          const settlementsData = await response.json();
+          const mapAreasData = await response.json();
+          // Convert map areas to settlements format for map rendering
+          const settlementsData = mapAreasData.map((area: MapArea, index: number) => ({
+            id: (index + 1).toString(),
+            name: area.name,
+            type: area.type.toLowerCase() as 'town' | 'castle' | 'village',
+            faction: area.faction,
+            center: area.coordinates as [number, number],
+            radius: 20 // Default radius for clickable area
+          }));
           setSettlements(settlementsData);
         } else {
-          console.error('Failed to fetch settlements');
+          console.error('Failed to fetch map areas');
         }
       } catch (error) {
-        console.error('Error fetching settlements:', error);
+        console.error('Error fetching map areas:', error);
       }
     };
 
     if (isClient) {
-      fetchSettlements();
+      fetchMapAreas();
     }
   }, [isClient]);
 

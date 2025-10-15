@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import fs from 'fs';
+import path from 'path';
 import type { MapArea } from '@/types/MapArea.type';
 
 interface CheckMapAreaResponse {
@@ -49,24 +50,17 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Find map area data from database
-    const { data: mapAreaData, error: mapAreaError } = await supabase
-      .from('map_areas')
-      .select('*')
-      .eq('name', queryName)
-      .single();
+    // Read map areas data from JSON file
+    const mapAreasFilePath = path.join(process.cwd(), 'src', 'data', 'map_areas.json');
+    const mapAreasData: MapArea[] = JSON.parse(fs.readFileSync(mapAreasFilePath, 'utf8'));
 
-    if (mapAreaError) {
-      if (mapAreaError.code === 'PGRST116') {
-        return NextResponse.json(
-          { error: "Map area not found" },
-          { status: 404 }
-        );
-      }
-      console.error('Error fetching map area:', mapAreaError);
+    // Find map area data from JSON
+    const mapAreaData = mapAreasData.find(m => m.name.toLowerCase() === queryName.toLowerCase());
+
+    if (!mapAreaData) {
       return NextResponse.json(
-        { error: "Failed to fetch map area" },
-        { status: 500 }
+        { error: "Map area not found" },
+        { status: 404 }
       );
     }
 
@@ -77,42 +71,42 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get current selection from Supabase
-    const { data: currentSelection, error: selectionError } = await supabase
-      .from('used_map_areas')
-      .select('*')
-      .order('used_date', { ascending: false })
-      .limit(1)
-      .single();
+    // Get current selection from guessed_map_areas.json
+    const today = new Date().toISOString().split('T')[0]; // UTC date
+    const guessedMapAreasFilePath = path.join(process.cwd(), 'src', 'data', 'guessed_map_areas.json');
+    const guessedMapAreasData = JSON.parse(fs.readFileSync(guessedMapAreasFilePath, 'utf8'));
 
-    if (selectionError && selectionError.code !== 'PGRST116') {
-      console.error('Error fetching current selection:', selectionError);
+    const currentSelection = guessedMapAreasData[today];
+
+    if (!currentSelection) {
       return NextResponse.json(
-        { error: "Failed to fetch current selection" },
+        { error: "No current map area selection found" },
         { status: 500 }
       );
     }
 
-    // Validate current selection data structure
-    if (!currentSelection.name || !currentSelection.coordinates) {
+    // Get the full map area data for the current selection
+    const currentMapAreaData = mapAreasData.find(m => m.name.toLowerCase() === currentSelection.name.toLowerCase());
+
+    if (!currentMapAreaData || !currentMapAreaData.coordinates) {
       return NextResponse.json(
-        { error: "Invalid current selection data structure" },
+        { error: "Current selection map area data not found or missing coordinates" },
         { status: 500 }
       );
     }
 
     const isCorrect: boolean = 
-      currentSelection.name.toLowerCase() === queryName.toLowerCase();
+      currentMapAreaData.name.toLowerCase() === queryName.toLowerCase();
 
     // Calculate distance and direction
     const distance = calculateDistance(
       mapAreaData.coordinates,
-      currentSelection.coordinates as [number, number]
+      currentMapAreaData.coordinates as [number, number]
     );
     
     const direction = calculateDirection(
       mapAreaData.coordinates,
-      currentSelection.coordinates as [number, number]
+      currentMapAreaData.coordinates as [number, number]
     );
 
     const responseData: CheckMapAreaResponse = {

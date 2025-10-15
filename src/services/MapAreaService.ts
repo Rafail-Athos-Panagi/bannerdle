@@ -1,5 +1,5 @@
 import { MapArea } from '@/types/MapArea.type';
-import { MapAreaGameService, LastMapArea } from '@/services/MapAreaGameService';
+import { LastMapArea } from '@/services/MapAreaGameService';
 
 export interface MapGuess {
   mapArea: MapArea;
@@ -85,7 +85,7 @@ export class MapAreaService {
     }
 
     try {
-      // Use the secure API endpoint instead of direct database access
+      // Use the API endpoint that reads from JSON files
       const response = await fetch(`/api/checkMapArea?name=${encodeURIComponent(guessedMapArea.name)}`);
       
       if (!response.ok) {

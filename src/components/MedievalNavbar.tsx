@@ -65,6 +65,32 @@ const MedievalNavbar: React.FC = () => {
               {/* Divider */}
               <div className="w-px h-4 bg-[var(--bannerlord-custom-med-brown)] mx-1"></div>
 
+              {/* Coordinate Collector Tab */}
+              <Link
+                href="/coordinate-collector"
+                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all duration-200 ${
+                  pathname === '/coordinate-collector'
+                    ? 'bg-[var(--bannerlord-patch-brassy-gold)] text-[var(--bannerlord-custom-very-dark-brown)] shadow-md'
+                    : 'text-[var(--bannerlord-custom-light-cream)] hover:bg-[var(--bannerlord-custom-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)]'
+                }`}
+              >
+                {/* Coordinate/Pin Icon */}
+                <div className="flex items-center justify-center w-4 h-4">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-3 h-3"
+                  >
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    <circle cx="12" cy="9" r="2"/>
+                  </svg>
+                </div>
+                <span className="font-semibold text-xs">Collector</span>
+              </Link>
+
+              {/* Divider */}
+              <div className="w-px h-4 bg-[var(--bannerlord-custom-med-brown)] mx-1"></div>
+
               {/* Map Guessing Tab */}
               <Link
                 href="/calradia-globule"
@@ -156,6 +182,30 @@ const MedievalNavbar: React.FC = () => {
                     </svg>
                   </div>
                   <span className="font-semibold text-xs">Troop Quest</span>
+                </Link>
+
+                {/* Mobile Coordinate Collector Link */}
+                <Link
+                  href="/coordinate-collector"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-200 ${
+                    pathname === '/coordinate-collector'
+                      ? 'bg-[var(--bannerlord-patch-brassy-gold)] text-[var(--bannerlord-custom-very-dark-brown)] shadow-md'
+                      : 'text-[var(--bannerlord-custom-light-cream)] hover:bg-[var(--bannerlord-custom-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)]'
+                  }`}
+                >
+                  {/* Coordinate/Pin Icon */}
+                  <div className="flex items-center justify-center w-4 h-4">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-3 h-3"
+                    >
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      <circle cx="12" cy="9" r="2"/>
+                    </svg>
+                  </div>
+                  <span className="font-semibold text-xs">Collector</span>
                 </Link>
 
                 {/* Mobile Map Quest Link */}

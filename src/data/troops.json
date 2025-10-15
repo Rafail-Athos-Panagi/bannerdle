@@ -1,0 +1,1940 @@
+[
+  {
+    "name": "Vlandian Voulgier",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Voulgier.PNG"
+  },
+  {
+    "name": "Vlandian Vanguard",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Vanguard.PNG"
+  },
+  {
+    "name": "Vlandian Swordsman",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Swordsman.PNG"
+  },
+  {
+    "name": "Vlandian Squire",
+    "tier": 2,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Squire.PNG"
+  },
+  {
+    "name": "Vlandian Spearman",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Spearman.PNG"
+  },
+  {
+    "name": "Vlandian Sharpshooter",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Sharpshooter.PNG"
+  },
+  {
+    "name": "Vlandian Sergeant",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Sergeant.PNG"
+  },
+  {
+    "name": "Vlandian Recruit",
+    "tier": 1,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Recruit.PNG"
+  },
+  {
+    "name": "Vlandian Pikeman",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Pikeman.PNG"
+  },
+  {
+    "name": "Vlandian Light Cavalry",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Light_Cavalry.PNG"
+  },
+  {
+    "name": "Vlandian Levy Crossbowman",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Levy_Crossbowman.PNG"
+  },
+  {
+    "name": "Vlandian Knight",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Knight.PNG"
+  },
+  {
+    "name": "Vlandian Hardened Crossbowman",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Hardened_Crossbowman.PNG"
+  },
+  {
+    "name": "Vlandian Galland",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Galland.PNG"
+  },
+  {
+    "name": "Vlandian Footman",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Footman.PNG"
+  },
+  {
+    "name": "Vlandian Crossbowman",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Crossbowman.PNG"
+  },
+  {
+    "name": "Vlandian Champion",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Champion.PNG"
+  },
+  {
+    "name": "Vlandian Cavalry",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Cavalry.PNG"
+  },
+  {
+    "name": "Vlandian Billman",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Billman.PNG"
+  },
+  {
+    "name": "Vlandian Banner Knight",
+    "tier": 6,
+    "type": "Cavalry",
+    "banner": "Factions/Kingdom_of_Vlandia.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Vlandia/Vlandian_Banner_Knight.PNG"
+  },
+  {
+    "name": "Sturgian Archer",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Archer.PNG"
+  },
+  {
+    "name": "Sturgian Brigand",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Brigand.PNG"
+  },
+  {
+    "name": "Sturgian Druzhinnik",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Druzhinnik.PNG"
+  },
+  {
+    "name": "Sturgian Druzhinnik Champion",
+    "tier": 6,
+    "type": "Cavalry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Druzhinnik_Champion.PNG"
+  },
+  {
+    "name": "Sturgian Hardened Brigand",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Hardened_Brigand.PNG"
+  },
+  {
+    "name": "Sturgian Heavy Axeman",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Heavy_Axeman.PNG"
+  },
+  {
+    "name": "Sturgian Heavy Spearman",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Heavy_Spearman.PNG"
+  },
+  {
+    "name": "Sturgian Horse Raider",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Horse_Raider.PNG"
+  },
+  {
+    "name": "Sturgian Hunter",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Hunter.PNG"
+  },
+  {
+    "name": "Sturgian Line Breaker",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Line_Breaker.PNG"
+  },
+  {
+    "name": "Sturgian Otrok",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Otrok.PNG"
+  },
+  {
+    "name": "Sturgian Recruit",
+    "tier": 1,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Recruit.PNG"
+  },
+  {
+    "name": "Sturgian Soldier",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Soldier.PNG"
+  },
+  {
+    "name": "Sturgian Spearman",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Spearman.PNG"
+  },
+  {
+    "name": "Sturgian Veteran Bowman",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Veteran_Bowman.PNG"
+  },
+  {
+    "name": "Sturgian Warrior",
+    "tier": 6,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Warrior.PNG"
+  },
+  {
+    "name": "Sturgian Woodsman",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Sturgian_Woodsman.PNG"
+  },
+  {
+    "name": "Varyag",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Varyag.PNG"
+  },
+  {
+    "name": "Varyag Veteran",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Principality_of_Sturgia.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Sturgia/Varyag_Veteran.PNG"
+  },
+  {
+    "name": "Khuzait Archer",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Archer.PNG"
+  },
+  {
+    "name": "Khuzait Darkhan",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Darkhan.PNG"
+  },
+  {
+    "name": "Khuzait Footman",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Footman.PNG"
+  },
+  {
+    "name": "Khuzait Heavy Horse Archer",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Heavy_Horse_Archer.PNG"
+  },
+  {
+    "name": "Khuzait Heavy Lancer",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Heavy_Lancer.PNG"
+  },
+  {
+    "name": "Khuzait Horse Archer",
+    "tier": 4,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Horse_Archer.PNG"
+  },
+  {
+    "name": "Khuzait Horseman",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Horseman.PNG"
+  },
+  {
+    "name": "Khuzait Hunter",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Hunter.PNG"
+  },
+  {
+    "name": "Khuzait Khan's Guard",
+    "tier": 6,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Khan's_Guard.PNG"
+  },
+  {
+    "name": "Khuzait Kheshig",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Kheshig.PNG"
+  },
+  {
+    "name": "Khuzait Lancer",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Lancer.PNG"
+  },
+  {
+    "name": "Khuzait Marksman",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Marksman.PNG"
+  },
+  {
+    "name": "Khuzait Noble's Son",
+    "tier": 2,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Noble's_Son.PNG"
+  },
+  {
+    "name": "Khuzait Nomad",
+    "tier": 1,
+    "type": "Infantry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Nomad.PNG"
+  },
+  {
+    "name": "Khuzait Qanqli",
+    "tier": 3,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Qanqli.PNG"
+  },
+  {
+    "name": "Khuzait Raider",
+    "tier": 3,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Raider.PNG"
+  },
+  {
+    "name": "Khuzait Spear Infantry",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Spear_Infantry.PNG"
+  },
+  {
+    "name": "Khuzait Spearman",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Spearman.PNG"
+  },
+  {
+    "name": "Khuzait Torguud",
+    "tier": 4,
+    "type": "Mounted Archer",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Torguud.PNG"
+  },
+  {
+    "name": "Khuzait Tribal Warrior",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Khuzait_Khanate.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Khuzait/Khuzait_Tribal_Warrior.PNG"
+  },
+  {
+    "name": "Imperial Archer",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Archer.PNG"
+  },
+  {
+    "name": "Imperial Bucellarii",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Bucellarii.PNG"
+  },
+  {
+    "name": "Imperial Cataphract",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Cataphract.PNG"
+  },
+  {
+    "name": "Imperial Crossbowman",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Crossbowman.PNG"
+  },
+  {
+    "name": "Imperial Elite Cataphract",
+    "tier": 6,
+    "type": "Cavalry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Elite_Cataphract.PNG"
+  },
+  {
+    "name": "Imperial Elite Menavliaton",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Elite_Menavliaton.PNG"
+  },
+  {
+    "name": "Imperial Equite",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Equite.PNG"
+  },
+  {
+    "name": "Imperial Heavy Horseman",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Heavy_Horseman.PNG"
+  },
+  {
+    "name": "Imperial Infantryman",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Infantryman.PNG"
+  },
+  {
+    "name": "Imperial Legionary",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Legionary.PNG"
+  },
+  {
+    "name": "Imperial Menavliaton",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Menavliaton.PNG"
+  },
+  {
+    "name": "Imperial Palatine Guard",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Palatine_Guard.PNG"
+  },
+  {
+    "name": "Imperial Recruit",
+    "tier": 1,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Recruit.PNG"
+  },
+  {
+    "name": "Imperial Sergeant Crossbowman",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Sergeant_Crossbowman.PNG"
+  },
+  {
+    "name": "Imperial Trained Archer",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Trained_Archer.PNG"
+  },
+  {
+    "name": "Imperial Trained Infantryman",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Trained_Infantryman.PNG"
+  },
+  {
+    "name": "Imperial Veteran Archer",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Veteran_Archer.PNG"
+  },
+  {
+    "name": "Imperial Veteran Infantryman",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Veteran_Infantryman.PNG"
+  },
+  {
+    "name": "Imperial Vigla Recruit",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Empire/Imperial_Vigla_Recruit.PNG"
+  },
+  {
+    "name": "Battanian Horseman",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Horseman.PNG"
+  },
+  {
+    "name": "Battanian Clan Warrior",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Clan_Warrior.PNG"
+  },
+  {
+    "name": "Battanian Falxman",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Falxman.PNG"
+  },
+  {
+    "name": "Battanian Oathsworn",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Oathsworn.PNG"
+  },
+  {
+    "name": "Battanian Picked Warrior",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Picked_Warrior.PNG"
+  },
+  {
+    "name": "Battanian Raider",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Raider.PNG"
+  },
+  {
+    "name": "Battanian Scout",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Scout.PNG"
+  },
+  {
+    "name": "Battanian Skirmisher",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Skirmisher.PNG"
+  },
+  {
+    "name": "Battanian Trained Warrior",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Trained_Warrior.PNG"
+  },
+  {
+    "name": "Battanian Veteran Skirmisher",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Veteran_Skirmisher.PNG"
+  },
+  {
+    "name": "Battanian Volunteer",
+    "tier": 1,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Volunteer.PNG"
+  },
+  {
+    "name": "Battanian Wood Runner",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Wood_Runner.PNG"
+  },
+  {
+    "name": "Battanian Veteran Falxman",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Veteran_Falxman.PNG"
+  },
+  {
+    "name": "Battanian Wildling",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Wildling.PNG"
+  },
+  {
+    "name": "Battanian Mounted Skirmisher",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Mounted_Skirmisher.PNG"
+  },
+  {
+    "name": "Battanian Highborn Youth",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Highborn_Youth.PNG"
+  },
+  {
+    "name": "Battanian Highborn Warrior",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Highborn_Warrior.PNG"
+  },
+  {
+    "name": "Battanian Hero",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Hero.PNG"
+  },
+  {
+    "name": "Battanian Fian",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Fian.PNG"
+  },
+  {
+    "name": "Battanian Fian Champion",
+    "tier": 6,
+    "type": "Archer",
+    "banner": "Factions/High_Kingdom_of_the_Battanians.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Battania/Battanian_Fian_Champion.PNG"
+  },
+  {
+    "name": "Aserai Archer",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Archer.PNG"
+  },
+  {
+    "name": "Aserai Faris",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Faris.PNG"
+  },
+  {
+    "name": "Aserai Footman",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Footman.PNG"
+  },
+  {
+    "name": "Aserai Infantry",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Infantry.PNG"
+  },
+  {
+    "name": "Aserai Light Archer",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Light_Archer.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Axeman",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Axeman.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Cavalry",
+    "tier": 4,
+    "type": "Mounted Archer",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Cavalry.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Guard",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Guard.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Heavy Cavalry",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Heavy_Cavalry.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Palace Guard",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Palace_Guard.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Regular",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Regular.PNG"
+  },
+  {
+    "name": "Aserai Mamluke Soldier",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Mamluke_Soldier.PNG"
+  },
+  {
+    "name": "Aserai Master Archer",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Master_Archer.PNG"
+  },
+  {
+    "name": "Aserai Recruit",
+    "tier": 1,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Recruit.PNG"
+  },
+  {
+    "name": "Aserai Tribal Horseman",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Tribal_Horseman.PNG"
+  },
+  {
+    "name": "Aserai Tribesman",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Tribesman.PNG"
+  },
+  {
+    "name": "Aserai Vanguard Faris",
+    "tier": 6,
+    "type": "Cavalry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Vanguard_Faris.PNG"
+  },
+  {
+    "name": "Aserai Veteran Faris",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Veteran_Faris.PNG"
+  },
+  {
+    "name": "Aserai Veteran Infantry",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Veteran_Infantry.PNG"
+  },
+  {
+    "name": "Aserai Youth",
+    "tier": 2,
+    "type": "Cavalry",
+    "banner": "Factions/Aserai_Sultanate.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Aserai/Aserai_Youth.PNG"
+  },
+  {
+    "name": "Marauder",
+    "tier": 3,
+    "type": "Mounted Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Steppe Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Steppe Bandits/Marauder.PNG"
+  },
+  {
+    "name": "Raider",
+    "tier": 4,
+    "type": "Mounted Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Steppe Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Steppe Bandits/Raider.PNG"
+  },
+  {
+    "name": "Steppe Bandit",
+    "tier": 2,
+    "type": "Cavalry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Steppe Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Steppe Bandits/Steppe_Bandit.PNG"
+  },
+  {
+    "name": "Steppe Bandit Boss",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Steppe Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Steppe Bandits/Steppe_Bandit_Boss.PNG"
+  },
+  {
+    "name": "Sea Raider",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Sea Raiders",
+    "occupation": "Bandit",
+    "image": "Units/Sea Raider/Sea_Raider.PNG"
+  },
+  {
+    "name": "Sea Raider Boss",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Sea Raiders",
+    "occupation": "Bandit",
+    "image": "Units/Sea Raider/Sea_Raider_Boss.PNG"
+  },
+  {
+    "name": "Sea Raider Chief",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Sea Raiders",
+    "occupation": "Bandit",
+    "image": "Units/Sea Raider/Sea_Raider_Chief.PNG"
+  },
+  {
+    "name": "Sea Raider Warrior",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Sea Raiders",
+    "occupation": "Bandit",
+    "image": "Units/Sea Raider/Sea_Raider_Warrior.PNG"
+  },
+  {
+    "name": "Brigand",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Mountain Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Mountain Bandits/Brigand.PNG"
+  },
+  {
+    "name": "Highwayman",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Mountain Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Mountain Bandits/Highwayman.PNG"
+  },
+  {
+    "name": "Hillman",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Mountain Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Mountain Bandits/Hillman.PNG"
+  },
+  {
+    "name": "Mountain Bandit Boss",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Mountain Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Mountain Bandits/Mountain_Bandit_Boss.PNG"
+  },
+  {
+    "name": "Bushwacker",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Forest Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Forest Bandits/Bushwacker.PNG"
+  },
+  {
+    "name": "Forest Bandit",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Forest Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Forest Bandits/Forest_Bandit.PNG"
+  },
+  {
+    "name": "Forest Bandit Boss",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Forest Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Forest Bandits/Forest_Bandit_Boss.PNG"
+  },
+  {
+    "name": "Freebooter",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Forest Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Forest Bandits/Freebooter.PNG"
+  },
+  {
+    "name": "Bedouin Rover",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Desert Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Desert Bandits/Bedouin_Rover.PNG"
+  },
+  {
+    "name": "Desert Bandit Boss",
+    "tier": 5,
+    "type": "Cavalry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Desert Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Desert Bandits/Desert_Bandit_Boss.PNG"
+  },
+  {
+    "name": "Harami",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Desert Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Desert Bandits/Harami.PNG"
+  },
+  {
+    "name": "Nomad Bandit",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "Desert Bandits",
+    "occupation": "Bandit",
+    "image": "Units/Desert Bandits/Nomad_Bandit.PNG"
+  },
+  {
+    "name": "Hired Spear",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Hired Men/Hired_Spear.PNG"
+  },
+  {
+    "name": "Hired Pike",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Hired Men/Hired_Pike.PNG"
+  },
+  {
+    "name": "Hired Elite Pike",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Hired Men/Hired_Elite_Pike.PNG"
+  },
+  {
+    "name": "Hired Crossbow",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Hired Men/Hired_Crossbow.PNG"
+  },
+  {
+    "name": "Elite Hired Crossbow",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Hired Men/Elite_Hired_Crossbow.PNG"
+  },
+  {
+    "name": "Elite Mercenary Maceman",
+    "tier": 5,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Sellswords/Elite_Mercenary_Maceman.PNG"
+  },
+  {
+    "name": "Mercenary Maceman",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Sellswords/Mercenary_Maceman.PNG"
+  },
+  {
+    "name": "Outrider",
+    "tier": 4,
+    "type": "Mounted Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Sellswords/Outrider.PNG"
+  },
+  {
+    "name": "Sellsword",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Sellswords/Sellsword.PNG"
+  },
+  {
+    "name": "Veteran Outrider",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/None.png",
+    "faction": "None",
+    "culture": "None",
+    "occupation": "Mercenary",
+    "image": "Units/Sellswords/Veteran_Outrider.PNG"
+  },
+  {
+    "name": "Gallant Sword Sister",
+    "tier": 5,
+    "type": "Mounted Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Mercenary",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Sword Sister/Gallant_Sword_Siter.PNG"
+  },
+  {
+    "name": "Sisterhood Follower",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Mercenary",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Sword Sister/Sisterhood_Follower.PNG"
+  },
+  {
+    "name": "Sword Sister",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Mercenary",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Sword Sister/Sword_Sister.PNG"
+  },
+  {
+    "name": "Veteran Sword Sister",
+    "tier": 5,
+    "type": "Archer",
+    "banner": "Factions/Calradic_Empire.png",
+    "occupation": "Mercenary",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Sword Sister/Veteran_Sword_Sister.PNG"
+  },
+  {
+    "name": "Beni Zilal Recruit",
+    "tier": 2,
+    "type": "Cavalry",
+    "banner": "Factions/Beni_Zilal.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Beni Zilal/Beni_Zilal_Recruit.png"
+  },
+  {
+    "name": "Beni Zilal Soldier",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Beni_Zilal.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Beni Zilal/Beni_Zilal_Soldier.png"
+  },
+  {
+    "name": "Beni Zilal Royal Guard",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Beni_Zilal.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Beni Zilal/Beni_Zilal_Royal_Guard.png"
+  },
+  {
+    "name": "Jawwal Recruit",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Jawwal.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Jawwal/Jawwal_Recruit.png"
+  },
+  {
+    "name": "Jawwal Camel Rider",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Jawwal.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Jawwal/Jawwal_Camel_Rider.png"
+  },
+  {
+    "name": "Jawwal Bedouin",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Jawwal.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Aserai",
+    "image": "Units/Jawwal/Jawwal_Bedouin.png"
+  },
+  {
+    "name": "Koleman",
+    "tier": 2,
+    "type": "Cavalry",
+    "banner": "Factions/Ghilman.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Darshi",
+    "image": "Units/Darshi/Koleman.PNG"
+  },
+  {
+    "name": "Ghilman",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Ghilman.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Darshi",
+    "image": "Units/Darshi/Ghilman.PNG"
+  },
+  {
+    "name": "Ghulam",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Ghilman.png",
+    "occupation": "Soldier",
+    "faction": "Aserai Sultanate",
+    "culture": "Darshi",
+    "image": "Units/Darshi/Ghulam.PNG"
+  },
+  {
+    "name": "Young Wolf",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/Wolfskins.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Wolfskins/Young_Wolf.png"
+  },
+  {
+    "name": "Seasoned Wolf",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Wolfskins.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Wolfskins/Seasoned_Wolf.png"
+  },
+  {
+    "name": "Chosen Wolf",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Wolfskins.png",
+    "occupation": "Soldier",
+    "faction": "High Kingdom of the Battanians",
+    "culture": "Battania",
+    "image": "Units/Wolfskins/Chosen_Wolf.png"
+  },
+  {
+    "name": "Karakhergit Nomad",
+    "tier": 2,
+    "type": "Mounted Archer",
+    "banner": "Factions/Karakhergit.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Karakhergit/Karakhergit_Nomad.png"
+  },
+  {
+    "name": "Karakhergit Rider",
+    "tier": 3,
+    "type": "Mounted Archer",
+    "banner": "Factions/Karakhergit.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Karakhergit/Karakhergit_Rider.png"
+  },
+  {
+    "name": "Karakhergit Elder",
+    "tier": 4,
+    "type": "Mounted Archer",
+    "banner": "Factions/Karakhergit.png",
+    "occupation": "Soldier",
+    "faction": "Khuzait Khanate",
+    "culture": "Khuzait",
+    "image": "Units/Karakhergit/Karakhergit_Elder.png"
+  },
+  {
+    "name": "Recruit Forester",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/Forest_People.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Vakken",
+    "image": "Units/Vakken/Recruit_Forester.PNG"
+  },
+  {
+    "name": "Expert Forester",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Forest_People.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Vakken",
+    "image": "Units/Vakken/Expert_Forester.PNG"
+  },
+  {
+    "name": "Veteran Forester",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Forest_People.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Vakken",
+    "image": "Units/Vakken/Veteran_Forester.PNG"
+  },
+  {
+    "name": "Lake Rat Recruit",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Lake_Rats.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Lake Rats/Lake_Rat_Recruit.png"
+  },
+  {
+    "name": "Lake Rat Veteran",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Lake_Rats.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Lake Rats/Lake_Rat_Veteran.png"
+  },
+  {
+    "name": "Lake Rat Wrecker",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Lake_Rats.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Sturgia",
+    "image": "Units/Lake Rats/Lake_Rat_Wrecker.png"
+  },
+  {
+    "name": "Skolder Recruit",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Skolderbroda.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Nord",
+    "image": "Units/Skolderbroda/Skolder_Recruit.png"
+  },
+  {
+    "name": "Skolder Warrior Broda",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Skolderbroda.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Nord",
+    "image": "Units/Skolderbroda/Skolder_Warrior_Broda.png"
+  },
+  {
+    "name": "Skolder Veteran Broda",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Skolderbroda.png",
+    "occupation": "Soldier",
+    "faction": "Principality of Sturgia",
+    "culture": "Nord",
+    "image": "Units/Skolderbroda/Skolder_Veteran_Broda.png"
+  },
+  {
+    "name": "Sprout",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/Brotherhood_of_the_Woods.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Brotherhood of the Woods/Sprout.png"
+  },
+  {
+    "name": "Sapling",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Brotherhood_of_the_Woods.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Brotherhood of the Woods/Sapling.png"
+  },
+  {
+    "name": "Arboreal",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Brotherhood_of_the_Woods.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Brotherhood of the Woods/Arboreal.png"
+  },
+  {
+    "name": "Boar Novice",
+    "tier": 2,
+    "type": "Archer",
+    "banner": "Factions/Company_of_the_Golden_Boar.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Company of the Golden Boar/Boar_Novice.png"
+  },
+  {
+    "name": "Boar Veteran",
+    "tier": 3,
+    "type": "Archer",
+    "banner": "Factions/Company_of_the_Golden_Boar.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Company of the Golden Boar/Boar_Veteran.png"
+  },
+  {
+    "name": "Boar Champion",
+    "tier": 4,
+    "type": "Archer",
+    "banner": "Factions/Company_of_the_Golden_Boar.png",
+    "occupation": "Soldier",
+    "faction": "Kingdom of Vlandia",
+    "culture": "Vlandia",
+    "image": "Units/Company of the Golden Boar/Boar_Champion.png"
+  },
+  {
+    "name": "Recruit Eleftheroi",
+    "tier": 2,
+    "type": "Cavalry",
+    "banner": "Factions/Eleftheroi.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Eleftheroi/Recruit_Eleftheroi.png"
+  },
+  {
+    "name": "Expert Eleftheroi",
+    "tier": 3,
+    "type": "Cavalry",
+    "banner": "Factions/Eleftheroi.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Eleftheroi/Expert_Eleftheroi.png"
+  },
+  {
+    "name": "Veteran Eleftheroi",
+    "tier": 4,
+    "type": "Cavalry",
+    "banner": "Factions/Eleftheroi.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Eleftheroi/Veteran_Eleftheroi.png"
+  },
+  {
+    "name": "Spark",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Embers_of_the_Flame.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Embers of the Flame/Spark.png"
+  },
+  {
+    "name": "Flame",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Embers_of_the_Flame.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Embers of the Flame/Flame.png"
+  },
+  {
+    "name": "Blaze",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Embers_of_the_Flame.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Embers of the Flame/Blaze.png"
+  },
+  {
+    "name": "Hidden Pawn",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Hidden_Hand.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Hidden Hand/Hidden_Pawn.png"
+  },
+  {
+    "name": "Hidden Hand",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Hidden_Hand.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Hidden Hand/Hidden_Hand.png"
+  },
+  {
+    "name": "Puppeteer",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Hidden_Hand.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Hidden Hand/Puppeteer.png"
+  },
+  {
+    "name": "Hastati",
+    "tier": 2,
+    "type": "Infantry",
+    "banner": "Factions/Legion_of_the_Betrayed.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Legion of the Betrayed/Hastati.png"
+  },
+  {
+    "name": "Principes",
+    "tier": 3,
+    "type": "Infantry",
+    "banner": "Factions/Legion_of_the_Betrayed.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Legion of the Betrayed/Principes.png"
+  },
+  {
+    "name": "Triarii",
+    "tier": 4,
+    "type": "Infantry",
+    "banner": "Factions/Legion_of_the_Betrayed.png",
+    "occupation": "Soldier",
+    "faction": "Calradic Empire",
+    "culture": "Empire",
+    "image": "Units/Legion of the Betrayed/Triarii.png"
+  }
+]

@@ -21,7 +21,7 @@ const CustomSelect = ({
   const [availableTroops, setAvailableTroops] = useState<Troop[]>([]);
   const [, setCheckResult] = useState<unknown>(null);
 
-  // Fetch troops from database on component mount
+  // Fetch troops from API on component mount
   useEffect(() => {
     const fetchTroops = async () => {
       try {
@@ -40,7 +40,7 @@ const CustomSelect = ({
     fetchTroops();
   }, []);
 
-  // Fetch lastSelection from Supabase and store it to localStorage
+  // Fetch lastSelection from API and store it to localStorage
   useEffect(() => {
     // Only run on client side to prevent hydration mismatches
     if (typeof window === 'undefined') return;

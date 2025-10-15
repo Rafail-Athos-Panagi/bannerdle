@@ -47,7 +47,7 @@ export default function MapQuestErrorPage({ error, reset }: ErrorPageProps) {
             backdropFilter: 'blur(2px)'
           }}>
             <h2 className="text-xl font-semibold text-red-300 mb-4">
-              The Cartographer's Workshop Has Collapsed
+              The Cartographer&apos;s Workshop Has Collapsed
             </h2>
             <p className="text-[var(--bannerlord-custom-light-cream)] mb-4">
               Our map exploration system has encountered an unexpected error. The ancient maps of Calradia have been damaged.

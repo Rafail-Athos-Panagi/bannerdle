@@ -282,7 +282,7 @@ export class TroopService {
     troopStatus: TroopStatus;
   }> {
     try {
-      // Use the secure API endpoint instead of direct Supabase access
+      // Use the API endpoint that reads from JSON files
       const response = await fetch(`/api/checkTroop?name=${encodeURIComponent(troopName)}`);
       
       if (!response.ok) {
@@ -308,7 +308,7 @@ export class TroopService {
   // Get last selection (second-to-last entry from used_troops table)
   static async getLastSelection(): Promise<LastTroop> {
     try {
-      // Use the secure API endpoint instead of direct Supabase access
+      // Use the API endpoint that reads from JSON files
       const response = await fetch('/api/lastSelection');
       
       if (!response.ok) {
@@ -332,7 +332,7 @@ export class TroopService {
   // Daily troop selection method
   static async dailyTroopSelection(): Promise<void> {
     try {
-      // Use the secure API endpoint instead of direct Supabase access
+      // Use the API endpoint that reads from JSON files
       const response = await fetch('/api/dailyTroopSelection', {
         method: 'POST',
         headers: {
@@ -357,9 +357,5 @@ export class TroopService {
     }
   }
 
-  // Select troop method (alias for dailyTroopSelection)
-  static async selectTroop(): Promise<void> {
-    return this.dailyTroopSelection();
-  }
 
 }
