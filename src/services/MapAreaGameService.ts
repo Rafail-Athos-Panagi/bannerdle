@@ -24,12 +24,20 @@ export class MapAreaGameService {
     return Math.sqrt(dx * dx + dy * dy);
   }
 
-  // Determine pin color based on distance from target
-  static getPinColor(distance: number): 'green' | 'yellow' | 'red' {
-    if (distance < 50) {
-      return 'green'; // Very close - correct or very close
-    } else if (distance < 150) {
+  // Determine pin color based on distance from target and correctness
+  static getPinColor(distance: number, isCorrect: boolean = false): 'green' | 'orange' | 'yellow' | 'red' {
+    // If the guess is correct, always show green
+    if (isCorrect) {
+      return 'green';
+    }
+    
+    // For incorrect guesses, use distance-based coloring
+    if (distance < 30) {
+      return 'orange'; // Very close but incorrect
+    } else if (distance < 80) {
       return 'yellow'; // Close - moderate distance
+    } else if (distance < 150) {
+      return 'yellow'; // Moderate distance
     } else {
       return 'red'; // Far - far away
     }
