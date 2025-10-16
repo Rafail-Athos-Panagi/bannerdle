@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Read troops data from JSON file
-    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'Troops.json');
+    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'troops.json');
     const troopsData: Troop[] = JSON.parse(fs.readFileSync(troopsFilePath, 'utf8'));
 
     // Find troop data from JSON

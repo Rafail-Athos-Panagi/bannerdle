@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     const name = searchParams.get('name');
     
     // Read troops data from JSON file
-    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'Troops.json');
+    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'troops.json');
     const troopsData: Troop[] = JSON.parse(fs.readFileSync(troopsFilePath, 'utf8'));
     
     if (name) {
