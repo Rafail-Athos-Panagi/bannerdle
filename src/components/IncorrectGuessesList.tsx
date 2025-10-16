@@ -1,9 +1,14 @@
 import { TroopStatus } from "@/types/Troop.type";
+import { FaQuestionCircle } from "react-icons/fa";
+import Tooltip from "@/components/Tooltip";
+
 interface IncorrectListProps {
   incorrectGuesses: TroopStatus[];
+  showIndicator?: boolean;
+  onToggleIndicator?: () => void;
 }
 
-const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
+const IncorrectList = ({ incorrectGuesses, showIndicator, onToggleIndicator }: IncorrectListProps) => {
   if (incorrectGuesses.length === 0) return null;
   return (
     <div className="mt-6">
@@ -11,7 +16,7 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
         style={{ animationDelay: "0.4s" }}
         className="animate-flip bg-[#342B26] p-2 rounded"
       >
-        <div className="w-full bg-[#342B26] flex flex-col items-center justify-center">
+        <div className="w-full bg-[#342B26] flex flex-col items-center justify-center relative">
           <h2
             style={{ animationDelay: "0.8s" }}
             className="animate-flip text-lg font-bold text-[#D7B587] text-center bg-[#342B26] p-1"
@@ -19,6 +24,28 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
             Guessed Troops
           </h2>
           <p className="border-b-2 border-[#53481b] rounded w-2/4"></p>
+          
+          {/* Question mark chip in upper right corner - responsive sizing */}
+          {onToggleIndicator && (
+            <div className="absolute top-1 right-1 z-10">
+              <Tooltip 
+                content={showIndicator ? "Hide status indicators" : "Show status indicators"}
+                position="left"
+                delay={300}
+              >
+                <button
+                  onClick={onToggleIndicator}
+                  className={`flex items-center justify-center rounded-full border transition-all duration-200 hover:scale-110 text-xs font-bold w-3 h-3 sm:w-6 sm:h-6 ${
+                    showIndicator 
+                      ? "bg-[#AF9767] border-[#AF9767] text-black hover:bg-[#8B6F47]" 
+                      : "bg-[#39352D] border-[#AF9767] text-[#AF9767] hover:bg-[#4A4538]"
+                  }`}
+                >
+                  <FaQuestionCircle className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
+                </button>
+              </Tooltip>
+            </div>
+          )}
         </div>
         <div className="hidden md:grid grid-cols-8 gap-4 mt-2">
           <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.2s" }}>Image</div>

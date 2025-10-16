@@ -20,21 +20,13 @@ const MedievalNavbar: React.FC = () => {
             {/* Logo/Brand */}
             <div className="flex items-center space-x-1 sm:space-x-3">
               <div className="flex items-center space-x-1 sm:space-x-2">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 bg-[var(--bannerlord-patch-brassy-gold)] rounded-full flex items-center justify-center">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="var(--bannerlord-custom-very-dark-brown)"
-                    className="w-3 h-3 sm:w-4 sm:h-4 lg:w-4 lg:h-4"
-                  >
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
+                <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
+                  <img 
+                    src="/navbar_logo.png" 
+                    alt="Bannerdle Logo" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <span className="text-[var(--bannerlord-patch-brassy-gold)] font-bold text-xs sm:text-sm lg:text-base font-serif hidden sm:block">
-                  Bannerlord Quest
-                </span>
-                <span className="text-[var(--bannerlord-patch-brassy-gold)] font-bold text-xs font-serif sm:hidden">
-                  BQ
-                </span>
               </div>
             </div>
 
@@ -120,7 +112,7 @@ const MedievalNavbar: React.FC = () => {
               {/* Contact Button */}
               <Link
                 href="/contact"
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all duration-200 text-[var(--bannerlord-custom-light-cream)] hover:bg-[var(--bannerlord-custom-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)]"
+                className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all duration-200 text-[var(--bannerlord-custom-light-cream)] hover:bg-[var(--bannerlord-custom-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)]"
               >
                 {/* Contact Icon */}
                 <div className="flex items-center justify-center w-4 h-4">

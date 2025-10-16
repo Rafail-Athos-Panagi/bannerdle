@@ -72,13 +72,7 @@ export default function TroopGuessGame() {
         >
           <div className="flex flex-col z-10 rounded-lg w-full max-w-2xl mx-auto px-1.5 sm:px-2.5 py-1.5">
             <div className="flex items-center justify-center">
-              <BannerHint
-                scrollTo={scrollTo}
-                setShowIndicatorApp={(showIndicator) => {
-                  TroopService.updateShowIndicator(showIndicator);
-                  setTroopGameState(prev => prev ? { ...prev, showIndicator } : null);
-                }}
-              />
+              <BannerHint scrollTo={scrollTo} />
             </div>
             <Home correctGuess={troopGameState.correctGuess?.troop || {} as Troop} />
             <div className="flex flex-col">
@@ -86,6 +80,11 @@ export default function TroopGuessGame() {
                 scrollTo={scrollTo}
                 troopGameState={troopGameState}
                 setTroopGameState={setTroopGameState}
+                onToggleIndicator={() => {
+                  const newShowIndicator = !troopGameState.showIndicator;
+                  TroopService.updateShowIndicator(newShowIndicator);
+                  setTroopGameState(prev => prev ? { ...prev, showIndicator: newShowIndicator } : null);
+                }}
               />
             </div>
           </div>

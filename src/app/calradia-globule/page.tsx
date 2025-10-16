@@ -5,6 +5,7 @@ import MapComponent from '@/components/MapComponent';
 import MedievalNavbar from '@/components/MedievalNavbar';
 import PageRefreshLoader from '@/components/PageRefreshLoader';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import AboutModal from '@/components/AboutModal';
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
@@ -12,6 +13,7 @@ import { MapAreaGameService } from '@/services/MapAreaGameService';
 export default function CalradiaGlobuleGame() {
   const [mapGameState, setMapGameState] = useState<MapGameState | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -228,6 +230,23 @@ export default function CalradiaGlobuleGame() {
                     <div>• Learn about different areas and their locations</div>
                   </div>
                 </div>
+
+                {/* About Button */}
+                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
+                  <button
+                    onClick={() => setShowAbout(true)}
+                    className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    <span>About Bannerdle</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -242,6 +261,11 @@ export default function CalradiaGlobuleGame() {
           </div>
         </div>
       </div>
+      
+      <AboutModal 
+        isOpen={showAbout} 
+        onClose={() => setShowAbout(false)}
+      />
     </PageRefreshLoader>
   );
 }

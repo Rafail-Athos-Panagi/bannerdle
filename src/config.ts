@@ -7,6 +7,6 @@ export const CONFIG = {
   DONATION_POPUP_DELAY: 1500, // Show popup 1.5 seconds after victory
   
   // Other configurable options can be added here
-  APP_NAME: "Bannerlord Troop Guessing Game",
+  APP_NAME: "Bannerlord Guessing Game",
   VERSION: "1.0.0"
 };

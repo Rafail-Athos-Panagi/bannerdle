@@ -1,6 +1,6 @@
-# Bannerlord Quest - Next.js Version
+# Bannerdle - Next.js Version
 
-This is the Next.js migration of the Bannerlord Quest application, originally built with Vite + React. A medieval-themed guessing game inspired by Mount & Blade II: Bannerlord, featuring two distinct game modes for testing your knowledge of Calradia's troops and geography.
+This is the Next.js migration of the Bannerdle application, originally built with Vite + React. A medieval-themed guessing game inspired by Mount & Blade II: Bannerlord, featuring two distinct game modes for testing your knowledge of Calradia's troops and geography.
 
 ## Features
 
@@ -84,7 +84,6 @@ src/
 │   ├── UpdateButton.tsx   # Update button
 │   └── VictoryBanner.tsx  # Victory banner
 ├── services/             # Business logic services
-│   ├── CalradiaGlobuleService.ts # Map game service
 │   ├── DailySelectionService.ts  # Daily selection service
 │   ├── MapAreaGameService.ts     # Map area game logic
 │   ├── MapAreaService.ts         # Map area service

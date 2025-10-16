@@ -45,7 +45,7 @@ export default function HomePage() {
           {/* Main Title */}
           <div className="text-center mb-4 sm:mb-6 lg:mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--bannerlord-patch-brassy-gold)] mb-1 sm:mb-2 font-serif">
-              Bannerlord Quest
+            Bannerdle
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[var(--bannerlord-custom-light-cream)] opacity-80 px-2">
               Choose Your Adventure in Calradia

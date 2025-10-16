@@ -53,7 +53,7 @@ export const Home = ({ correctGuess }: { correctGuess: Troop }) => {
             clipPath: "polygon(0 0, 100% 0, 85% 100%, 15% 100%)",
           }}
         >
-          GOOD LUCK!
+          {correctGuess.name ? "GOOD JOB!" : "GOOD LUCK!"}
         </div>
       </div>
     </>
