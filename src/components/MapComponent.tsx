@@ -460,9 +460,10 @@ const MapComponent: React.FC<MapComponentProps> = ({
           const mapArea = (guess as MapGuess).mapArea;
           if (!mapArea || !mapArea.coordinates) return null;
           
-          // Determine pin color based on distance
-          const pinColor = MapAreaGameService.getPinColor(guess.distance);
+          // Determine pin color based on distance and correctness
+          const pinColor = MapAreaGameService.getPinColor(guess.distance, guess.isCorrect);
           const colorClass = pinColor === 'green' ? 'bg-green-500 border-green-500' : 
+                           pinColor === 'orange' ? 'bg-orange-500 border-orange-500' :
                            pinColor === 'yellow' ? 'bg-yellow-500 border-yellow-500' : 
                            'bg-red-500 border-red-500';
           
@@ -481,6 +482,8 @@ const MapComponent: React.FC<MapComponentProps> = ({
                 className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-1 py-0.5 text-xs font-medium rounded border whitespace-nowrap shadow-lg mobile-area-label ${
                   pinColor === 'green' 
                     ? 'bg-green-500 text-white border-green-600' 
+                    : pinColor === 'orange'
+                    ? 'bg-orange-500 text-white border-orange-600'
                     : pinColor === 'yellow' 
                     ? 'bg-yellow-500 text-white border-yellow-600' 
                     : 'bg-red-500 text-white border-red-600'
