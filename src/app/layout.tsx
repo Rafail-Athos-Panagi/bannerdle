@@ -5,7 +5,7 @@ import LocalStorageInitializer from "@/components/LocalStorageInitializer";
 export const metadata: Metadata = {
   title: {
     default: "Bannerdle - Medieval Strategy Game Challenges",
-    template: "%s | Bannerdle"
+    template: "%s"
   },
   description: "Test your knowledge of Mount & Blade II: Bannerlord with daily troop guessing and map exploration challenges. Master Calradia's armies and geography in this engaging medieval strategy game.",
   keywords: [
