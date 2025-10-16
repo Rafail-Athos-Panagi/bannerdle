@@ -8,7 +8,7 @@ This is the Next.js migration of the Bannerlord Quest application, originally bu
 - **Map Quest (Calradia Globule)**: Interactive map exploration game for Calradia settlements and areas
 - **Contact Page**: User feedback and support system
 - **Responsive Design**: Mobile-friendly medieval-themed UI with custom CSS variables
-- **Real-time Updates**: Supabase integration for game state management
+- **Real-time Updates**: JSON-based data management for game state
 - **Local Storage Management**: Client-side game state persistence
 - **Scheduler Integration**: Automated daily content updates
 - **Interactive Maps**: Leaflet-based map visualization with custom markers
@@ -19,7 +19,7 @@ This is the Next.js migration of the Bannerlord Quest application, originally bu
 - **Framework**: Next.js 15.5.4 with App Router
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
-- **Database**: Supabase (PostgreSQL)
+- **Data Storage**: JSON files for game data
 - **Maps**: Leaflet 1.9.4 with React-Leaflet 5.0.0
 - **Icons**: React Icons 5.5.0
 - **Scheduling**: Node-cron 4.2.1
@@ -33,19 +33,12 @@ This is the Next.js migration of the Bannerlord Quest application, originally bu
    npm install
    ```
 
-2. Set up environment variables:
-   Create a `.env.local` file with your Supabase credentials:
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
-
-3. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 
@@ -60,9 +53,6 @@ src/
 │   │   ├── lastMapAreaSelection/   # Get last map area selection
 │   │   ├── lastSelection/          # Get last troop selection
 │   │   ├── map-areas/             # Map areas data
-│   │   ├── scheduler-control/     # Scheduler management
-│   │   ├── scheduler-status/      # Scheduler status
-│   │   ├── selectTroop/           # Manual troop selection
 │   │   ├── settlements/           # Settlements data
 │   │   └── troops/               # Troops data
 │   ├── calradia-globule/  # Map exploration game page
@@ -107,8 +97,7 @@ src/
 ├── hooks/                # Custom React hooks
 │   └── useLocalStorageInitializer.ts # Local storage hook
 ├── lib/                  # Utility libraries
-│   ├── scheduler-startup.ts # Scheduler initialization
-│   └── supabase.ts       # Supabase client
+│   └── scheduler-startup.ts # Scheduler initialization
 ├── dtos/                 # Data transfer objects
 │   └── CheckTroop.dto.ts # Troop check DTO
 └── config.ts             # App configuration
@@ -118,7 +107,6 @@ src/
 
 ### Troop Quest Endpoints
 - `GET /api/checkTroop` - Validate troop guess
-- `POST /api/selectTroop` - Manual troop selection
 - `POST /api/dailyTroopSelection` - Daily troop selection
 - `GET /api/lastSelection` - Get last troop selection data
 - `GET /api/troops` - Get all troops data
@@ -130,10 +118,6 @@ src/
 - `GET /api/map-areas` - Get all map areas data
 - `GET /api/settlements` - Get settlements data
 
-### System Endpoints
-- `GET /api/scheduler-status` - Get scheduler status
-- `POST /api/scheduler-control` - Control scheduler operations
-
 ## Migration Notes
 
 This project was migrated from Vite + React to Next.js with the following changes:
@@ -144,22 +128,15 @@ This project was migrated from Vite + React to Next.js with the following change
 - Updated navigation components to use Next.js Link
 - Maintained all original functionality and styling
 
-## Database Setup
+## Data Management
 
-Run the SQL scripts in the root directory to set up your Supabase database:
+The application uses JSON files for data storage and management:
 
-### Core Schema
-- `supabase-schema.sql` - Main database schema
-- `supabase-complete-schema.sql` - Complete database schema with all tables
-
-### Data Initialization
-- `initialize_first_area.sql` - Initialize map areas data
-- `intialize_first_troop.sql` - Initialize troop data
-- `seed_map_areas.sql` - Seed map areas with comprehensive data
-- `seed_troops.sql` - Seed troops with comprehensive data
-
-### Maintenance
-- `database-cleanup.sql` - Database cleanup and maintenance scripts
+### Game Data Files
+- `src/data/troops.json` - All troop data and information
+- `src/data/map_areas.json` - Map areas and settlement data
+- `src/data/guessed_troops.json` - Daily troop selections
+- `src/data/guessed_map_areas.json` - Daily map area selections
 
 ## Game Modes
 
@@ -201,13 +178,6 @@ An interactive map exploration game where players discover settlements and areas
 - User-friendly error messages
 
 ## Deployment
-
-### Environment Variables
-Create a `.env.local` file with the following variables:
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
 
 ### Build Commands
 ```bash
