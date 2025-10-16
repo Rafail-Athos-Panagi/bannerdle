@@ -127,12 +127,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo_new.png?v=1" type="image/png" />
+        <link rel="icon" href="/logo_new.png?v=1" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/logo_new.png?v=1" sizes="16x16" type="image/png" />
+        <link rel="shortcut icon" href="/logo_new.png?v=1" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo_new.png?v=1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo_new.png?v=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#d4af37" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Bannerlord Quest" />
-        <link rel="apple-touch-icon" href="/logo_new.png" />
+        <meta name="apple-mobile-web-app-title" content="Bannerdle" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
