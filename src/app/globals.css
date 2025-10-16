@@ -138,15 +138,58 @@ body {
   .tablet-navbar {
     padding: 0 1rem;
   }
+  
+  /* Better spacing for tablet cards */
+  .troop-quest-bg,
+  .map-quest-bg {
+    padding: 2rem !important;
+  }
+  
+  /* Tablet-specific map controls */
+  .map-controls {
+    gap: 6px;
+  }
 }
 
-/* Desktop responsiveness improvements */
-@media (min-width: 1025px) {
+/* Laptop responsiveness improvements */
+@media (min-width: 1025px) and (max-width: 1440px) {
   .mobile-area-label {
     font-size: 7px !important;
     padding: 2px 4px !important;
     margin-bottom: 1px !important;
     line-height: 1.1 !important;
+  }
+  
+  /* Laptop-specific optimizations */
+  .troop-quest-bg,
+  .map-quest-bg {
+    padding: 3rem !important;
+  }
+  
+  /* Better laptop navbar spacing */
+  .laptop-navbar {
+    padding: 0 1.5rem;
+  }
+  
+  /* Laptop map sidebar width */
+  .laptop-sidebar {
+    width: 18rem;
+  }
+}
+
+/* Desktop responsiveness improvements */
+@media (min-width: 1441px) {
+  .mobile-area-label {
+    font-size: 7px !important;
+    padding: 2px 4px !important;
+    margin-bottom: 1px !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Large desktop optimizations */
+  .troop-quest-bg,
+  .map-quest-bg {
+    padding: 4rem !important;
   }
 }
 

@@ -67,24 +67,33 @@ const MapComponent: React.FC<MapComponentProps> = ({
     loadLeaflet();
   }, []);
 
-  // Fetch settlements from API
+  // Fetch map areas from API
   useEffect(() => {
-    const fetchSettlements = async () => {
+    const fetchMapAreas = async () => {
       try {
-        const response = await fetch('/api/settlements');
+        const response = await fetch('/api/map-areas');
         if (response.ok) {
-          const settlementsData = await response.json();
+          const mapAreasData = await response.json();
+          // Convert map areas to settlements format for map rendering
+          const settlementsData = mapAreasData.map((area: MapArea, index: number) => ({
+            id: (index + 1).toString(),
+            name: area.name,
+            type: area.type.toLowerCase() as 'town' | 'castle' | 'village',
+            faction: area.faction,
+            center: area.coordinates as [number, number],
+            radius: 20 // Default radius for clickable area
+          }));
           setSettlements(settlementsData);
         } else {
-          console.error('Failed to fetch settlements');
+          console.error('Failed to fetch map areas');
         }
       } catch (error) {
-        console.error('Error fetching settlements:', error);
+        console.error('Error fetching map areas:', error);
       }
     };
 
     if (isClient) {
-      fetchSettlements();
+      fetchMapAreas();
     }
   }, [isClient]);
 
@@ -534,20 +543,20 @@ const MapComponent: React.FC<MapComponentProps> = ({
         )}
       </div>
 
-      {/* Zoom Controls - Mobile responsive */}
-      <div className="absolute top-16 right-2 lg:top-20 lg:right-4 flex flex-col gap-1 lg:gap-2 z-20">
+      {/* Zoom Controls - Responsive */}
+      <div className="absolute top-16 sm:top-18 lg:top-20 right-2 sm:right-3 lg:right-4 flex flex-col gap-1 sm:gap-1.5 lg:gap-2 z-20">
         {/* Zoom In Button */}
         <button
           onClick={zoomIn}
           disabled={zoomLevel >= MAX_ZOOM}
-          className="w-12 h-12 lg:w-10 lg:h-10 bg-[var(--bannerlord-custom-dark-brown)] hover:bg-[var(--bannerlord-custom-med-brown)] disabled:bg-[var(--bannerlord-custom-very-dark-brown)] disabled:opacity-50 border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] font-bold text-xl lg:text-lg transition-colors shadow-lg touch-manipulation"
+          className="w-10 h-10 sm:w-11 sm:h-11 lg:w-10 lg:h-10 bg-[var(--bannerlord-custom-dark-brown)] hover:bg-[var(--bannerlord-custom-med-brown)] disabled:bg-[var(--bannerlord-custom-very-dark-brown)] disabled:opacity-50 border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] font-bold text-lg sm:text-xl lg:text-lg transition-colors shadow-lg touch-manipulation"
           title="Zoom In (Ctrl + Plus or Mouse Wheel Up)"
         >
           +
         </button>
         
         {/* Zoom Level Display */}
-        <div className="w-12 h-10 lg:w-10 lg:h-8 bg-[var(--bannerlord-custom-dark-brown)] border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] text-sm lg:text-xs font-medium shadow-lg">
+        <div className="w-10 h-8 sm:w-11 sm:h-9 lg:w-10 lg:h-8 bg-[var(--bannerlord-custom-dark-brown)] border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] text-xs sm:text-sm lg:text-xs font-medium shadow-lg">
           {Math.round(zoomLevel * 100)}%
         </div>
         
@@ -555,7 +564,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
         <button
           onClick={zoomOut}
           disabled={zoomLevel <= MIN_ZOOM}
-          className="w-12 h-12 lg:w-10 lg:h-10 bg-[var(--bannerlord-custom-dark-brown)] hover:bg-[var(--bannerlord-custom-med-brown)] disabled:bg-[var(--bannerlord-custom-very-dark-brown)] disabled:opacity-50 border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] font-bold text-xl lg:text-lg transition-colors shadow-lg touch-manipulation"
+          className="w-10 h-10 sm:w-11 sm:h-11 lg:w-10 lg:h-10 bg-[var(--bannerlord-custom-dark-brown)] hover:bg-[var(--bannerlord-custom-med-brown)] disabled:bg-[var(--bannerlord-custom-very-dark-brown)] disabled:opacity-50 border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] font-bold text-lg sm:text-xl lg:text-lg transition-colors shadow-lg touch-manipulation"
           title="Zoom Out (Ctrl + Minus or Mouse Wheel Down)"
         >
           −
@@ -564,7 +573,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
         {/* Reset Zoom Button */}
         <button
           onClick={resetZoom}
-          className="w-12 h-10 lg:w-10 lg:h-8 bg-[var(--bannerlord-custom-dark-brown)] hover:bg-[var(--bannerlord-custom-med-brown)] border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] text-sm lg:text-xs font-medium transition-colors shadow-lg touch-manipulation"
+          className="w-10 h-8 sm:w-11 sm:h-9 lg:w-10 lg:h-8 bg-[var(--bannerlord-custom-dark-brown)] hover:bg-[var(--bannerlord-custom-med-brown)] border border-[var(--bannerlord-custom-med-brown)] rounded-lg flex items-center justify-center text-[var(--bannerlord-custom-light-cream)] text-xs sm:text-sm lg:text-xs font-medium transition-colors shadow-lg touch-manipulation"
           title="Reset Zoom (Ctrl + 0)"
         >
           ⌂

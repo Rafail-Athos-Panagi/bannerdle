@@ -1,55 +1,36 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import fs from 'fs';
+import path from 'path';
 import type { Troop } from '@/types/Troop.type';
 
 /**
  * Troops API
- * Provides access to troops data from database
+ * Provides access to troops data from JSON file
  */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const name = searchParams.get('name');
     
+    // Read troops data from JSON file
+    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'Troops.json');
+    const troopsData: Troop[] = JSON.parse(fs.readFileSync(troopsFilePath, 'utf8'));
+    
     if (name) {
       // Get specific troop by name
-      const { data: troop, error } = await supabase
-        .from('troops')
-        .select('*')
-        .eq('name', name)
-        .single();
-
-      if (error) {
-        if (error.code === 'PGRST116') {
-          return NextResponse.json(
-            { error: "Troop not found" },
-            { status: 404 }
-          );
-        }
-        console.error('Error fetching troop:', error);
+      const troop = troopsData.find(t => t.name.toLowerCase() === name.toLowerCase());
+      
+      if (!troop) {
         return NextResponse.json(
-          { error: "Failed to fetch troop" },
-          { status: 500 }
+          { error: "Troop not found" },
+          { status: 404 }
         );
       }
 
       return NextResponse.json(troop);
     } else {
       // Get all troops
-      const { data: troops, error } = await supabase
-        .from('troops')
-        .select('*')
-        .order('name');
-
-      if (error) {
-        console.error('Error fetching troops:', error);
-        return NextResponse.json(
-          { error: "Failed to fetch troops" },
-          { status: 500 }
-        );
-      }
-
-      return NextResponse.json(troops);
+      return NextResponse.json(troopsData);
     }
   } catch (error) {
     console.error("Error in troops API:", error);

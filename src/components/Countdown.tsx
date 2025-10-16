@@ -3,14 +3,12 @@ import { useState, useEffect } from "react";
 export default function MedievalCountdownModal() {
   function calculateTimeLeft() {
     const now = new Date();
-    const targetTime = new Date();
-    targetTime.setHours(23, 59, 0, 0);
+    
+    // Calculate next UTC midnight (00:00 UTC)
+    const nextUTCMidnight = new Date();
+    nextUTCMidnight.setUTCHours(24, 0, 0, 0); // Set to next day 00:00 UTC
 
-    if (now >= targetTime) {
-      targetTime.setDate(targetTime.getDate() + 1);
-    }
-
-    const difference = targetTime.getTime() - now.getTime();
+    const difference = nextUTCMidnight.getTime() - now.getTime();
 
     return {
       hours: Math.floor(difference / (1000 * 60 * 60)),
@@ -86,7 +84,7 @@ export default function MedievalCountdownModal() {
 
         <div className="border-t border-yellow-600 p-3 text-center">
           <p className="text-yellow-600 text-sm font-serif italic">
-            &quot;New troop is arriving at 23:59&quot;
+            &quot;New troop arrives at 00:00 UTC&quot;
           </p>
         </div>
       </div>

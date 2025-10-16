@@ -55,13 +55,13 @@ const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4">
+    <div className="w-full max-w-xl mx-auto px-2">
       <div className="relative" ref={comboboxRef}>
         <div className="relative flex flex-row text-center justify-center items-center">
           <input
             type="text"
             placeholder="Type to find the troop..."
-            className="w-full h-12 md:h-14 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border-2 border-[#8A691F] shadow-md rounded-lg rounded-r-none px-3 md:px-4 focus:outline-none text-sm md:text-base"
+            className="w-full h-10 md:h-12 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border border-[#8A691F] shadow-md rounded-lg rounded-r-none px-2 md:px-3 focus:outline-none text-sm"
             value={query}
             onChange={handleInputChange}
             onFocus={() => {
@@ -71,16 +71,16 @@ const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
             }}
           />
           <img
-            className="w-12 h-12 md:w-16 md:h-14 flex items-center justify-center border-none p-0 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
+            className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-none p-0 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
             src="/submit4.png"
             alt="submit_button"
             onClick={() => handleSelectOptionSubmit(query)}
           />
         </div>
         {isOpen && (
-          <div className="absolute z-10 mt-2 w-full max-h-60 overflow-auto rounded-md bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)]  py-1 text-base shadow-lg">
+          <div className="absolute z-10 mt-2 w-full max-h-48 overflow-auto rounded-md bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)]  py-1 text-sm shadow-lg">
             {filteredPeople.length === 0 && query !== "" ? (
-              <div className="cursor-default select-none py-2 px-4 text-[#D7B587] flex justify-center">
+              <div className="cursor-default select-none py-1.5 px-3 text-[#D7B587] flex justify-center text-sm">
                 No troop found.
               </div>
             ) : (
@@ -89,7 +89,7 @@ const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
                 return (
                   <div
                     key={troop.name}
-                    className={`cursor-pointer select-none relative py-2 pl-3 pr-4 text-[#D7B587] ${
+                    className={`cursor-pointer select-none relative py-1.5 pl-2 pr-3 text-[#D7B587] text-sm ${
                       isSelected ? "bg-[rgba(255,255,255,0.1)]" : ""
                     }`}
                     onClick={() => handleSelectOption(troop)}

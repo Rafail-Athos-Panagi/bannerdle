@@ -1,0 +1,3422 @@
+[
+  {
+    "name": "Ain Baliq Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      385,
+      800
+    ]
+  },
+  {
+    "name": "Barihal Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      405,
+      851
+    ]
+  },
+  {
+    "name": "Jamayeh Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      615,
+      887
+    ]
+  },
+  {
+    "name": "Medeni Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      586,
+      913
+    ]
+  },
+  {
+    "name": "Sahel Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      734,
+      892
+    ]
+  },
+  {
+    "name": "Shibal Zumr Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      789,
+      719
+    ]
+  },
+  {
+    "name": "Tamnuh Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      770,
+      770
+    ]
+  },
+  {
+    "name": "Tubilis Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      331,
+      676
+    ]
+  },
+  {
+    "name": "Uqba Castle",
+    "faction": "Aserai",
+    "type": "Castle",
+    "coordinates": [
+      427,
+      759
+    ]
+  },
+  {
+    "name": "Ab Comer Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      270,
+      443
+    ]
+  },
+  {
+    "name": "Aster Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      283,
+      374
+    ]
+  },
+  {
+    "name": "Druimmor Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      279,
+      312
+    ]
+  },
+  {
+    "name": "Flintolg Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      388,
+      306
+    ]
+  },
+  {
+    "name": "Llanoc Hen Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      299,
+      438
+    ]
+  },
+  {
+    "name": "Pendraic Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      329,
+      312
+    ]
+  },
+  {
+    "name": "Rhemtoil Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      377,
+      420
+    ]
+  },
+  {
+    "name": "Uthelaim Castle",
+    "faction": "Battania",
+    "type": "Castle",
+    "coordinates": [
+      421,
+      344
+    ]
+  },
+  {
+    "name": "Akiser Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      842,
+      530
+    ]
+  },
+  {
+    "name": "Dinar Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      825,
+      231
+    ]
+  },
+  {
+    "name": "Erzenur Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      845,
+      586
+    ]
+  },
+  {
+    "name": "Hakkun Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      855,
+      473
+    ]
+  },
+  {
+    "name": "Kaysar Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      840,
+      271
+    ]
+  },
+  {
+    "name": "Khimli Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      886,
+      381
+    ]
+  },
+  {
+    "name": "Simira Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      915,
+      519
+    ]
+  },
+  {
+    "name": "Tepes Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      843,
+      343
+    ]
+  },
+  {
+    "name": "Usek Castle",
+    "faction": "Khuzait",
+    "type": "Castle",
+    "coordinates": [
+      835,
+      413
+    ]
+  },
+  {
+    "name": "Mazhadan Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      470,
+      328
+    ]
+  },
+  {
+    "name": "Kranirog Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      440,
+      312
+    ]
+  },
+  {
+    "name": "Nevyansk Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      322,
+      268
+    ]
+  },
+  {
+    "name": "Ov Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      540,
+      278
+    ]
+  },
+  {
+    "name": "Takor Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      588,
+      265
+    ]
+  },
+  {
+    "name": "Urikskala Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      790,
+      263
+    ]
+  },
+  {
+    "name": "Ustokol Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      327,
+      203
+    ]
+  },
+  {
+    "name": "Vladiv Castle",
+    "faction": "Sturgia",
+    "type": "Castle",
+    "coordinates": [
+      728,
+      233
+    ]
+  },
+  {
+    "name": "Caleus Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      277,
+      263
+    ]
+  },
+  {
+    "name": "Drapand Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      134,
+      319
+    ]
+  },
+  {
+    "name": "Hongard Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      164,
+      465
+    ]
+  },
+  {
+    "name": "Ormanfard Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      241,
+      310
+    ]
+  },
+  {
+    "name": "Talivel Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      243,
+      467
+    ]
+  },
+  {
+    "name": "Tirby Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      202,
+      246
+    ]
+  },
+  {
+    "name": "Usanc Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      270,
+      550
+    ]
+  },
+  {
+    "name": "Verecsand Castle",
+    "faction": "Vlandia",
+    "type": "Castle",
+    "coordinates": [
+      231,
+      389
+    ]
+  },
+  {
+    "name": "Ataconia Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      511,
+      479
+    ]
+  },
+  {
+    "name": "Atriom Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      626,
+      396
+    ]
+  },
+  {
+    "name": "Gaos Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      666,
+      480
+    ]
+  },
+  {
+    "name": "Epinosa Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      773,
+      323
+    ]
+  },
+  {
+    "name": "Lochana Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      715,
+      337
+    ]
+  },
+  {
+    "name": "Mecalovea Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      505,
+      368
+    ]
+  },
+  {
+    "name": "Rhesos Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      531,
+      430
+    ]
+  },
+  {
+    "name": "Syratos Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      787,
+      375
+    ]
+  },
+  {
+    "name": "Varagos Castle",
+    "faction": "Northern Empire",
+    "type": "Castle",
+    "coordinates": [
+      588,
+      485
+    ]
+  },
+  {
+    "name": "Chanopsis Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      642,
+      521
+    ]
+  },
+  {
+    "name": "Corenia Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      785,
+      542
+    ]
+  },
+  {
+    "name": "Jogurys Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      775,
+      439
+    ]
+  },
+  {
+    "name": "Lavenia Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      737,
+      702
+    ]
+  },
+  {
+    "name": "Melion Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      732,
+      513
+    ]
+  },
+  {
+    "name": "Morenia Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      661,
+      666
+    ]
+  },
+  {
+    "name": "Odrysa Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      822,
+      626
+    ]
+  },
+  {
+    "name": "Sestadaim Castle",
+    "faction": "Southern Empire",
+    "type": "Castle",
+    "coordinates": [
+      587,
+      569
+    ]
+  },
+  {
+    "name": "Garontor Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      329,
+      601
+    ]
+  },
+  {
+    "name": "Gersegos Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      446,
+      423
+    ]
+  },
+  {
+    "name": "Hertogea Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      416,
+      501
+    ]
+  },
+  {
+    "name": "Onica Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      531,
+      676
+    ]
+  },
+  {
+    "name": "Oristocorys Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      421,
+      668
+    ]
+  },
+  {
+    "name": "Thorios Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      556,
+      549
+    ]
+  },
+  {
+    "name": "Thractorae Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      309,
+      525
+    ]
+  },
+  {
+    "name": "Veron Castle",
+    "faction": "Western Empire",
+    "type": "Castle",
+    "coordinates": [
+      319,
+      478
+    ]
+  },
+  {
+    "name": "Askar",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      452,
+      905
+    ]
+  },
+  {
+    "name": "Hubyar",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      666,
+      903
+    ]
+  },
+  {
+    "name": "Husn Fulq",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      813,
+      735
+    ]
+  },
+  {
+    "name": "Iyakis",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      586,
+      911
+    ]
+  },
+  {
+    "name": "Qasira",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      582,
+      837
+    ]
+  },
+  {
+    "name": "Quyaz",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      358,
+      686
+    ]
+  },
+  {
+    "name": "Razih",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      722,
+      815
+    ]
+  },
+  {
+    "name": "Sanala",
+    "faction": "Aserai",
+    "type": "Town",
+    "coordinates": [
+      480,
+      773
+    ]
+  },
+  {
+    "name": "Car Banseth",
+    "faction": "Battania",
+    "type": "Town",
+    "coordinates": [
+      305,
+      321
+    ]
+  },
+  {
+    "name": "Dunglanys",
+    "faction": "Battania",
+    "type": "Town",
+    "coordinates": [
+      321,
+      368
+    ]
+  },
+  {
+    "name": "Marunath",
+    "faction": "Battania",
+    "type": "Town",
+    "coordinates": [
+      349,
+      429
+    ]
+  },
+  {
+    "name": "Pen Cannoc",
+    "faction": "Battania",
+    "type": "Town",
+    "coordinates": [
+      279,
+      413
+    ]
+  },
+  {
+    "name": "Seonon",
+    "faction": "Battania",
+    "type": "Town",
+    "coordinates": [
+      394,
+      380
+    ]
+  },
+  {
+    "name": "Akkalat",
+    "faction": "Khuzait",
+    "type": "Town",
+    "coordinates": [
+      862,
+      528
+    ]
+  },
+  {
+    "name": "Baltakhand",
+    "faction": "Khuzait",
+    "type": "Town",
+    "coordinates": [
+      868,
+      288
+    ]
+  },
+  {
+    "name": "Chaikand",
+    "faction": "Khuzait",
+    "type": "Town",
+    "coordinates": [
+      812,
+      456
+    ]
+  },
+  {
+    "name": "Makeb",
+    "faction": "Khuzait",
+    "type": "Town",
+    "coordinates": [
+      813,
+      371
+    ]
+  },
+  {
+    "name": "Odokh",
+    "faction": "Khuzait",
+    "type": "Town",
+    "coordinates": [
+      893,
+      582
+    ]
+  },
+  {
+    "name": "Ortongard",
+    "faction": "Khuzait",
+    "type": "Town",
+    "coordinates": [
+      883,
+      418
+    ]
+  },
+  {
+    "name": "Balgard",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      555,
+      239
+    ]
+  },
+  {
+    "name": "Omor",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      537,
+      319
+    ]
+  },
+  {
+    "name": "Revyl",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      355,
+      224
+    ]
+  },
+  {
+    "name": "Sibir",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      653,
+      215
+    ]
+  },
+  {
+    "name": "Tyal",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      768,
+      240
+    ]
+  },
+  {
+    "name": "Varcheg",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      431,
+      262
+    ]
+  },
+  {
+    "name": "Varnovapol",
+    "faction": "Sturgia",
+    "type": "Town",
+    "coordinates": [
+      643,
+      270
+    ]
+  },
+  {
+    "name": "Charas",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      214,
+      583
+    ]
+  },
+  {
+    "name": "Galend",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      133,
+      473
+    ]
+  },
+  {
+    "name": "Jaculan",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      183,
+      500
+    ]
+  },
+  {
+    "name": "Ocs Hall",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      219,
+      349
+    ]
+  },
+  {
+    "name": "Ostican",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      164,
+      273
+    ]
+  },
+  {
+    "name": "Pravend",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      168,
+      378
+    ]
+  },
+  {
+    "name": "Rovalt",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      214,
+      272
+    ]
+  },
+  {
+    "name": "Sargot",
+    "faction": "Vlandia",
+    "type": "Town",
+    "coordinates": [
+      253,
+      512
+    ]
+  },
+  {
+    "name": "Amprela",
+    "faction": "Northern Empire",
+    "type": "Town",
+    "coordinates": [
+      736,
+      365
+    ]
+  },
+  {
+    "name": "Argoron",
+    "faction": "Northern Empire",
+    "type": "Town",
+    "coordinates": [
+      637,
+      349
+    ]
+  },
+  {
+    "name": "Diathma",
+    "faction": "Northern Empire",
+    "type": "Town",
+    "coordinates": [
+      556,
+      377
+    ]
+  },
+  {
+    "name": "Epicrotea",
+    "faction": "Northern Empire",
+    "type": "Town",
+    "coordinates": [
+      487,
+      380
+    ]
+  },
+  {
+    "name": "Myzea",
+    "faction": "Northern Empire",
+    "type": "Town",
+    "coordinates": [
+      717,
+      450
+    ]
+  },
+  {
+    "name": "Saneopa",
+    "faction": "Northern Empire",
+    "type": "Town",
+    "coordinates": [
+      610,
+      462
+    ]
+  },
+  {
+    "name": "Danustica",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      786,
+      673
+    ]
+  },
+  {
+    "name": "Lycaron",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      613,
+      589
+    ]
+  },
+  {
+    "name": "Onira",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      766,
+      601
+    ]
+  },
+  {
+    "name": "Phycaon",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      673,
+      564
+    ]
+  },
+  {
+    "name": "Poros",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      562,
+      679
+    ]
+  },
+  {
+    "name": "Syronea",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      773,
+      509
+    ]
+  },
+  {
+    "name": "Vostrum",
+    "faction": "Southern Empire",
+    "type": "Town",
+    "coordinates": [
+      675,
+      723
+    ]
+  },
+  {
+    "name": "Amitatys",
+    "faction": "Western Empire",
+    "type": "Town",
+    "coordinates": [
+      526,
+      557
+    ]
+  },
+  {
+    "name": "Jalmarys",
+    "faction": "Western Empire",
+    "type": "Town",
+    "coordinates": [
+      449,
+      576
+    ]
+  },
+  {
+    "name": "Lageta",
+    "faction": "Western Empire",
+    "type": "Town",
+    "coordinates": [
+      377,
+      494
+    ]
+  },
+  {
+    "name": "Ortysia",
+    "faction": "Western Empire",
+    "type": "Town",
+    "coordinates": [
+      363,
+      589
+    ]
+  },
+  {
+    "name": "Rhotae",
+    "faction": "Western Empire",
+    "type": "Town",
+    "coordinates": [
+      466,
+      497
+    ]
+  },
+  {
+    "name": "Zeonica",
+    "faction": "Western Empire",
+    "type": "Town",
+    "coordinates": [
+      492,
+      653
+    ]
+  },
+  {
+    "name": "Abba",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      565,
+      929
+    ]
+  },
+  {
+    "name": "Abghan",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      555,
+      831
+    ]
+  },
+  {
+    "name": "Abu Khih",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      837,
+      779
+    ]
+  },
+  {
+    "name": "Ain Baliq",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      339,
+      803
+    ]
+  },
+  {
+    "name": "Asmait",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      738,
+      919
+    ]
+  },
+  {
+    "name": "Barihal",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      426,
+      838
+    ]
+  },
+  {
+    "name": "Baq",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      354,
+      723
+    ]
+  },
+  {
+    "name": "Bir Seif",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      622,
+      913
+    ]
+  },
+  {
+    "name": "Bunqaz",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      384,
+      769
+    ]
+  },
+  {
+    "name": "Ezbet Nahul",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      606,
+      860
+    ]
+  },
+  {
+    "name": "Fanab",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      325,
+      705
+    ]
+  },
+  {
+    "name": "Hamoshawat",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      469,
+      817
+    ]
+  },
+  {
+    "name": "Hiblet",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      333,
+      737
+    ]
+  },
+  {
+    "name": "Hoqqa",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      861,
+      714
+    ]
+  },
+  {
+    "name": "Jahasim",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      466,
+      760
+    ]
+  },
+  {
+    "name": "Kuqa",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      774,
+      799
+    ]
+  },
+  {
+    "name": "Lamesa",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      783,
+      739
+    ]
+  },
+  {
+    "name": "Mabwaz",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      491,
+      893
+    ]
+  },
+  {
+    "name": "Medeni",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      520,
+      816
+    ]
+  },
+  {
+    "name": "Mijayit",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      487,
+      815
+    ]
+  },
+  {
+    "name": "Mussum",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      748,
+      831
+    ]
+  },
+  {
+    "name": "Nahlan",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      484,
+      843
+    ]
+  },
+  {
+    "name": "Qablab",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      703,
+      851
+    ]
+  },
+  {
+    "name": "Qidnar",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      504,
+      878
+    ]
+  },
+  {
+    "name": "Sahel",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      758,
+      905
+    ]
+  },
+  {
+    "name": "Shibal Zumr",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      806,
+      716
+    ]
+  },
+  {
+    "name": "Tamnuh",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      762,
+      722
+    ]
+  },
+  {
+    "name": "Tasheba",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      375,
+      703
+    ]
+  },
+  {
+    "name": "Tubilis",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      303,
+      691
+    ]
+  },
+  {
+    "name": "Uqba",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      451,
+      753
+    ]
+  },
+  {
+    "name": "Wadar",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      423,
+      871
+    ]
+  },
+  {
+    "name": "Zalm",
+    "faction": "Aserai",
+    "type": "Village",
+    "coordinates": [
+      454,
+      938
+    ]
+  },
+  {
+    "name": "Ab Comer",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      282,
+      437
+    ]
+  },
+  {
+    "name": "Andurn",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      384,
+      355
+    ]
+  },
+  {
+    "name": "Aster",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      307,
+      358
+    ]
+  },
+  {
+    "name": "Ath Cafal",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      326,
+      438
+    ]
+  },
+  {
+    "name": "Beglomuar",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      359,
+      438
+    ]
+  },
+  {
+    "name": "Bog Beth",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      266,
+      351
+    ]
+  },
+  {
+    "name": "Bryn Glas",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      396,
+      396
+    ]
+  },
+  {
+    "name": "Cantrec",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      314,
+      453
+    ]
+  },
+  {
+    "name": "Claig Ban",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      403,
+      424
+    ]
+  },
+  {
+    "name": "Dalmengus",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      363,
+      400
+    ]
+  },
+  {
+    "name": "Diantogmail",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      328,
+      392
+    ]
+  },
+  {
+    "name": "Druimmor",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      266,
+      306
+    ]
+  },
+  {
+    "name": "Durn",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      262,
+      435
+    ]
+  },
+  {
+    "name": "Ebereth",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      332,
+      407
+    ]
+  },
+  {
+    "name": "Fenon Etir",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      281,
+      467
+    ]
+  },
+  {
+    "name": "Flintolg",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      392,
+      336
+    ]
+  },
+  {
+    "name": "Gainseth",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      267,
+      378
+    ]
+  },
+  {
+    "name": "Geunat Nal",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      314,
+      333
+    ]
+  },
+  {
+    "name": "Glenlithrig",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      302,
+      343
+    ]
+  },
+  {
+    "name": "Glintor",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      347,
+      310
+    ]
+  },
+  {
+    "name": "Imlagh",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      310,
+      397
+    ]
+  },
+  {
+    "name": "Inveth",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      263,
+      462
+    ]
+  },
+  {
+    "name": "Lindorn",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      327,
+      341
+    ]
+  },
+  {
+    "name": "Llanoc Hen",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      303,
+      416
+    ]
+  },
+  {
+    "name": "Mag Arba",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      379,
+      395
+    ]
+  },
+  {
+    "name": "Morihig",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      302,
+      388
+    ]
+  },
+  {
+    "name": "Pendraic",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      320,
+      291
+    ]
+  },
+  {
+    "name": "Rhemtoil",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      403,
+      448
+    ]
+  },
+  {
+    "name": "Seordas",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      436,
+      336
+    ]
+  },
+  {
+    "name": "Swenryn",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      372,
+      338
+    ]
+  },
+  {
+    "name": "Tor Leiad",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      288,
+      344
+    ]
+  },
+  {
+    "name": "Tor Melina",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      258,
+      332
+    ]
+  },
+  {
+    "name": "Uthelaim",
+    "faction": "Battania",
+    "type": "Village",
+    "coordinates": [
+      429,
+      360
+    ]
+  },
+  {
+    "name": "Akiser",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      846,
+      494
+    ]
+  },
+  {
+    "name": "Asalig",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      871,
+      319
+    ]
+  },
+  {
+    "name": "Danara",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      891,
+      556
+    ]
+  },
+  {
+    "name": "Dinar",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      853,
+      223
+    ]
+  },
+  {
+    "name": "Erzenur",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      854,
+      690
+    ]
+  },
+  {
+    "name": "Esme",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      850,
+      391
+    ]
+  },
+  {
+    "name": "Fisnar",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      842,
+      296
+    ]
+  },
+  {
+    "name": "Gereden",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      835,
+      606
+    ]
+  },
+  {
+    "name": "Hakkun",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      841,
+      462
+    ]
+  },
+  {
+    "name": "Hanekhy",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      845,
+      357
+    ]
+  },
+  {
+    "name": "Ispantar",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      820,
+      494
+    ]
+  },
+  {
+    "name": "Kamshar",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      806,
+      514
+    ]
+  },
+  {
+    "name": "Karahalli",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      820,
+      210
+    ]
+  },
+  {
+    "name": "Karahan",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      899,
+      623
+    ]
+  },
+  {
+    "name": "Karakalat",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      895,
+      496
+    ]
+  },
+  {
+    "name": "Kaysar",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      861,
+      268
+    ]
+  },
+  {
+    "name": "Khimli",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      877,
+      364
+    ]
+  },
+  {
+    "name": "Kiraz",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      874,
+      480
+    ]
+  },
+  {
+    "name": "Kohi Ajik",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      938,
+      538
+    ]
+  },
+  {
+    "name": "Kuruluk",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      847,
+      315
+    ]
+  },
+  {
+    "name": "Mazen",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      807,
+      393
+    ]
+  },
+  {
+    "name": "Mivanjan",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      922,
+      436
+    ]
+  },
+  {
+    "name": "Nutyuk",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      914,
+      618
+    ]
+  },
+  {
+    "name": "Okhutan",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      818,
+      478
+    ]
+  },
+  {
+    "name": "Omrotok",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      905,
+      405
+    ]
+  },
+  {
+    "name": "Pabastan",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      804,
+      430
+    ]
+  },
+  {
+    "name": "Payam",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      849,
+      250
+    ]
+  },
+  {
+    "name": "Ransam",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      906,
+      456
+    ]
+  },
+  {
+    "name": "Shapeshte",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      814,
+      349
+    ]
+  },
+  {
+    "name": "Simira",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      925,
+      487
+    ]
+  },
+  {
+    "name": "Tepes",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      829,
+      340
+    ]
+  },
+  {
+    "name": "Tismil",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      853,
+      557
+    ]
+  },
+  {
+    "name": "Ulaan",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      862,
+      244
+    ]
+  },
+  {
+    "name": "Urunjan",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      865,
+      445
+    ]
+  },
+  {
+    "name": "Usek",
+    "faction": "Khuzait",
+    "type": "Village",
+    "coordinates": [
+      819,
+      426
+    ]
+  },
+  {
+    "name": "Alebat",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      631,
+      222
+    ]
+  },
+  {
+    "name": "Alov",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      775,
+      284
+    ]
+  },
+  {
+    "name": "Borchovagorka",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      683,
+      266
+    ]
+  },
+  {
+    "name": "Bukits",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      799,
+      241
+    ]
+  },
+  {
+    "name": "Chornobas",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      514,
+      347
+    ]
+  },
+  {
+    "name": "Dnin",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      350,
+      267
+    ]
+  },
+  {
+    "name": "Dvorusta",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      567,
+      272
+    ]
+  },
+  {
+    "name": "Ferkh",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      524,
+      260
+    ]
+  },
+  {
+    "name": "Forin",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      484,
+      332
+    ]
+  },
+  {
+    "name": "Glavstrom",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      736,
+      255
+    ]
+  },
+  {
+    "name": "Ismilkorg",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      453,
+      343
+    ]
+  },
+  {
+    "name": "Karbur",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      377,
+      215
+    ]
+  },
+  {
+    "name": "Kargrev",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      411,
+      281
+    ]
+  },
+  {
+    "name": "Korsyas",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      345,
+      241
+    ]
+  },
+  {
+    "name": "Kranirog",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      454,
+      293
+    ]
+  },
+  {
+    "name": "Kvol",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      681,
+      214
+    ]
+  },
+  {
+    "name": "Mazhadan",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      473,
+      313
+    ]
+  },
+  {
+    "name": "Nevyansk",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      340,
+      294
+    ]
+  },
+  {
+    "name": "Omkany",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      636,
+      257
+    ]
+  },
+  {
+    "name": "Ov",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      516,
+      279
+    ]
+  },
+  {
+    "name": "Radakmed",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      656,
+      235
+    ]
+  },
+  {
+    "name": "Rodobas",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      462,
+      271
+    ]
+  },
+  {
+    "name": "Safna",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      559,
+      258
+    ]
+  },
+  {
+    "name": "Skorin",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      542,
+      344
+    ]
+  },
+  {
+    "name": "Takor",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      587,
+      241
+    ]
+  },
+  {
+    "name": "Urikskala",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      796,
+      304
+    ]
+  },
+  {
+    "name": "Ustokol",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      288,
+      203
+    ]
+  },
+  {
+    "name": "Visibrot",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      777,
+      266
+    ]
+  },
+  {
+    "name": "Vladiv",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      734,
+      207
+    ]
+  },
+  {
+    "name": "Yangutum",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      613,
+      265
+    ]
+  },
+  {
+    "name": "Zhemyan",
+    "faction": "Sturgia",
+    "type": "Village",
+    "coordinates": [
+      317,
+      189
+    ]
+  },
+  {
+    "name": "Alantas",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      196,
+      263
+    ]
+  },
+  {
+    "name": "Alorstan",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      168,
+      496
+    ]
+  },
+  {
+    "name": "Arromanc",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      206,
+      525
+    ]
+  },
+  {
+    "name": "Caleus",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      292,
+      282
+    ]
+  },
+  {
+    "name": "Calioc",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      225,
+      501
+    ]
+  },
+  {
+    "name": "Cananc",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      180,
+      226
+    ]
+  },
+  {
+    "name": "Chornad",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      186,
+      478
+    ]
+  },
+  {
+    "name": "Drapand",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      122,
+      358
+    ]
+  },
+  {
+    "name": "Deriat",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      249,
+      260
+    ]
+  },
+  {
+    "name": "Etirburg",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      261,
+      480
+    ]
+  },
+  {
+    "name": "Ferton",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      162,
+      449
+    ]
+  },
+  {
+    "name": "Fregian",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      181,
+      349
+    ]
+  },
+  {
+    "name": "Furbec",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      150,
+      489
+    ]
+  },
+  {
+    "name": "Halisvust",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      219,
+      292
+    ]
+  },
+  {
+    "name": "Hongard",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      158,
+      421
+    ]
+  },
+  {
+    "name": "Horsger",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      184,
+      282
+    ]
+  },
+  {
+    "name": "Larnac",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      155,
+      357
+    ]
+  },
+  {
+    "name": "Mareiven",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      230,
+      361
+    ]
+  },
+  {
+    "name": "Marin",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      204,
+      394
+    ]
+  },
+  {
+    "name": "Mot",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      224,
+      525
+    ]
+  },
+  {
+    "name": "Ormanfard",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      218,
+      312
+    ]
+  },
+  {
+    "name": "Oritan",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      226,
+      325
+    ]
+  },
+  {
+    "name": "Palisont",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      190,
+      408
+    ]
+  },
+  {
+    "name": "Rodetan",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      241,
+      432
+    ]
+  },
+  {
+    "name": "Rulund",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      168,
+      412
+    ]
+  },
+  {
+    "name": "Savinth",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      236,
+      559
+    ]
+  },
+  {
+    "name": "Sirindac",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      186,
+      243
+    ]
+  },
+  {
+    "name": "Talivel",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      220,
+      468
+    ]
+  },
+  {
+    "name": "Tirby",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      197,
+      214
+    ]
+  },
+  {
+    "name": "Usanc",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      273,
+      569
+    ]
+  },
+  {
+    "name": "Valanby",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      145,
+      339
+    ]
+  },
+  {
+    "name": "Verecsand",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      211,
+      382
+    ]
+  },
+  {
+    "name": "Vesin",
+    "faction": "Vlandia",
+    "type": "Village",
+    "coordinates": [
+      201,
+      566
+    ]
+  },
+  {
+    "name": "Aeoria",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      597,
+      477
+    ]
+  },
+  {
+    "name": "Agalmon",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      493,
+      349
+    ]
+  },
+  {
+    "name": "Alatys",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      623,
+      333
+    ]
+  },
+  {
+    "name": "Alosea",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      541,
+      380
+    ]
+  },
+  {
+    "name": "Ataconia",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      537,
+      495
+    ]
+  },
+  {
+    "name": "Atrion",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      642,
+      420
+    ]
+  },
+  {
+    "name": "Avasinton",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      767,
+      358
+    ]
+  },
+  {
+    "name": "Boreagora",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      750,
+      343
+    ]
+  },
+  {
+    "name": "Crios",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      578,
+      457
+    ]
+  },
+  {
+    "name": "Dyopalis",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      511,
+      430
+    ]
+  },
+  {
+    "name": "Epinosa",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      787,
+      346
+    ]
+  },
+  {
+    "name": "Enoisa",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      619,
+      490
+    ]
+  },
+  {
+    "name": "Gaos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      684,
+      512
+    ]
+  },
+  {
+    "name": "Gymos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      509,
+      401
+    ]
+  },
+  {
+    "name": "Hetania",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      667,
+      359
+    ]
+  },
+  {
+    "name": "Jeracos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      583,
+      399
+    ]
+  },
+  {
+    "name": "Lochana",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      739,
+      317
+    ]
+  },
+  {
+    "name": "Marathea",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      458,
+      399
+    ]
+  },
+  {
+    "name": "Masangara",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      614,
+      413
+    ]
+  },
+  {
+    "name": "Mecalovea",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      498,
+      385
+    ]
+  },
+  {
+    "name": "Nortanisa",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      682,
+      338
+    ]
+  },
+  {
+    "name": "Orthra",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      678,
+      458
+    ]
+  },
+  {
+    "name": "Pons",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      763,
+      323
+    ]
+  },
+  {
+    "name": "Potamis",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      516,
+      456
+    ]
+  },
+  {
+    "name": "Rhesos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      553,
+      441
+    ]
+  },
+  {
+    "name": "Samatha",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      738,
+      439
+    ]
+  },
+  {
+    "name": "Stathymos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      485,
+      414
+    ]
+  },
+  {
+    "name": "Syratos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      774,
+      382
+    ]
+  },
+  {
+    "name": "Tememos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      769,
+      396
+    ]
+  },
+  {
+    "name": "Themys",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      691,
+      482
+    ]
+  },
+  {
+    "name": "Varagos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      593,
+      523
+    ]
+  },
+  {
+    "name": "Vealos",
+    "faction": "Northern Empire",
+    "type": "Village",
+    "coordinates": [
+      684,
+      409
+    ]
+  },
+  {
+    "name": "Alision",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      651,
+      713
+    ]
+  },
+  {
+    "name": "Amycon",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      572,
+      561
+    ]
+  },
+  {
+    "name": "Atphynia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      633,
+      690
+    ]
+  },
+  {
+    "name": "Avalyps",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      696,
+      673
+    ]
+  },
+  {
+    "name": "Caira",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      814,
+      671
+    ]
+  },
+  {
+    "name": "Canoros",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      594,
+      662
+    ]
+  },
+  {
+    "name": "Canterion",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      636,
+      616
+    ]
+  },
+  {
+    "name": "Chanopsis",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      677,
+      538
+    ]
+  },
+  {
+    "name": "Corenia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      810,
+      551
+    ]
+  },
+  {
+    "name": "Erebulos",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      750,
+      689
+    ]
+  },
+  {
+    "name": "Ethemisa",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      739,
+      677
+    ]
+  },
+  {
+    "name": "Eunalica",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      781,
+      459
+    ]
+  },
+  {
+    "name": "Gorcorys",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      661,
+      689
+    ]
+  },
+  {
+    "name": "Jogurys",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      661,
+      690
+    ]
+  },
+  {
+    "name": "Lanthas",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      737,
+      591
+    ]
+  },
+  {
+    "name": "Lartusys",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      757,
+      561
+    ]
+  },
+  {
+    "name": "Melion",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      731,
+      482
+    ]
+  },
+  {
+    "name": "Metachia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      798,
+      573
+    ]
+  },
+  {
+    "name": "Morenia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      655,
+      634
+    ]
+  },
+  {
+    "name": "Odrysa",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      808,
+      603
+    ]
+  },
+  {
+    "name": "Parasemnos",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      765,
+      628
+    ]
+  },
+  {
+    "name": "Polisia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      796,
+      693
+    ]
+  },
+  {
+    "name": "Popsia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      611,
+      538
+    ]
+  },
+  {
+    "name": "Psotai",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      763,
+      540
+    ]
+  },
+  {
+    "name": "Sagolina",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      741,
+      549
+    ]
+  },
+  {
+    "name": "Sagora",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      614,
+      628
+    ]
+  },
+  {
+    "name": "Saldannis",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      673,
+      597
+    ]
+  },
+  {
+    "name": "Sestadaim",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      599,
+      563
+    ]
+  },
+  {
+    "name": "Spotia",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      659,
+      581
+    ]
+  },
+  {
+    "name": "Tegresos",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      786,
+      646
+    ]
+  },
+  {
+    "name": "Tevea",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      584,
+      636
+    ]
+  },
+  {
+    "name": "Vargonis",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      782,
+      485
+    ]
+  },
+  {
+    "name": "Zestea",
+    "faction": "Southern Empire",
+    "type": "Village",
+    "coordinates": [
+      557,
+      634
+    ]
+  },
+  {
+    "name": "Aegosca",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      472,
+      574
+    ]
+  },
+  {
+    "name": "Alsasos",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      459,
+      632
+    ]
+  },
+  {
+    "name": "Arpotis",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      410,
+      561
+    ]
+  },
+  {
+    "name": "Bergum",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      571,
+      518
+    ]
+  },
+  {
+    "name": "Carphenion",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      470,
+      472
+    ]
+  },
+  {
+    "name": "Dradios",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      443,
+      530
+    ]
+  },
+  {
+    "name": "Elipa",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      517,
+      527
+    ]
+  },
+  {
+    "name": "Elvania",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      428,
+      648
+    ]
+  },
+  {
+    "name": "Gamardan",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      296,
+      552
+    ]
+  },
+  {
+    "name": "Garontor",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      332,
+      577
+    ]
+  },
+  {
+    "name": "Gersegos",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      434,
+      392
+    ]
+  },
+  {
+    "name": "Goleryn",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      308,
+      498
+    ]
+  },
+  {
+    "name": "Garengolia",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      365,
+      562
+    ]
+  },
+  {
+    "name": "Hertogea",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      406,
+      484
+    ]
+  },
+  {
+    "name": "Leblenion",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      424,
+      522
+    ]
+  },
+  {
+    "name": "Lysia",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      344,
+      598
+    ]
+  },
+  {
+    "name": "Montos",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      370,
+      464
+    ]
+  },
+  {
+    "name": "Neocorys",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      468,
+      603
+    ]
+  },
+  {
+    "name": "Nideon",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      396,
+      517
+    ]
+  },
+  {
+    "name": "Onica",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      546,
+      681
+    ]
+  },
+  {
+    "name": "Oristocorys",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      421,
+      621
+    ]
+  },
+  {
+    "name": "Phasos",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      489,
+      536
+    ]
+  },
+  {
+    "name": "Primessos",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      356,
+      508
+    ]
+  },
+  {
+    "name": "Tarcutis",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      517,
+      655
+    ]
+  },
+  {
+    "name": "Thersenion",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      453,
+      516
+    ]
+  },
+  {
+    "name": "Thorios",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      555,
+      514
+    ]
+  },
+  {
+    "name": "Thractorae",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      308,
+      568
+    ]
+  },
+  {
+    "name": "Vathea",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      457,
+      434
+    ]
+  },
+  {
+    "name": "Veron",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      343,
+      463
+    ]
+  },
+  {
+    "name": "Vinela",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      407,
+      601
+    ]
+  },
+  {
+    "name": "Zeocorys",
+    "faction": "Western Empire",
+    "type": "Village",
+    "coordinates": [
+      499,
+      616
+    ]
+  }
+]

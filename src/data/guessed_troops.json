@@ -1,0 +1,778 @@
+{
+  "2025-10-14": {
+    "id": 1,
+    "name": "Vlandian Knight"
+  },
+  "2025-10-15": {
+    "id": 2,
+    "name": "Vlandian Banner Knight"
+  },
+  "2025-10-16": {
+    "id": 3,
+    "name": "Veteran Sword Sister"
+  },
+  "2025-10-17": {
+    "id": 4,
+    "name": "Sword Sister"
+  },
+  "2025-10-18": {
+    "id": 5,
+    "name": "Sturgian Horse Raider"
+  },
+  "2025-10-19": {
+    "id": 6,
+    "name": "Highwayman"
+  },
+  "2025-10-20": {
+    "id": 7,
+    "name": "Battanian Clan Warrior"
+  },
+  "2025-10-21": {
+    "id": 8,
+    "name": "Aserai Light Archer"
+  },
+  "2025-10-22": {
+    "id": 9,
+    "name": "Vlandian Light Cavalry"
+  },
+  "2025-10-23": {
+    "id": 10,
+    "name": "Aserai Mamluke Heavy Cavalry"
+  },
+  "2025-10-24": {
+    "id": 11,
+    "name": "Battanian Volunteer"
+  },
+  "2025-10-25": {
+    "id": 12,
+    "name": "Khuzait Kheshig"
+  },
+  "2025-10-26": {
+    "id": 13,
+    "name": "Nomad Bandit"
+  },
+  "2025-10-27": {
+    "id": 14,
+    "name": "Veteran Eleftheroi"
+  },
+  "2025-10-28": {
+    "id": 15,
+    "name": "Jawwal Camel Rider"
+  },
+  "2025-10-29": {
+    "id": 16,
+    "name": "Battanian Oathsworn"
+  },
+  "2025-10-30": {
+    "id": 17,
+    "name": "Outrider"
+  },
+  "2025-10-31": {
+    "id": 18,
+    "name": "Aserai Mamluke Axeman"
+  },
+  "2025-11-01": {
+    "id": 19,
+    "name": "Vlandian Galland"
+  },
+  "2025-11-02": {
+    "id": 20,
+    "name": "Aserai Archer"
+  },
+  "2025-11-03": {
+    "id": 21,
+    "name": "Sea Raider Boss"
+  },
+  "2025-11-04": {
+    "id": 22,
+    "name": "Imperial Elite Cataphract"
+  },
+  "2025-11-05": {
+    "id": 23,
+    "name": "Sea Raider Warrior"
+  },
+  "2025-11-06": {
+    "id": 24,
+    "name": "Sturgian Brigand"
+  },
+  "2025-11-07": {
+    "id": 25,
+    "name": "Recruit Forester"
+  },
+  "2025-11-08": {
+    "id": 26,
+    "name": "Sturgian Heavy Axeman"
+  },
+  "2025-11-09": {
+    "id": 27,
+    "name": "Sturgian Woodsman"
+  },
+  "2025-11-10": {
+    "id": 28,
+    "name": "Battanian Veteran Falxman"
+  },
+  "2025-11-11": {
+    "id": 29,
+    "name": "Varyag Veteran"
+  },
+  "2025-11-12": {
+    "id": 30,
+    "name": "Spark"
+  },
+  "2025-11-13": {
+    "id": 31,
+    "name": "Aserai Mamluke Cavalry"
+  },
+  "2025-11-14": {
+    "id": 32,
+    "name": "Veteran Outrider"
+  },
+  "2025-11-15": {
+    "id": 33,
+    "name": "Vlandian Cavalry"
+  },
+  "2025-11-16": {
+    "id": 34,
+    "name": "Khuzait Raider"
+  },
+  "2025-11-17": {
+    "id": 35,
+    "name": "Sturgian Spearman"
+  },
+  "2025-11-18": {
+    "id": 36,
+    "name": "Vlandian Recruit"
+  },
+  "2025-11-19": {
+    "id": 37,
+    "name": "Khuzait Marksman"
+  },
+  "2025-11-20": {
+    "id": 38,
+    "name": "Brigand"
+  },
+  "2025-11-21": {
+    "id": 39,
+    "name": "Steppe Bandit"
+  },
+  "2025-11-22": {
+    "id": 40,
+    "name": "Khuzait Spear Infantry"
+  },
+  "2025-11-23": {
+    "id": 41,
+    "name": "Sellsword"
+  },
+  "2025-11-24": {
+    "id": 42,
+    "name": "Skolder Warrior Broda"
+  },
+  "2025-11-25": {
+    "id": 43,
+    "name": "Imperial Archer"
+  },
+  "2025-11-26": {
+    "id": 44,
+    "name": "Veteran Forester"
+  },
+  "2025-11-27": {
+    "id": 45,
+    "name": "Battanian Raider"
+  },
+  "2025-11-28": {
+    "id": 46,
+    "name": "Sturgian Warrior"
+  },
+  "2025-11-29": {
+    "id": 47,
+    "name": "Young Wolf"
+  },
+  "2025-11-30": {
+    "id": 48,
+    "name": "Sturgian Otrok"
+  },
+  "2025-12-01": {
+    "id": 49,
+    "name": "Beni Zilal Soldier"
+  },
+  "2025-12-02": {
+    "id": 50,
+    "name": "Jawwal Bedouin"
+  },
+  "2025-12-03": {
+    "id": 51,
+    "name": "Marauder"
+  },
+  "2025-12-04": {
+    "id": 52,
+    "name": "Hired Crossbow"
+  },
+  "2025-12-05": {
+    "id": 53,
+    "name": "Forest Bandit Boss"
+  },
+  "2025-12-06": {
+    "id": 54,
+    "name": "Vlandian Vanguard"
+  },
+  "2025-12-07": {
+    "id": 55,
+    "name": "Khuzait Darkhan"
+  },
+  "2025-12-08": {
+    "id": 56,
+    "name": "Steppe Bandit Boss"
+  },
+  "2025-12-09": {
+    "id": 57,
+    "name": "Principes"
+  },
+  "2025-12-10": {
+    "id": 58,
+    "name": "Vlandian Swordsman"
+  },
+  "2025-12-11": {
+    "id": 59,
+    "name": "Karakhergit Rider"
+  },
+  "2025-12-12": {
+    "id": 60,
+    "name": "Khuzait Nomad"
+  },
+  "2025-12-13": {
+    "id": 61,
+    "name": "Sturgian Hunter"
+  },
+  "2025-12-14": {
+    "id": 62,
+    "name": "Vlandian Champion"
+  },
+  "2025-12-15": {
+    "id": 63,
+    "name": "Aserai Vanguard Faris"
+  },
+  "2025-12-16": {
+    "id": 64,
+    "name": "Imperial Infantryman"
+  },
+  "2025-12-17": {
+    "id": 65,
+    "name": "Raider"
+  },
+  "2025-12-18": {
+    "id": 66,
+    "name": "Battanian Highborn Warrior"
+  },
+  "2025-12-19": {
+    "id": 67,
+    "name": "Vlandian Footman"
+  },
+  "2025-12-20": {
+    "id": 68,
+    "name": "Khuzait Lancer"
+  },
+  "2025-12-21": {
+    "id": 69,
+    "name": "Sea Raider Chief"
+  },
+  "2025-12-22": {
+    "id": 70,
+    "name": "Battanian Mounted Skirmisher"
+  },
+  "2025-12-23": {
+    "id": 71,
+    "name": "Aserai Footman"
+  },
+  "2025-12-24": {
+    "id": 72,
+    "name": "Aserai Veteran Faris"
+  },
+  "2025-12-25": {
+    "id": 73,
+    "name": "Hillman"
+  },
+  "2025-12-26": {
+    "id": 74,
+    "name": "Beni Zilal Royal Guard"
+  },
+  "2025-12-27": {
+    "id": 75,
+    "name": "Lake Rat Veteran"
+  },
+  "2025-12-28": {
+    "id": 76,
+    "name": "Aserai Tribal Horseman"
+  },
+  "2025-12-29": {
+    "id": 77,
+    "name": "Bedouin Rover"
+  },
+  "2025-12-30": {
+    "id": 78,
+    "name": "Flame"
+  },
+  "2025-12-31": {
+    "id": 79,
+    "name": "Skolder Recruit"
+  },
+  "2026-01-01": {
+    "id": 80,
+    "name": "Lake Rat Wrecker"
+  },
+  "2026-01-02": {
+    "id": 81,
+    "name": "Chosen Wolf"
+  },
+  "2026-01-03": {
+    "id": 82,
+    "name": "Khuzait Heavy Lancer"
+  },
+  "2026-01-04": {
+    "id": 83,
+    "name": "Khuzait Footman"
+  },
+  "2026-01-05": {
+    "id": 84,
+    "name": "Ghilman"
+  },
+  "2026-01-06": {
+    "id": 85,
+    "name": "Hidden Pawn"
+  },
+  "2026-01-07": {
+    "id": 86,
+    "name": "Vlandian Pikeman"
+  },
+  "2026-01-08": {
+    "id": 87,
+    "name": "Hired Pike"
+  },
+  "2026-01-09": {
+    "id": 88,
+    "name": "Battanian Wood Runner"
+  },
+  "2026-01-10": {
+    "id": 89,
+    "name": "Imperial Bucellarii"
+  },
+  "2026-01-11": {
+    "id": 90,
+    "name": "Sturgian Druzhinnik Champion"
+  },
+  "2026-01-12": {
+    "id": 91,
+    "name": "Battanian Veteran Skirmisher"
+  },
+  "2026-01-13": {
+    "id": 92,
+    "name": "Lake Rat Recruit"
+  },
+  "2026-01-14": {
+    "id": 93,
+    "name": "Khuzait Horse Archer"
+  },
+  "2026-01-15": {
+    "id": 94,
+    "name": "Imperial Equite"
+  },
+  "2026-01-16": {
+    "id": 95,
+    "name": "Hidden Hand"
+  },
+  "2026-01-17": {
+    "id": 96,
+    "name": "Gallant Sword Sister"
+  },
+  "2026-01-18": {
+    "id": 97,
+    "name": "Hired Elite Pike"
+  },
+  "2026-01-19": {
+    "id": 98,
+    "name": "Puppeteer"
+  },
+  "2026-01-20": {
+    "id": 99,
+    "name": "Imperial Elite Menavliaton"
+  },
+  "2026-01-21": {
+    "id": 100,
+    "name": "Karakhergit Nomad"
+  },
+  "2026-01-22": {
+    "id": 101,
+    "name": "Khuzait Tribal Warrior"
+  },
+  "2026-01-23": {
+    "id": 102,
+    "name": "Mercenary Maceman"
+  },
+  "2026-01-24": {
+    "id": 103,
+    "name": "Jawwal Recruit"
+  },
+  "2026-01-25": {
+    "id": 104,
+    "name": "Aserai Mamluke Palace Guard"
+  },
+  "2026-01-26": {
+    "id": 105,
+    "name": "Imperial Crossbowman"
+  },
+  "2026-01-27": {
+    "id": 106,
+    "name": "Expert Eleftheroi"
+  },
+  "2026-01-28": {
+    "id": 107,
+    "name": "Battanian Hero"
+  },
+  "2026-01-29": {
+    "id": 108,
+    "name": "Aserai Faris"
+  },
+  "2026-01-30": {
+    "id": 109,
+    "name": "Battanian Skirmisher"
+  },
+  "2026-01-31": {
+    "id": 110,
+    "name": "Sturgian Hardened Brigand"
+  },
+  "2026-02-01": {
+    "id": 111,
+    "name": "Expert Forester"
+  },
+  "2026-02-02": {
+    "id": 112,
+    "name": "Vlandian Spearman"
+  },
+  "2026-02-03": {
+    "id": 113,
+    "name": "Vlandian Voulgier"
+  },
+  "2026-02-04": {
+    "id": 114,
+    "name": "Imperial Vigla Recruit"
+  },
+  "2026-02-05": {
+    "id": 115,
+    "name": "Aserai Infantry"
+  },
+  "2026-02-06": {
+    "id": 116,
+    "name": "Sturgian Line Breaker"
+  },
+  "2026-02-07": {
+    "id": 117,
+    "name": "Boar Champion"
+  },
+  "2026-02-08": {
+    "id": 118,
+    "name": "Sisterhood Follower"
+  },
+  "2026-02-09": {
+    "id": 119,
+    "name": "Ghulam"
+  },
+  "2026-02-10": {
+    "id": 120,
+    "name": "Elite Mercenary Maceman"
+  },
+  "2026-02-11": {
+    "id": 121,
+    "name": "Seasoned Wolf"
+  },
+  "2026-02-12": {
+    "id": 122,
+    "name": "Imperial Trained Infantryman"
+  },
+  "2026-02-13": {
+    "id": 123,
+    "name": "Harami"
+  },
+  "2026-02-14": {
+    "id": 124,
+    "name": "Elite Hired Crossbow"
+  },
+  "2026-02-15": {
+    "id": 125,
+    "name": "Battanian Falxman"
+  },
+  "2026-02-16": {
+    "id": 126,
+    "name": "Khuzait Hunter"
+  },
+  "2026-02-17": {
+    "id": 127,
+    "name": "Sturgian Veteran Bowman"
+  },
+  "2026-02-18": {
+    "id": 128,
+    "name": "Boar Veteran"
+  },
+  "2026-02-19": {
+    "id": 129,
+    "name": "Blaze"
+  },
+  "2026-02-20": {
+    "id": 130,
+    "name": "Desert Bandit Boss"
+  },
+  "2026-02-21": {
+    "id": 131,
+    "name": "Khuzait Archer"
+  },
+  "2026-02-22": {
+    "id": 132,
+    "name": "Vlandian Sergeant"
+  },
+  "2026-02-23": {
+    "id": 133,
+    "name": "Aserai Mamluke Soldier"
+  },
+  "2026-02-24": {
+    "id": 134,
+    "name": "Battanian Scout"
+  },
+  "2026-02-25": {
+    "id": 135,
+    "name": "Vlandian Levy Crossbowman"
+  },
+  "2026-02-26": {
+    "id": 136,
+    "name": "Battanian Highborn Youth"
+  },
+  "2026-02-27": {
+    "id": 137,
+    "name": "Aserai Mamluke Guard"
+  },
+  "2026-02-28": {
+    "id": 138,
+    "name": "Imperial Heavy Horseman"
+  },
+  "2026-03-01": {
+    "id": 139,
+    "name": "Battanian Fian Champion"
+  },
+  "2026-03-02": {
+    "id": 140,
+    "name": "Arboreal"
+  },
+  "2026-03-03": {
+    "id": 141,
+    "name": "Recruit Eleftheroi"
+  },
+  "2026-03-04": {
+    "id": 142,
+    "name": "Varyag"
+  },
+  "2026-03-05": {
+    "id": 143,
+    "name": "Skolder Veteran Broda"
+  },
+  "2026-03-06": {
+    "id": 144,
+    "name": "Aserai Recruit"
+  },
+  "2026-03-07": {
+    "id": 145,
+    "name": "Bushwacker"
+  },
+  "2026-03-08": {
+    "id": 146,
+    "name": "Vlandian Billman"
+  },
+  "2026-03-09": {
+    "id": 147,
+    "name": "Beni Zilal Recruit"
+  },
+  "2026-03-10": {
+    "id": 148,
+    "name": "Koleman"
+  },
+  "2026-03-11": {
+    "id": 149,
+    "name": "Aserai Youth"
+  },
+  "2026-03-12": {
+    "id": 150,
+    "name": "Sea Raider"
+  },
+  "2026-03-13": {
+    "id": 151,
+    "name": "Vlandian Crossbowman"
+  },
+  "2026-03-14": {
+    "id": 152,
+    "name": "Karakhergit Elder"
+  },
+  "2026-03-15": {
+    "id": 153,
+    "name": "Sapling"
+  },
+  "2026-03-16": {
+    "id": 154,
+    "name": "Imperial Sergeant Crossbowman"
+  },
+  "2026-03-17": {
+    "id": 155,
+    "name": "Khuzait Khan's Guard"
+  },
+  "2026-03-18": {
+    "id": 156,
+    "name": "Imperial Palatine Guard"
+  },
+  "2026-03-19": {
+    "id": 157,
+    "name": "Vlandian Squire"
+  },
+  "2026-03-20": {
+    "id": 158,
+    "name": "Battanian Horseman"
+  },
+  "2026-03-21": {
+    "id": 159,
+    "name": "Aserai Veteran Infantry"
+  },
+  "2026-03-22": {
+    "id": 160,
+    "name": "Khuzait Spearman"
+  },
+  "2026-03-23": {
+    "id": 161,
+    "name": "Imperial Trained Archer"
+  },
+  "2026-03-24": {
+    "id": 162,
+    "name": "Imperial Veteran Archer"
+  },
+  "2026-03-25": {
+    "id": 163,
+    "name": "Khuzait Horseman"
+  },
+  "2026-03-26": {
+    "id": 164,
+    "name": "Triarii"
+  },
+  "2026-03-27": {
+    "id": 165,
+    "name": "Imperial Menavliaton"
+  },
+  "2026-03-28": {
+    "id": 166,
+    "name": "Vlandian Sharpshooter"
+  },
+  "2026-03-29": {
+    "id": 167,
+    "name": "Vlandian Hardened Crossbowman"
+  },
+  "2026-03-30": {
+    "id": 168,
+    "name": "Mountain Bandit Boss"
+  },
+  "2026-03-31": {
+    "id": 169,
+    "name": "Freebooter"
+  },
+  "2026-04-01": {
+    "id": 170,
+    "name": "Aserai Mamluke Regular"
+  },
+  "2026-04-02": {
+    "id": 171,
+    "name": "Imperial Recruit"
+  },
+  "2026-04-03": {
+    "id": 172,
+    "name": "Sturgian Archer"
+  },
+  "2026-04-04": {
+    "id": 173,
+    "name": "Boar Novice"
+  },
+  "2026-04-05": {
+    "id": 174,
+    "name": "Aserai Tribesman"
+  },
+  "2026-04-06": {
+    "id": 175,
+    "name": "Imperial Veteran Infantryman"
+  },
+  "2026-04-07": {
+    "id": 176,
+    "name": "Khuzait Torguud"
+  },
+  "2026-04-08": {
+    "id": 177,
+    "name": "Khuzait Heavy Horse Archer"
+  },
+  "2026-04-09": {
+    "id": 178,
+    "name": "Sprout"
+  },
+  "2026-04-10": {
+    "id": 179,
+    "name": "Hastati"
+  },
+  "2026-04-11": {
+    "id": 180,
+    "name": "Sturgian Druzhinnik"
+  },
+  "2026-04-12": {
+    "id": 181,
+    "name": "Khuzait Qanqli"
+  },
+  "2026-04-13": {
+    "id": 182,
+    "name": "Sturgian Recruit"
+  },
+  "2026-04-14": {
+    "id": 183,
+    "name": "Battanian Wildling"
+  },
+  "2026-04-15": {
+    "id": 184,
+    "name": "Sturgian Heavy Spearman"
+  },
+  "2026-04-16": {
+    "id": 185,
+    "name": "Battanian Trained Warrior"
+  },
+  "2026-04-17": {
+    "id": 186,
+    "name": "Hired Spear"
+  },
+  "2026-04-18": {
+    "id": 187,
+    "name": "Sturgian Soldier"
+  },
+  "2026-04-19": {
+    "id": 188,
+    "name": "Battanian Picked Warrior"
+  },
+  "2026-04-20": {
+    "id": 189,
+    "name": "Aserai Master Archer"
+  },
+  "2026-04-21": {
+    "id": 190,
+    "name": "Khuzait Noble's Son"
+  },
+  "2026-04-22": {
+    "id": 191,
+    "name": "Imperial Legionary"
+  },
+  "2026-04-23": {
+    "id": 192,
+    "name": "Forest Bandit"
+  },
+  "2026-04-24": {
+    "id": 193,
+    "name": "Imperial Cataphract"
+  },
+  "2026-04-25": {
+    "id": 194,
+    "name": "Battanian Fian"
+  }
+}

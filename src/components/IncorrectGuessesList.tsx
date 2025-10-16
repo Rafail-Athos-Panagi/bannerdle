@@ -9,45 +9,45 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
     <div className="mt-6">
       <div
         style={{ animationDelay: "0.4s" }}
-        className="animate-flip bg-[#342B26] p-4 rounded"
+        className="animate-flip bg-[#342B26] p-2 rounded"
       >
         <div className="w-full bg-[#342B26] flex flex-col items-center justify-center">
           <h2
             style={{ animationDelay: "0.8s" }}
-            className="animate-flip text-xl font-bold text-[#D7B587] text-center bg-[#342B26] p-2"
+            className="animate-flip text-lg font-bold text-[#D7B587] text-center bg-[#342B26] p-1"
           >
             Guessed Troops
           </h2>
-          <p className="border-b-3 border-[#53481b] rounded w-2/4"></p>
+          <p className="border-b-2 border-[#53481b] rounded w-2/4"></p>
         </div>
-        <div className="hidden md:grid grid-cols-8 gap-4 mt-4">
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "1.2s" }}>Image</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "1.4s" }}>Name</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "1.6s" }}>Tier</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "1.8s" }}>Type</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "2.0s" }}>Occupation</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "2.2s" }}>Banner</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "2.4s" }}>Culture</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-sm" style={{ animationDelay: "2.6s" }}>Faction</div>
+        <div className="hidden md:grid grid-cols-8 gap-4 mt-2">
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.2s" }}>Image</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.4s" }}>Name</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.6s" }}>Tier</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.8s" }}>Type</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.0s" }}>Occupation</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.2s" }}>Banner</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.4s" }}>Culture</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.6s" }}>Faction</div>
         </div>
       </div>
-      <div className="space-y-4 mt-2 bg-[#111827] p-2 md:p-4 shadow-lg">
+      <div className="space-y-4 mt-1 bg-[#111827] p-1 md:p-2 shadow-lg">
         {incorrectGuesses.map((guess, index) => (
           <div
             key={guess.name}
             style={{ animationDelay: `${index * 0.4}s` }}
-            className="animate-flip md:grid md:grid-cols-8 md:gap-4 md:h-40 p-3 md:p-4 rounded bg-gradient-to-r from-[#1c1c1c] via-[#2d2d2d] to-[#1c1c1c] transition-all duration-300 ease hover:shadow-[0_0_12px_rgba(255,215,0,0.5)]"
+            className="animate-flip md:grid md:grid-cols-8 md:gap-4 md:h-32 p-2 md:p-3 rounded bg-gradient-to-r from-[#1c1c1c] via-[#2d2d2d] to-[#1c1c1c] transition-all duration-300 ease hover:shadow-[0_0_12px_rgba(255,215,0,0.5)]"
           >
             {/* Mobile Layout */}
-            <div className="md:hidden space-y-3">
-              <div className="flex items-center space-x-3">
+            <div className="md:hidden space-y-2">
+              <div className="flex items-center space-x-2">
                 <img
                   src={guess.image}
                   alt={guess.name}
-                  className="w-12 h-12 rounded"
+                  className="w-10 h-10 rounded"
                 />
                 <div className="flex-1">
-                  <h3 className={`text-lg font-bold ${
+                  <h3 className={`text-sm font-bold ${
                     guess.nameStatus === "Wrong" ? "text-red-500" : "text-green-500"
                   }`}>
                     {guess.name}
@@ -78,7 +78,7 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-sm">
+              <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className={`animate-flip p-2 rounded border-b-4 border-t-4 border-[#53481b] flex flex-col items-center justify-center ${
                   guess.typeStatus === "Wrong"
                     ? "text-red-500"
@@ -121,7 +121,7 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
               />
             </div>
             <div className="hidden md:flex animate-flip w-full justify-center items-center text-[#D7B587] text-center rounded border-b-4 border-t-4 border-[#53481b]" style={{ animationDelay: `${(index * 0.4) + 0.4}s` }}>
-              <span className={guess.nameStatus === "Wrong" ? "text-red-500" : "text-green-500"}>
+              <span className={`text-sm ${guess.nameStatus === "Wrong" ? "text-red-500" : "text-green-500"}`}>
                 {guess.name}
               </span>
             </div>
@@ -160,28 +160,28 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
                   zIndex: 1,
                   width: "100%",
                 }}
-                className="flex justify-center items-center text-[#D7B587] text-lg font-bold"
+                className="flex justify-center items-center text-[#D7B587] text-sm font-bold"
               >
                 {guess.tier}
               </div>
             </div>
             <div className="hidden md:flex animate-flip justify-center items-center text-center rounded border-b-4 border-t-4 border-[#53481b]" style={{ animationDelay: `${(index * 0.4) + 0.8}s` }}>
-              <span className={
+              <span className={`text-sm ${
                 guess.typeStatus === "Wrong"
                   ? "text-red-500"
                   : guess.typeStatus === "Partial"
                   ? "text-yellow-500"
                   : "text-green-500"
-              }>
+              }`}>
                 {guess.type}
               </span>
             </div>
             <div className="hidden md:flex animate-flip justify-center items-center text-center rounded border-b-4 border-t-4 border-[#53481b]" style={{ animationDelay: `${(index * 0.4) + 1.0}s` }}>
-              <span className={
+              <span className={`text-sm ${
                 guess.occupationStatus === "Wrong"
                   ? "text-red-500"
                   : "text-green-500"
-              }>
+              }`}>
                 {guess.occupation}
               </span>
             </div>
@@ -197,20 +197,20 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
               />
             </div>
             <div className="hidden md:flex animate-flip justify-center items-center text-center rounded border-b-4 border-t-4 border-[#53481b]" style={{ animationDelay: `${(index * 0.4) + 1.4}s` }}>
-              <span className={
+              <span className={`text-sm ${
                 guess.cultureStatus === "Wrong"
                   ? "text-red-500"
                   : "text-green-500"
-              }>
+              }`}>
                 {guess.culture}
               </span>
             </div>
             <div className="hidden md:flex animate-flip justify-center items-center text-center rounded border-b-4 border-t-4 border-[#53481b]" style={{ animationDelay: `${(index * 0.4) + 1.6}s` }}>
-              <span className={
+              <span className={`text-sm ${
                 guess.factionStatus === "Wrong"
                   ? "text-red-500"
                   : "text-green-500"
-              }>
+              }`}>
                 {guess.faction}
               </span>
             </div>

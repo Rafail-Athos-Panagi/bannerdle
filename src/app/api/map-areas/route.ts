@@ -1,55 +1,36 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import fs from 'fs';
+import path from 'path';
 import type { MapArea } from '@/types/MapArea.type';
 
 /**
  * Map Areas API
- * Provides access to map areas data from database
+ * Provides access to map areas data from JSON file
  */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const name = searchParams.get('name');
     
+    // Read map areas data from JSON file
+    const mapAreasFilePath = path.join(process.cwd(), 'src', 'data', 'map_areas.json');
+    const mapAreasData: MapArea[] = JSON.parse(fs.readFileSync(mapAreasFilePath, 'utf8'));
+    
     if (name) {
       // Get specific map area by name
-      const { data: mapArea, error } = await supabase
-        .from('map_areas')
-        .select('*')
-        .eq('name', name)
-        .single();
-
-      if (error) {
-        if (error.code === 'PGRST116') {
-          return NextResponse.json(
-            { error: "Map area not found" },
-            { status: 404 }
-          );
-        }
-        console.error('Error fetching map area:', error);
+      const mapArea = mapAreasData.find(m => m.name.toLowerCase() === name.toLowerCase());
+      
+      if (!mapArea) {
         return NextResponse.json(
-          { error: "Failed to fetch map area" },
-          { status: 500 }
+          { error: "Map area not found" },
+          { status: 404 }
         );
       }
 
       return NextResponse.json(mapArea);
     } else {
       // Get all map areas
-      const { data: mapAreas, error } = await supabase
-        .from('map_areas')
-        .select('*')
-        .order('name');
-
-      if (error) {
-        console.error('Error fetching map areas:', error);
-        return NextResponse.json(
-          { error: "Failed to fetch map areas" },
-          { status: 500 }
-        );
-      }
-
-      return NextResponse.json(mapAreas);
+      return NextResponse.json(mapAreasData);
     }
   } catch (error) {
     console.error("Error in map areas API:", error);

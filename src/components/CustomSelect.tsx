@@ -21,7 +21,7 @@ const CustomSelect = ({
   const [availableTroops, setAvailableTroops] = useState<Troop[]>([]);
   const [, setCheckResult] = useState<unknown>(null);
 
-  // Fetch troops from database on component mount
+  // Fetch troops from API on component mount
   useEffect(() => {
     const fetchTroops = async () => {
       try {
@@ -40,7 +40,7 @@ const CustomSelect = ({
     fetchTroops();
   }, []);
 
-  // Fetch lastSelection from Supabase and store it to localStorage
+  // Fetch lastSelection from API and store it to localStorage
   useEffect(() => {
     // Only run on client side to prevent hydration mismatches
     if (typeof window === 'undefined') return;
@@ -100,12 +100,12 @@ const CustomSelect = ({
   };
 
   return (
-    <div className="w-full mt-8 mb-16">
+    <div className="w-full mt-4 sm:mt-6 lg:mt-8 mb-8 sm:mb-12 lg:mb-16">
       <ComboBox availableTroops={availableTroops} onSelect={handleSelect} />
 
       {troopGameState.lastSelection && (
-        <div className="flex justify-center items-center mt-4 rounded bg-[#23282E] border-2 border-[#AF9767] p-2 md:p-1.5 mb-6 md:mb-8 mx-4">
-          <p className="font-bold text-[#AF9767] text-sm md:text-lg text-center">
+        <div className="flex justify-center items-center mt-3 sm:mt-4 rounded bg-[#23282E] border border-[#AF9767] p-1.5 sm:p-2 lg:p-2.5 mb-4 sm:mb-6 lg:mb-8 mx-2 sm:mx-4">
+          <p className="font-bold text-[#AF9767] text-sm text-center">
             Yesterday&apos;s troop was{" "}
             <span className="text-[#ae8f41]">
               {troopGameState.lastSelection ? troopGameState.lastSelection.name : "Loading..."}

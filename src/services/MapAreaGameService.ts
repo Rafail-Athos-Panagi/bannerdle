@@ -35,11 +35,10 @@ export class MapAreaGameService {
     }
   }
 
-
-  // Get last selection (second-to-last entry from used_map_areas table)
+  // Get last selection from JSON file (yesterday's map area)
   static async getLastSelection(): Promise<LastMapArea> {
     try {
-      // Use the secure API endpoint instead of direct Supabase access
+      // Use the API endpoint that now reads from JSON files
       const response = await fetch('/api/lastMapAreaSelection');
       
       if (!response.ok) {

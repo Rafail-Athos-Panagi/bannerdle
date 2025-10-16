@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import { DailySelectionService } from '@/services/DailySelectionService';
+import fs from 'fs';
+import path from 'path';
 
 /**
  * Daily Troop Selection API
- * This endpoint should be called every 24 hours to select a new troop
- * It ensures the selected troop is not in used_troops and properly updates the database
- * Current selection = last entry in used_troops table
- * Last selection = second-to-last entry in used_troops table
+ * Returns the current troop selection from guessed_troops.json based on today's date
+ * Current selection = troop for today's date
+ * Last selection = troop for yesterday's date
  */
 export async function GET() {
   return POST();
@@ -14,24 +14,43 @@ export async function GET() {
 
 export async function POST() {
   try {
-    const result = await DailySelectionService.selectDailyTroop();
+    const today = new Date().toISOString().split('T')[0]; // UTC date (YYYY-MM-DD format)
+    const yesterday = new Date();
+    yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+    const yesterdayString = yesterday.toISOString().split('T')[0];
+
+    // Read guessed troops data from JSON file
+    const guessedTroopsFilePath = path.join(process.cwd(), 'src', 'data', 'guessed_troops.json');
+    const guessedTroopsData = JSON.parse(fs.readFileSync(guessedTroopsFilePath, 'utf8'));
+
+    // Get current selection (today's troop in UTC)
+    const currentSelection = guessedTroopsData[today];
     
-    if (result.success) {
-      return NextResponse.json({
-        success: true,
-        ...result.data,
-        message: result.message
-      });
-    } else {
+    // Get last selection (yesterday's troop in UTC)
+    const lastSelection = guessedTroopsData[yesterdayString];
+
+    if (!currentSelection) {
       return NextResponse.json(
         { 
           success: false,
-          error: result.message,
-          details: result.data?.details
+          error: "No troop selection found for today",
+          details: `No entry found for UTC date: ${today}`
         },
-        { status: 500 }
+        { status: 404 }
       );
     }
+
+    return NextResponse.json({
+      success: true,
+      message: `Current troop selection: ${currentSelection.name}`,
+      data: {
+        currentSelection: currentSelection,
+        lastSelection: lastSelection || null,
+        timestamp: new Date().toISOString(), // UTC timestamp
+        utcDate: today,
+        initializeLocalStorage: true
+      }
+    });
   } catch (error) {
     console.error("Error in daily troop selection API:", error);
     return NextResponse.json(
