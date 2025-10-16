@@ -1,5 +1,35 @@
 import Link from 'next/link';
 import PageRefreshLoader from '@/components/PageRefreshLoader';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Bannerdle",
+  description: "Welcome to Bannerdle! Choose between Troop Quest and Map Quest to test your knowledge of Mount & Blade II: Bannerlord. Start your medieval adventure today!",
+  keywords: [
+    "Bannerdle home",
+    "medieval game challenges",
+    "troop quest",
+    "map quest",
+    "Bannerlord game modes",
+    "Calradia adventure"
+  ],
+  openGraph: {
+    title: "Bannerdle - Choose Your Adventure in Calradia",
+    description: "Welcome to Bannerdle! Choose between Troop Quest and Map Quest to test your knowledge of Mount & Blade II: Bannerlord.",
+    images: [
+      {
+        url: '/bg-1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Bannerdle Home - Medieval Adventure Selection',
+      },
+    ],
+  },
+  twitter: {
+    title: "Bannerdle - Choose Your Adventure in Calradia",
+    description: "Welcome to Bannerdle! Choose between Troop Quest and Map Quest to test your knowledge of Mount & Blade II: Bannerlord.",
+  },
+};
 
 export default function HomePage() {
   return (

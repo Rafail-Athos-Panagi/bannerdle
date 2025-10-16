@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /troop-quest
+Allow: /calradia-globule
+Allow: /contact
+
+Disallow: /coordinate-collector
+Disallow: /test-error
+Disallow: /api/
+
+Sitemap: https://www.bannerdle.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

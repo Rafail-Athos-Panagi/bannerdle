@@ -105,7 +105,7 @@ const CustomSelect = ({
 
       {troopGameState.lastSelection && (
         <div className="flex justify-center items-center mt-3 sm:mt-4 rounded bg-[#23282E] border border-[#AF9767] p-1.5 sm:p-2 lg:p-2.5 mb-4 sm:mb-6 lg:mb-8 mx-2 sm:mx-4">
-          <p className="font-bold text-[#AF9767] text-xs text-center">
+          <p className="font-bold text-[#AF9767] text-sm text-center">
             Yesterday&apos;s troop was{" "}
             <span className="text-[#ae8f41]">
               {troopGameState.lastSelection ? troopGameState.lastSelection.name : "Loading..."}

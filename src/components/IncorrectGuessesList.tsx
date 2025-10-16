@@ -21,14 +21,14 @@ const IncorrectList = ({ incorrectGuesses }: IncorrectListProps) => {
           <p className="border-b-2 border-[#53481b] rounded w-2/4"></p>
         </div>
         <div className="hidden md:grid grid-cols-8 gap-4 mt-2">
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "1.2s" }}>Image</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "1.4s" }}>Name</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "1.6s" }}>Tier</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "1.8s" }}>Type</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "2.0s" }}>Occupation</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "2.2s" }}>Banner</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "2.4s" }}>Culture</div>
-          <div className="animate-flip text-center text-[#D7B587] font-bold text-[10px]" style={{ animationDelay: "2.6s" }}>Faction</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.2s" }}>Image</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.4s" }}>Name</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.6s" }}>Tier</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "1.8s" }}>Type</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.0s" }}>Occupation</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.2s" }}>Banner</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.4s" }}>Culture</div>
+          <div className="animate-flip text-center text-[#D7B587] font-bold text-xs" style={{ animationDelay: "2.6s" }}>Faction</div>
         </div>
       </div>
       <div className="space-y-4 mt-1 bg-[#111827] p-1 md:p-2 shadow-lg">

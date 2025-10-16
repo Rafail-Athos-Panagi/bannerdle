@@ -1,7 +1,7 @@
 {
-  "name": "bannerlord-quest-nextjs",
+  "name": "bannerdle",
   "version": "1.0.0",
-  "description": "Bannerlord Quest - A medieval-themed guessing game built with Next.js",
+  "description": "Bannerlord Guess Game - A medieval-themed guessing game built with Next.js",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

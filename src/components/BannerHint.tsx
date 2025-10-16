@@ -52,7 +52,7 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
       <div className="bg-[var(--bannerlord-party-dark-bg)] p-2 sm:p-2.5 border-l-2 border-r-2  border-[var(--bannerlord-patch-warm-tan)] shadow-2xl rounded-lg relative  mt-1">
         <div className="flex flex-col items-center">
           <img
-            src="/logo2.png"
+            src="/logo_new.png"
             alt="logo_image"
             className="text-center w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
           />
