@@ -9,7 +9,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import AboutModal from '@/components/AboutModal';
 import MapQuestHowToPlayModal from '@/components/MapQuestHowToPlayModal';
 import MapVictoryBanner from '@/components/MapVictoryBanner';
-import { FaInfoCircle, FaEye, FaEyeSlash, FaCheck, FaTimes } from "react-icons/fa";
+import { FaInfoCircle, FaCheck, FaTimes } from "react-icons/fa";
 import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState } from '@/services/MapAreaService';
@@ -75,6 +75,11 @@ export default function CalradiaGlobuleGame() {
 
   // Area search handlers
   const handleAreaInputChange = async (value: string) => {
+    // Don't allow input changes if the game is already won
+    if (mapGameState?.correctGuess) {
+      return;
+    }
+    
     setAreaInputValue(value);
     
     if (value.length > 0) {
@@ -106,7 +111,7 @@ export default function CalradiaGlobuleGame() {
   };
 
   const handleAreaSelect = async (area: MapArea) => {
-    if (!mapGameState) {
+    if (!mapGameState || mapGameState.correctGuess) {
       return;
     }
 
@@ -161,20 +166,21 @@ export default function CalradiaGlobuleGame() {
                             type="text"
                             value={areaInputValue}
                             onChange={(e) => handleAreaInputChange(e.target.value)}
-                            placeholder="Type to find the map area..."
-                            className="w-full h-10 md:h-12 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border border-[#8A691F] shadow-md rounded-lg rounded-r-none px-2 md:px-3 focus:outline-none text-sm"
+                            placeholder={mapGameState.correctGuess ? "Correct answer found! 🎉" : "Type to find the map area..."}
+                            className={`w-full h-10 md:h-12 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border border-[#8A691F] shadow-md rounded-lg rounded-r-none px-2 md:px-3 focus:outline-none text-sm ${mapGameState.correctGuess ? 'opacity-50 cursor-not-allowed' : ''}`}
                             autoComplete="off"
+                            disabled={!!mapGameState.correctGuess}
                             onFocus={() => {
-                              if (areaInputValue !== "") {
+                              if (areaInputValue !== "" && !mapGameState.correctGuess) {
                                 setShowAreaSuggestions(true);
                               }
                             }}
                           />
                           <img
-                            className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-none p-0 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
+                            className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-none p-0 z-10 transform transition duration-200 ${mapGameState.correctGuess ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-110 filter hover:brightness-125'}`}
                             src="/submit4.png"
                             alt="submit_button"
-                            onClick={handleAreaSubmit}
+                            onClick={mapGameState.correctGuess ? undefined : handleAreaSubmit}
                           />
                         </div>
                         

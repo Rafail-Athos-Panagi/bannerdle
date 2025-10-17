@@ -10,7 +10,7 @@ interface BannerHintProps {
   scrollTo: (direction: string) => void;
 }
 
-const BannerHint = ({ scrollTo }: BannerHintProps) => {
+const BannerHint = ({}: BannerHintProps) => {
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
 

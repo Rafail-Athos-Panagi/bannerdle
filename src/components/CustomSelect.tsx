@@ -112,7 +112,11 @@ const CustomSelect = React.memo(({
 
   return (
     <div className="w-full mt-4 sm:mt-6 lg:mt-8 mb-8 sm:mb-12 lg:mb-16">
-      <ComboBox availableTroops={availableTroops} onSelect={handleSelect} />
+      <ComboBox 
+        availableTroops={availableTroops} 
+        onSelect={handleSelect} 
+        disabled={!!troopGameState.correctGuess}
+      />
 
       {troopGameState.lastSelection && (
         <div className="flex justify-center items-center mt-3 sm:mt-4 rounded bg-[#23282E] border border-[#AF9767] p-1.5 sm:p-2 lg:p-2.5 mb-4 sm:mb-6 lg:mb-8 mx-2 sm:mx-4">

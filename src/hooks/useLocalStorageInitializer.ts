@@ -17,8 +17,8 @@ export function useLocalStorageInitializer() {
       try {
         // Get game states - this will automatically clear localStorage if day has changed
         // Each service checks if currentDay !== today and clears data if different
-        const troopState = TroopService.getGameState();
-        const mapAreaState = MapAreaService.getGameState();
+        TroopService.getGameState();
+        MapAreaService.getGameState();
         
       } catch (error) {
         console.error('❌ Error initializing localStorage:', error);

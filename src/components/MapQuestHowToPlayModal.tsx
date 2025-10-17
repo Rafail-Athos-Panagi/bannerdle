@@ -176,7 +176,7 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
                 <h4 className="font-bold text-[#AF9767] mb-2">Map Navigation</h4>
                 <p className="text-[#D4C4A8] text-sm flex-1">
-                  Use the zoom controls and pan gestures to explore every corner of Calradia's detailed map.
+                  Use the zoom controls and pan gestures to explore every corner of Calradia&apos;s detailed map.
                 </p>
               </div>
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">

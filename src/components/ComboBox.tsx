@@ -5,9 +5,10 @@ import { Troop } from "@/types/Troop.type";
 interface ComboBoxProps {
   availableTroops: Troop[];
   onSelect: (troop: Troop) => void;
+  disabled?: boolean;
 }
 
-const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
+const ComboBox = ({ availableTroops, onSelect, disabled = false }: ComboBoxProps) => {
   const [query, setQuery] = useState<string>("");
   const [selected, setSelected] = useState<Troop | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -34,11 +35,13 @@ const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
   }, []);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (disabled) return;
     setQuery(event.target.value);
     setIsOpen(true);
   };
 
   const handleSelectOption = (troop: Troop) => {
+    if (disabled) return;
     setSelected(troop);
     setQuery("");
     setIsOpen(false);
@@ -46,6 +49,7 @@ const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
   };
 
   const handleSelectOptionSubmit = (troopName: string) => {
+    if (disabled) return;
     const troop = availableTroops.find(
       (t) => t.name.toLowerCase() === troopName.toLowerCase()
     );
@@ -60,21 +64,22 @@ const ComboBox = ({ availableTroops, onSelect }: ComboBoxProps) => {
         <div className="relative flex flex-row text-center justify-center items-center">
           <input
             type="text"
-            placeholder="Type to find the troop..."
-            className="w-full h-10 md:h-12 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border border-[#8A691F] shadow-md rounded-lg rounded-r-none px-2 md:px-3 focus:outline-none text-sm"
+            placeholder={disabled ? "Correct answer found! 🎉" : "Type to find the troop..."}
+            className={`w-full h-10 md:h-12 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border border-[#8A691F] shadow-md rounded-lg rounded-r-none px-2 md:px-3 focus:outline-none text-sm ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
             value={query}
             onChange={handleInputChange}
+            disabled={disabled}
             onFocus={() => {
-              if (query !== "") {
+              if (query !== "" && !disabled) {
                 setIsOpen(true);
               }
             }}
           />
           <img
-            className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-none p-0 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
+            className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-none p-0 z-10 transform transition duration-200 ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-110 filter hover:brightness-125'}`}
             src="/submit4.png"
             alt="submit_button"
-            onClick={() => handleSelectOptionSubmit(query)}
+            onClick={disabled ? undefined : () => handleSelectOptionSubmit(query)}
           />
         </div>
         {isOpen && (

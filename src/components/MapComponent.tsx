@@ -56,9 +56,10 @@ const MapComponent: React.FC<MapComponentProps> = ({
 }) => {
   const [isClient, setIsClient] = useState(false);
   const [settlements, setSettlements] = useState<Settlement[]>([]);
-  const [mapBounds] = useState<[[number, number], [number, number]]>([
-    [0, 0], [1000, 1000]
-  ]);
+  // Map bounds for future use
+  // const [mapBounds] = useState<[[number, number], [number, number]]>([
+  //   [0, 0], [1000, 1000]
+  // ]);
   const [selectedMarkerIndex, setSelectedMarkerIndex] = useState<number | null>(null);
 
   // Map zoom and pan state
@@ -133,9 +134,9 @@ const MapComponent: React.FC<MapComponentProps> = ({
   };
 
   // Handle map touch to deselect markers
-  const handleMapTouch = () => {
-    setSelectedMarkerIndex(null);
-  };
+  // const handleMapTouch = () => {
+  //   setSelectedMarkerIndex(null);
+  // };
 
   // Zoom configuration
   const MIN_ZOOM = 1.1; // 110%
@@ -513,7 +514,8 @@ const MapComponent: React.FC<MapComponentProps> = ({
 
         {/* Explored Areas Markers */}
         {guesses.map((guess, index) => {
-          const mapArea = (guess as MapGuess).mapArea;
+          const mapGuess = guess as MapGuess;
+          const mapArea = mapGuess.mapArea;
           if (!mapArea || !mapArea.coordinates) return null;
           
           const isSelected = selectedMarkerIndex === index;
@@ -522,20 +524,20 @@ const MapComponent: React.FC<MapComponentProps> = ({
           let pinColor: 'green' | 'orange' | 'yellow' | 'red';
           let iconColor: 'green' | 'orange' | 'yellow' | 'red';
           
-          if (guess.isCorrect) {
+          if (mapGuess.isCorrect) {
             pinColor = 'green'; // Correct guess - always green
             iconColor = 'green';
-          } else if (showSettlementTypeHint && guess.correctSettlementType) {
-            pinColor = MapAreaGameService.getPinColor(guess.distance, false); // Name background uses distance-based color
+          } else if (showSettlementTypeHint && mapGuess.correctSettlementType) {
+            pinColor = MapAreaGameService.getPinColor(mapGuess.distance, false); // Name background uses distance-based color
             iconColor = 'green'; // Icon is green for correct settlement type
-          } else if (showSettlementTypeHint && !guess.correctSettlementType) {
-            pinColor = MapAreaGameService.getPinColor(guess.distance, false); // Name background uses distance-based color
+          } else if (showSettlementTypeHint && !mapGuess.correctSettlementType) {
+            pinColor = MapAreaGameService.getPinColor(mapGuess.distance, false); // Name background uses distance-based color
             iconColor = 'red'; // Icon is red for wrong settlement type
           } else {
             // When settlement type hint is disabled, use distance-based color for name background
-            // but use the same color for all icons
-            pinColor = MapAreaGameService.getPinColor(guess.distance, false);
-            iconColor = 'orange'; // All icons use the same color when hint is disabled
+            // and use the same color for all icons
+            pinColor = MapAreaGameService.getPinColor(mapGuess.distance, false);
+            iconColor = pinColor; // Use the same color as pin for icons when hint is disabled
           }
           
           // Determine color class based on icon color and whether hint is enabled
@@ -599,16 +601,16 @@ const MapComponent: React.FC<MapComponentProps> = ({
                 {showArrows && (
                   <span 
                     className="inline-flex items-center justify-center w-1.5 h-1.5 sm:w-3 sm:h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border mobile-arrow-indicator"
-                    title={guess.isCorrect ? "Correct!" : `Direction: ${guess.direction}`}
+                    title={mapGuess.isCorrect ? "Correct!" : `Direction: ${mapGuess.direction}`}
                     style={{
-                      ...(!guess.isCorrect ? {
-                        transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
+                      ...(!mapGuess.isCorrect ? {
+                        transform: `rotate(${getDirectionRotation(mapGuess.direction)}deg)`
                       } : {}),
                       borderColor: 'rgba(255, 255, 255, 0.2)',
                       borderWidth: '0.5px'
                     }}
                   >
-                    {guess.isCorrect ? (
+                    {mapGuess.isCorrect ? (
                       <FaTrophy className="text-yellow-400 text-xs sm:text-xs" />
                     ) : (
                       <FaLongArrowAltDown className="text-white text-xs sm:text-xs" />
