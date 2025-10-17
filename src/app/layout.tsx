@@ -2,6 +2,14 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import LocalStorageInitializer from "@/components/LocalStorageInitializer";
 import ConsentProvider from "@/components/ConsentProvider";
+import { MedievalSharp } from "next/font/google";
+
+const medievalSharp = MedievalSharp({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Times New Roman', 'Times', 'serif'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -138,7 +146,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="antialiased" suppressHydrationWarning={true}>
+      <body className={`${medievalSharp.className} antialiased`} suppressHydrationWarning={true}>
         <LocalStorageInitializer />
         <ConsentProvider>
           {children}

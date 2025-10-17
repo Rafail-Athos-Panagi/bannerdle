@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-body {
-  font-family: "MedievalSharp", cursive;
-}
+/* Font is now handled by Next.js font optimization */
 
 /* Mobile responsiveness improvements */
 @media (max-width: 768px) {
@@ -52,6 +50,19 @@ body {
   body {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* iOS Safari specific font fixes */
+  @supports (-webkit-touch-callout: none) {
+    body {
+      -webkit-font-feature-settings: "kern" 1;
+      font-feature-settings: "kern" 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
   }
   
   /* Mobile-specific improvements for Map Quest */

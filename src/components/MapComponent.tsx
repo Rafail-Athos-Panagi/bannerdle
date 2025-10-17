@@ -511,7 +511,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
                 {/* Direction chip or trophy for correct guess */}
                 {showArrows && (
                   <span 
-                    className="inline-flex items-center justify-center w-3 h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border border-white border-opacity-50"
+                    className="inline-flex items-center justify-center w-3 h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border border-white border-opacity-50 mobile-arrow-indicator"
                     title={guess.isCorrect ? "Correct!" : `Direction: ${guess.direction}`}
                     style={!guess.isCorrect ? {
                       transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
