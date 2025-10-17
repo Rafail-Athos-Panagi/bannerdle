@@ -5,7 +5,7 @@ import { MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
 import { GiVillage, GiCastle } from 'react-icons/gi';
 import { PiCastleTurretFill } from 'react-icons/pi';
-import { FaLongArrowAltDown } from 'react-icons/fa';
+import { FaLongArrowAltDown, FaTrophy } from 'react-icons/fa';
 
 // Dynamic import for Leaflet to avoid SSR issues
 let L: typeof import('leaflet') | null = null;
@@ -42,12 +42,14 @@ interface MapComponentProps {
   guesses: (Guess | MapGuess)[];
   highlightedSettlement: Settlement | null;
   selectedArea: MapArea | null;
+  showArrows?: boolean;
 }
 
 const MapComponent: React.FC<MapComponentProps> = ({
   guesses,
   highlightedSettlement,
-  selectedArea
+  selectedArea,
+  showArrows = true
 }) => {
   const [isClient, setIsClient] = useState(false);
   const [settlements, setSettlements] = useState<Settlement[]>([]);
@@ -468,17 +470,17 @@ const MapComponent: React.FC<MapComponentProps> = ({
                            pinColor === 'yellow' ? 'bg-yellow-500 border-yellow-500' : 
                            'bg-red-500 border-red-500';
           
-          // Get direction rotation angle
+          // Get direction rotation angle (reverse the API direction - show where guess is FROM target)
           const getDirectionRotation = (direction: string): number => {
             const rotations: { [key: string]: number } = {
-              'N': 270,    // ↑ (rotate → 270°)
-              'NE': 315,   // ↗ (rotate → 315°)
-              'E': 0,      // → (no rotation)
-              'SE': 45,    // ↘ (rotate → 45°)
-              'S': 90,     // ↓ (rotate → 90°)
-              'SW': 135,   // ↙ (rotate → 135°)
-              'W': 180,    // ← (rotate → 180°)
-              'NW': 225    // ↖ (rotate → 225°)
+              'N': 180,    // ↓ (rotate → 180°) - if API says N, point S (guess is south of target)
+              'NE': -135,  // ↙ (rotate → -135°) - if API says NE, point SW (guess is southwest of target)
+              'E': -90,    // ← (rotate → -90°) - if API says E, point W (guess is west of target)
+              'SE': -45,   // ↖ (rotate → -45°) - if API says SE, point NW (guess is northwest of target)
+              'S': 0,      // ↑ (rotate → 0°) - if API says S, point N (guess is north of target)
+              'SW': 45,    // ↗ (rotate → 45°) - if API says SW, point NE (guess is northeast of target)
+              'W': 90,     // → (rotate → 90°) - if API says W, point E (guess is east of target)
+              'NW': 135    // ↘ (rotate → 135°) - if API says NW, point SE (guess is southeast of target)
             };
             return rotations[direction] || 0;
           };
@@ -506,16 +508,22 @@ const MapComponent: React.FC<MapComponentProps> = ({
                 }`}
               >
                 <span>{mapArea.name}</span>
-                {/* Direction chip */}
-                <span 
-                  className="inline-flex items-center justify-center w-3 h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border border-white border-opacity-50"
-                  title={`Direction: ${guess.direction}`}
-                  style={{
-                    transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
-                  }}
-                >
-                  <FaLongArrowAltDown className="text-white text-xs" />
-                </span>
+                {/* Direction chip or trophy for correct guess */}
+                {showArrows && (
+                  <span 
+                    className="inline-flex items-center justify-center w-3 h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border border-white border-opacity-50"
+                    title={guess.isCorrect ? "Correct!" : `Direction: ${guess.direction}`}
+                    style={!guess.isCorrect ? {
+                      transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
+                    } : {}}
+                  >
+                    {guess.isCorrect ? (
+                      <FaTrophy className="text-yellow-400 text-xs" />
+                    ) : (
+                      <FaLongArrowAltDown className="text-white text-xs" />
+                    )}
+                  </span>
+                )}
               </div>
               
               {/* Area marker icon based on type */}

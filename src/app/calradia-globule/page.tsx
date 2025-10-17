@@ -6,8 +6,8 @@ import MedievalNavbar from '@/components/MedievalNavbar';
 import PageRefreshLoader from '@/components/PageRefreshLoader';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import AboutModal from '@/components/AboutModal';
-import HowToPlayModal from '@/components/HowToPlayModal';
-import { FaInfoCircle } from "react-icons/fa";
+import MapQuestHowToPlayModal from '@/components/MapQuestHowToPlayModal';
+import { FaInfoCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
@@ -19,6 +19,7 @@ export default function CalradiaGlobuleGame() {
   const [isClient, setIsClient] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showArrows, setShowArrows] = useState(true);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -195,7 +196,25 @@ export default function CalradiaGlobuleGame() {
                   </div>
                 </div>
 
-                {/* Hint Buttons */}
+                {/* Calradic Trials */}
+                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
+                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Calradic Trials</h3>
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => setShowArrows(!showArrows)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      {showArrows ? (
+                        <FaEyeSlash className="w-4 h-4" />
+                      ) : (
+                        <FaEye className="w-4 h-4" />
+                      )}
+                      <span>{showArrows ? 'Hide Arrows' : 'Show Arrows'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Help & Support */}
                 <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
                   <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Help & Support</h3>
                   <div className="space-y-2">
@@ -238,6 +257,7 @@ export default function CalradiaGlobuleGame() {
                 guesses={mapGameState.guesses}
                 highlightedSettlement={null}
                 selectedArea={selectedArea}
+                showArrows={showArrows}
               />
             </div>
           </div>
@@ -249,7 +269,7 @@ export default function CalradiaGlobuleGame() {
         onClose={() => setShowAbout(false)}
       />
       
-      <HowToPlayModal 
+      <MapQuestHowToPlayModal 
         isOpen={showHowToPlay} 
         onClose={() => setShowHowToPlay(false)}
       />
