@@ -1,0 +1,285 @@
+import { useState, useEffect, memo, useCallback } from "react";
+import { FaTimes, FaInfoCircle, FaTrophy, FaMapMarkerAlt, FaEye, FaEyeSlash } from "react-icons/fa";
+
+interface MapQuestHowToPlayModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModalProps) => {
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        setIsAnimated(true);
+      });
+      document.body.style.overflow = 'hidden';
+    } else {
+      setIsAnimated(false);
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  const handleOverlayClick = useCallback(() => {
+    // Disabled overlay click to close - only allow close button click
+  }, []);
+
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4 pt-20"
+      onClick={handleOverlayClick}
+    >
+      <div 
+        className={`relative bg-[#2D1B0E] border-2 border-[#AF9767] rounded-lg shadow-xl max-w-4xl w-full max-h-[calc(90vh-5rem)] overflow-y-auto transform transition-all duration-300 ease-out ${
+          isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-[#AF9767] hover:text-yellow-400 transition-colors duration-200 z-10"
+        >
+          <FaTimes size={20} />
+        </button>
+
+        {/* Header */}
+        <div className="border-b-2 border-[#AF9767] py-4 px-6 text-center">
+          <div className="flex items-center justify-center mb-2">
+            <FaMapMarkerAlt className="text-[#AF9767] mr-2" size={24} />
+            <h2 className="text-2xl font-bold text-[#AF9767]">Map Quest - How to Play</h2>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 space-y-6">
+          {/* Objective */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaTrophy className="mr-2" />
+              Objective
+            </h3>
+            <p className="text-[#D4C4A8] text-base">
+              Explore the vast lands of Calradia! Discover map areas by typing their names and learn about 
+              different locations, factions, and settlements across the continent. Track your exploration 
+              progress and become a true master of Calradia's geography.
+            </p>
+          </section>
+
+          {/* How to Play */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaTrophy className="mr-2" />
+              How to Play
+            </h3>
+            <div className="text-[#D4C4A8] space-y-2">
+              <p>1. <strong className="text-[#AF9767]">Type an area name</strong> in the search box (e.g., "Pravend", "Sargot", "Baltakhand")</p>
+              <p>2. <strong className="text-[#AF9767]">Select from suggestions</strong> that appear as you type</p>
+              <p>3. <strong className="text-[#AF9767]">Explore the map</strong> to see where the area is located</p>
+              <p>4. <strong className="text-[#AF9767]">Learn about factions</strong> and settlement types</p>
+              <p>5. <strong className="text-[#AF9767]">Track your discoveries</strong> in your exploration history</p>
+            </div>
+          </section>
+
+          {/* Map Features */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaInfoCircle className="mr-2" />
+              Map Features
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Settlement Types</h4>
+                <p className="text-[#D4C4A8] text-sm">
+                  Discover Towns, Castles, and Villages across Calradia. Each type has different characteristics and importance.
+                </p>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Faction Territories</h4>
+                <p className="text-[#D4C4A8] text-sm">
+                  Learn which areas belong to which factions - from the Empire to the Khuzait Khanate.
+                </p>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Interactive Map</h4>
+                <p className="text-[#D4C4A8] text-sm">
+                  Zoom, pan, and explore the detailed map of Calradia with smooth controls.
+                </p>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Exploration History</h4>
+                <p className="text-[#D4C4A8] text-sm">
+                  Keep track of all the areas you've discovered during your exploration journey.
+                </p>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Visual Markers</h4>
+                <p className="text-[#D4C4A8] text-sm">
+                  Each discovered area shows with colored markers indicating settlement type and faction.
+                </p>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Search Suggestions</h4>
+                <p className="text-[#D4C4A8] text-sm">
+                  Smart search helps you find areas quickly with autocomplete suggestions.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Calradic Trials */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaEye className="mr-2" />
+              Calradic Trials
+            </h3>
+            <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+              <h4 className="font-bold text-[#AF9767] mb-2">Arrow Visibility Toggle</h4>
+              <p className="text-[#D4C4A8] mb-3">
+                Challenge yourself with the <strong className="text-[#AF9767]">Hide Arrows</strong> feature in the Calradic Trials section:
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <FaEye className="text-green-400" />
+                  <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Show Arrows:</strong> Direction hints are visible on the map</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <FaEyeSlash className="text-red-400" />
+                  <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Hide Arrows:</strong> No direction hints - pure exploration challenge!</span>
+                </div>
+              </div>
+              <p className="text-[#B8A082] text-sm mt-3">
+                When arrows are hidden, you'll need to rely purely on your knowledge of Calradia's geography 
+                and settlement names to explore effectively. Perfect for experienced players seeking a greater challenge!
+              </p>
+            </div>
+          </section>
+
+          {/* Map Controls */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaInfoCircle className="mr-2" />
+              Map Controls
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Zoom Controls</h4>
+                <div className="space-y-1 text-[#D4C4A8] text-sm">
+                  <p>• <strong className="text-[#AF9767]">+ Button:</strong> Zoom in for detailed view</p>
+                  <p>• <strong className="text-[#AF9767]">- Button:</strong> Zoom out for overview</p>
+                  <p>• <strong className="text-[#AF9767]">⌂ Button:</strong> Reset to default zoom</p>
+                  <p>• <strong className="text-[#AF9767]">Mouse Wheel:</strong> Scroll to zoom</p>
+                </div>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Navigation</h4>
+                <div className="space-y-1 text-[#D4C4A8] text-sm">
+                  <p>• <strong className="text-[#AF9767]">Click & Drag:</strong> Pan around the map</p>
+                  <p>• <strong className="text-[#AF9767]">Touch:</strong> Mobile-friendly touch controls</p>
+                  <p>• <strong className="text-[#AF9767]">Keyboard:</strong> Arrow keys for navigation</p>
+                  <p>• <strong className="text-[#AF9767]">Ctrl + Plus/Minus:</strong> Keyboard zoom</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Exploration Tips */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaTrophy className="mr-2" />
+              Exploration Tips
+            </h3>
+            <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-bold text-[#AF9767] mb-1">Start with Major Cities</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Begin your exploration with well-known towns like Pravend, Sargot, or Baltakhand to get familiar with the map layout.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#AF9767] mb-1">Explore by Faction</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Try exploring all settlements belonging to one faction (e.g., all Empire towns) to understand territorial boundaries.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#AF9767] mb-1">Use Settlement Types</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Search for different settlement types - discover all Towns, then all Castles, then all Villages to see the variety.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#AF9767] mb-1">Challenge Yourself</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Once comfortable, try the "Hide Arrows" feature for a pure exploration challenge without directional hints.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Example Section */}
+          <section>
+            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
+              <FaTrophy className="mr-2" />
+              Example Exploration
+            </h3>
+            <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+              <p className="text-[#D4C4A8] mb-4">
+                Here's how a typical exploration session might work:
+              </p>
+              
+              <div className="space-y-4">
+                <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
+                  <h4 className="font-bold text-[#AF9767] mb-2">Step 1: Search for an Area</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Type "Pravend" in the search box. The system will show suggestions and you can select it to explore.
+                  </p>
+                </div>
+                
+                <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
+                  <h4 className="font-bold text-[#AF9767] mb-2">Step 2: Discover on Map</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Pravend appears on the map with a marker showing it's a Town in the Kingdom of Vlandia faction.
+                  </p>
+                </div>
+                
+                <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
+                  <h4 className="font-bold text-[#AF9767] mb-2">Step 3: Continue Exploring</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Search for nearby areas like "Sargot" or "Charas" to build your knowledge of Vlandian territories.
+                  </p>
+                </div>
+                
+                <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
+                  <h4 className="font-bold text-[#AF9767] mb-2">Step 4: Track Progress</h4>
+                  <p className="text-[#D4C4A8] text-sm">
+                    All discovered areas remain visible on the map, creating your personal exploration history of Calradia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Footer */}
+        <div className="border-t-2 border-[#AF9767] py-4 px-6 text-center">
+          <p className="text-[#8B6F47] text-sm">
+            Happy exploring, traveler! May your journey across Calradia be filled with discovery and wonder!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+MapQuestHowToPlayModal.displayName = 'MapQuestHowToPlayModal';
+
+export default MapQuestHowToPlayModal;

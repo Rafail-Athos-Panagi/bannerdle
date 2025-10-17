@@ -11,12 +11,14 @@ interface CustomSelectProps {
   scrollTo: (direction: string) => void;
   troopGameState: TroopGameState;
   setTroopGameState: (state: TroopGameState | null) => void;
+  onToggleIndicator?: () => void;
 }
 
 const CustomSelect = ({
   scrollTo,
   troopGameState,
   setTroopGameState,
+  onToggleIndicator,
 }: CustomSelectProps) => {
   const [availableTroops, setAvailableTroops] = useState<Troop[]>([]);
   const [, setCheckResult] = useState<unknown>(null);
@@ -117,7 +119,11 @@ const CustomSelect = ({
         </div>
       )}
 
-      <IncorrectList incorrectGuesses={troopGameState.guesses.filter(guess => !guess.isCorrect).map(guess => guess.troopStatus)} />
+      <IncorrectList 
+        incorrectGuesses={troopGameState.guesses.filter(guess => !guess.isCorrect).map(guess => guess.troopStatus)} 
+        showIndicator={troopGameState.showIndicator}
+        onToggleIndicator={onToggleIndicator}
+      />
       {troopGameState.guesses.filter(guess => !guess.isCorrect).length > 0 && troopGameState.showIndicator && <Indicator />}
     </div>
   );

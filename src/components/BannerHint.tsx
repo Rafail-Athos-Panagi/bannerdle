@@ -3,25 +3,16 @@ import { IoIosHelpCircle } from "react-icons/io";
 import { useState } from "react";
 import Tooltip from "./Tooltip";
 import HowToPlayModal from "./HowToPlayModal";
+import AboutModal from "./AboutModal";
 import { CONFIG } from "@/config";
 
 interface BannerHintProps {
   scrollTo: (direction: string) => void;
-  setShowIndicatorApp: (show: boolean) => void;
 }
 
-const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
-  const [showIndicator, setShowIndicator] = useState(
-    localStorage.getItem("showIndicator") === "false" ? false : true
-  );
+const BannerHint = ({ scrollTo }: BannerHintProps) => {
   const [showHowToPlay, setShowHowToPlay] = useState(false);
-
-  const toggleIndicator = (show: boolean) => {
-    setShowIndicatorApp(!show);
-    setShowIndicator(!show);
-    localStorage.setItem("showIndicator", (!show).toString());
-    scrollTo("bottom");
-  };
+  const [showAbout, setShowAbout] = useState(false);
 
   return (
     <div className="relative inline-block w-full max-w-sm mt-10 md:mt-10">
@@ -62,27 +53,25 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
           </p> */}
           <div className="flex flex-row space-x-1.5 sm:space-x-2.5 md:space-x-3.5 justify-center">
             <Tooltip 
-              content={showIndicator ? "Hide status indicators" : "Show status indicators"} 
-              position="bottom"
-              delay={300}
-            >
-              <FaInfoCircle
-                onClick={() => toggleIndicator(showIndicator)}
-                className={`hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-sm transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer ${
-                  showIndicator ? "opacity-100" : "opacity-30"
-                }`}
-                size={window.innerWidth < 768 ? 32 : window.innerWidth < 1024 ? 40 : 48}
-                style={{ padding: window.innerWidth < 768 ? "5px" : window.innerWidth < 1024 ? "7px" : "9px" }}
-              />
-            </Tooltip>
-            
-            <Tooltip 
               content="How to Play - Learn the rules and strategies" 
               position="bottom"
               delay={300}
             >
               <IoIosHelpCircle
                 onClick={() => setShowHowToPlay(true)}
+                className="hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-sm transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer opacity-100"
+                size={window.innerWidth < 768 ? 32 : window.innerWidth < 1024 ? 40 : 48}
+                style={{ padding: window.innerWidth < 768 ? "5px" : window.innerWidth < 1024 ? "7px" : "9px" }}
+              />
+            </Tooltip>
+            
+            <Tooltip 
+              content="About Bannerdle - Game information and credits" 
+              position="bottom"
+              delay={300}
+            >
+              <FaInfoCircle
+                onClick={() => setShowAbout(true)}
                 className="hover:bg-gray-700 hover:text-yellow-500 bg-[#39352D] border-2 border-yellow-700 rounded text-yellow-600 font-serif text-sm transition-colors duration-200 focus:outline-none shadow-lg cursor-pointer opacity-100"
                 size={window.innerWidth < 768 ? 32 : window.innerWidth < 1024 ? 40 : 48}
                 style={{ padding: window.innerWidth < 768 ? "5px" : window.innerWidth < 1024 ? "7px" : "9px" }}
@@ -117,6 +106,11 @@ const BannerHint = ({ scrollTo, setShowIndicatorApp }: BannerHintProps) => {
       <HowToPlayModal 
         isOpen={showHowToPlay} 
         onClose={() => setShowHowToPlay(false)}
+      />
+      
+      <AboutModal 
+        isOpen={showAbout} 
+        onClose={() => setShowAbout(false)}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 {
-  "name": "Bannerlord Quest",
-  "short_name": "Bannerlord Quest",
+  "name": "Bannerdle",
+  "short_name": "Bannerdle",
   "description": "Test your knowledge of Mount & Blade II: Bannerlord with daily troop guessing and map exploration challenges",
   "start_url": "/",
   "display": "standalone",

@@ -1,6 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import LocalStorageInitializer from "@/components/LocalStorageInitializer";
+import ConsentProvider from "@/components/ConsentProvider";
+import { MedievalSharp } from "next/font/google";
+
+const medievalSharp = MedievalSharp({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Times New Roman', 'Times', 'serif'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -127,13 +136,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" href="/logo_new.png?v=1" type="image/png" />
-        <link rel="icon" href="/logo_new.png?v=1" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/logo_new.png?v=1" sizes="16x16" type="image/png" />
-        <link rel="shortcut icon" href="/logo_new.png?v=1" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo_new.png?v=1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/logo_new.png?v=1" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#d4af37" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -144,9 +146,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="antialiased" suppressHydrationWarning={true}>
+      <body className={`${medievalSharp.className} antialiased`} suppressHydrationWarning={true}>
         <LocalStorageInitializer />
-        {children}
+        <ConsentProvider>
+          {children}
+        </ConsentProvider>
       </body>
     </html>
   );

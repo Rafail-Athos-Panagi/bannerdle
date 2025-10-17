@@ -17,6 +17,19 @@ export default function MedievalCountdownModal() {
     };
   }
 
+  function getLocalArrivalTime() {
+    // Calculate next UTC midnight (00:00 UTC)
+    const nextUTCMidnight = new Date();
+    nextUTCMidnight.setUTCHours(24, 0, 0, 0); // Set to next day 00:00 UTC
+    
+    // Convert to local time
+    const localTime = new Date(nextUTCMidnight.getTime());
+    const hours = localTime.getHours().toString().padStart(2, '0');
+    const minutes = localTime.getMinutes().toString().padStart(2, '0');
+    
+    return `${hours}:${minutes}`;
+  }
+
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
@@ -84,7 +97,7 @@ export default function MedievalCountdownModal() {
 
         <div className="border-t border-yellow-600 p-3 text-center">
           <p className="text-yellow-600 text-sm font-serif italic">
-            &quot;New troop arrives at 00:00 UTC&quot;
+            &quot;New troop arrives at {getLocalArrivalTime()}&quot;
           </p>
         </div>
       </div>

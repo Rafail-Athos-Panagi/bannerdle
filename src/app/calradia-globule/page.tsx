@@ -5,13 +5,21 @@ import MapComponent from '@/components/MapComponent';
 import MedievalNavbar from '@/components/MedievalNavbar';
 import PageRefreshLoader from '@/components/PageRefreshLoader';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import AboutModal from '@/components/AboutModal';
+import MapQuestHowToPlayModal from '@/components/MapQuestHowToPlayModal';
+import { FaInfoCircle, FaEye, FaEyeSlash } from "react-icons/fa";
+import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
+import { CONFIG } from '@/config';
 
 export default function CalradiaGlobuleGame() {
   const [mapGameState, setMapGameState] = useState<MapGameState | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showArrows, setShowArrows] = useState(true);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -176,47 +184,6 @@ export default function CalradiaGlobuleGame() {
                     </form>
                   </div>
 
-                {/* Guesses History */}
-                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">
-                    Guessed Areas
-                  </h3>
-                  {mapGameState.guesses.length === 0 ? (
-                    <div className="text-[var(--bannerlord-custom-light-cream)] opacity-70 text-xs">
-                      No areas explored yet
-                    </div>
-                  ) : (
-                    <div className="space-y-1.5">
-                      {mapGameState.guesses.map((guess, index) => (
-                        <div
-                          key={index}
-                          className={`p-2 rounded-lg border ${
-                            guess.isCorrect
-                              ? 'bg-[var(--bannerlord-patch-brassy-gold)] bg-opacity-20 border-[var(--bannerlord-patch-brassy-gold)]'
-                              : 'bg-[var(--bannerlord-custom-very-dark-brown)] border-[var(--bannerlord-custom-med-brown)]'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="font-medium text-xs text-[var(--bannerlord-custom-light-cream)]">
-                              {(guess as MapGuess).mapArea.name}
-                            </div>
-                            <div className="text-xs">
-                              {guess.isCorrect ? '✅' : '❌'}
-                            </div>
-                          </div>
-                          {!guess.isCorrect && (
-                            <div className="text-xs text-[var(--bannerlord-custom-light-cream)] opacity-70 mt-1">
-                              <div>{getDistanceText(guess.distance)}</div>
-                              <div className="flex items-center">
-                                Direction: {getDirectionArrow(guess.direction)} {guess.direction}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
 
                 {/* Instructions */}
                 <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
@@ -228,6 +195,59 @@ export default function CalradiaGlobuleGame() {
                     <div>• Learn about different areas and their locations</div>
                   </div>
                 </div>
+
+                {/* Calradic Trials */}
+                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
+                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Calradic Trials</h3>
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => setShowArrows(!showArrows)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      {showArrows ? (
+                        <FaEyeSlash className="w-4 h-4" />
+                      ) : (
+                        <FaEye className="w-4 h-4" />
+                      )}
+                      <span>{showArrows ? 'Hide Arrows' : 'Show Arrows'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Help & Support */}
+                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
+                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Help & Support</h3>
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => setShowHowToPlay(true)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      <IoIosHelpCircle className="w-4 h-4" />
+                      <span>How to Play</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => setShowAbout(true)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      <FaInfoCircle className="w-4 h-4" />
+                      <span>About Bannerdle</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => window.open(CONFIG.DONATION_URL, '_blank', 'noopener,noreferrer')}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      <img 
+                        src="/kofi_symbol.png" 
+                        alt="Ko-Fi" 
+                        className="w-4 h-4"
+                      />
+                      <span>Support Development</span>
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -237,11 +257,22 @@ export default function CalradiaGlobuleGame() {
                 guesses={mapGameState.guesses}
                 highlightedSettlement={null}
                 selectedArea={selectedArea}
+                showArrows={showArrows}
               />
             </div>
           </div>
         </div>
       </div>
+      
+      <AboutModal 
+        isOpen={showAbout} 
+        onClose={() => setShowAbout(false)}
+      />
+      
+      <MapQuestHowToPlayModal 
+        isOpen={showHowToPlay} 
+        onClose={() => setShowHowToPlay(false)}
+      />
     </PageRefreshLoader>
   );
 }

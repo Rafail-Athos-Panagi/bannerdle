@@ -22,7 +22,7 @@ function calculateDirection(
   targetCoords: [number, number]
 ): 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW' {
   const dx = targetCoords[0] - guessCoords[0];
-  const dy = targetCoords[1] - guessCoords[1];
+  const dy = -(targetCoords[1] - guessCoords[1]); // Flip Y for map coordinates
   
   const angle = Math.atan2(dy, dx) * 180 / Math.PI;
   
