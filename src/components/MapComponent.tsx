@@ -598,16 +598,20 @@ const MapComponent: React.FC<MapComponentProps> = ({
                 {/* Direction chip or trophy for correct guess */}
                 {showArrows && (
                   <span 
-                    className="inline-flex items-center justify-center w-3 h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border border-white border-opacity-50 mobile-arrow-indicator"
+                    className="inline-flex items-center justify-center w-1.5 h-1.5 sm:w-3 sm:h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border mobile-arrow-indicator"
                     title={guess.isCorrect ? "Correct!" : `Direction: ${guess.direction}`}
-                    style={!guess.isCorrect ? {
-                      transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
-                    } : {}}
+                    style={{
+                      ...(!guess.isCorrect ? {
+                        transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
+                      } : {}),
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                      borderWidth: '0.5px'
+                    }}
                   >
                     {guess.isCorrect ? (
-                      <FaTrophy className="text-yellow-400 text-xs" />
+                      <FaTrophy className="text-yellow-400 text-xs sm:text-xs" />
                     ) : (
-                      <FaLongArrowAltDown className="text-white text-xs" />
+                      <FaLongArrowAltDown className="text-white text-xs sm:text-xs" />
                     )}
                   </span>
                 )}
