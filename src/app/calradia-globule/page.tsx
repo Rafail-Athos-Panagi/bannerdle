@@ -8,6 +8,7 @@ import PageRefreshLoader from '@/components/PageRefreshLoader';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import AboutModal from '@/components/AboutModal';
 import MapQuestHowToPlayModal from '@/components/MapQuestHowToPlayModal';
+import MapVictoryBanner from '@/components/MapVictoryBanner';
 import { FaInfoCircle, FaEye, FaEyeSlash, FaCheck, FaTimes } from "react-icons/fa";
 import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
@@ -296,6 +297,11 @@ export default function CalradiaGlobuleGame() {
                     </button>
                   </div>
                 </div>
+
+                {/* Victory Banner - Show when correct guess is found */}
+                {mapGameState.correctGuess && (
+                  <MapVictoryBanner correctGuess={mapGameState.correctGuess} />
+                )}
 
               </div>
             </div>

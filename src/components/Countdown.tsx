@@ -97,7 +97,7 @@ export default function MedievalCountdownModal() {
 
         <div className="border-t border-yellow-600 p-3 text-center">
           <p className="text-yellow-600 text-sm font-serif italic">
-            &quot;New troop arrives at {getLocalArrivalTime()}&quot;
+            &quot;New Map Area arrives at {getLocalArrivalTime()}&quot;
           </p>
         </div>
       </div>
