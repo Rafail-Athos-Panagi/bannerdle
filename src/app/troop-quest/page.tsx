@@ -30,24 +30,18 @@ export default function TroopGuessGame() {
   }, []);
 
   const scrollTo = (direction: string) => {
-    console.log(`scrollTo called with direction: ${direction}`);
     if (scrollContainerRef.current) {
-      console.log("Scroll container found");
       if (direction === "bottom") {
-        console.log("Scrolling to bottom");
         scrollContainerRef.current.scrollTo({
           top: scrollContainerRef.current.scrollHeight,
           behavior: "smooth",
         });
       } else {
-        console.log("Scrolling to top");
         scrollContainerRef.current.scrollTo({
           top: 0,
           behavior: "smooth",
         });
       }
-    } else {
-      console.log("Scroll container not found!");
     }
   };
 
@@ -58,10 +52,9 @@ export default function TroopGuessGame() {
   return (
     <PageRefreshLoader loadingMessage="Refreshing Troop Quest...">
       <div 
-        className="h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col"
+        className="h-screen bg-cover bg-center bg-no-repeat flex flex-col"
         style={{ 
-          backgroundImage: 'url(/bg-1.jpg)',
-          backgroundAttachment: 'fixed'
+          backgroundImage: 'url(/bg-1.jpg)'
         }}
         suppressHydrationWarning={true}
       >

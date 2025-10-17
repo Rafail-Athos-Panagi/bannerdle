@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const MedievalNavbar: React.FC = () => {
@@ -21,9 +22,11 @@ const MedievalNavbar: React.FC = () => {
             <div className="flex items-center space-x-1 sm:space-x-3">
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
-                  <img 
+                  <Image 
                     src="/navbar_logo.png" 
                     alt="Bannerdle Logo" 
+                    width={28}
+                    height={28}
                     className="w-full h-full object-contain"
                   />
                 </div>

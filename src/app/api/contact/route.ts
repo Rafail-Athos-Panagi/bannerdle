@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
 import * as nodemailer from 'nodemailer';
-import { z } from 'zod';
+import { z, ZodIssue } from 'zod';
 
 // Rate limiting store (in production, use Redis or database)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { 
           error: 'Validation failed',
-          details: validationResult.error.issues.map((err: any) => ({
+          details: validationResult.error.issues.map((err: ZodIssue) => ({
             field: err.path.join('.'),
             message: err.message
           }))
@@ -172,7 +172,6 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(mailOptions);
 
     // Log successful submission (in production, use proper logging)
-    console.log(`Contact form submitted successfully from ${email} (IP: ${ip})`);
 
     return NextResponse.json(
       { 

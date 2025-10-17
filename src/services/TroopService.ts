@@ -158,7 +158,6 @@ export class TroopService {
                       localStorage.getItem("showIndicator");
     
     if (hasOldKeys) {
-      console.log('Migrating from old localStorage structure...');
       return this.migrateFromOldStructure();
     }
     
@@ -249,7 +248,6 @@ export class TroopService {
     };
     
     this.saveGameState(newState);
-    console.log('🔄 [TROOP GAME] localStorage force cleared for:', today);
   }
 
   // Update lastSelection
@@ -321,7 +319,6 @@ export class TroopService {
         throw new Error(data.error);
       }
       
-      console.log('LastSelection API response:', data);
       return data || {};
     } catch (error) {
       console.error('Error fetching last selection:', error);
@@ -350,7 +347,6 @@ export class TroopService {
         throw new Error(data.error);
       }
       
-      console.log('Daily troop selection completed via API');
     } catch (error) {
       console.error('Error in daily troop selection:', error);
       throw error;

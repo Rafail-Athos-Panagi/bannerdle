@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import mapAreasData from '@/data/map_areas.json';
 
 interface MapArea {
@@ -22,7 +23,6 @@ export default function CoordinateCollector() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [collectedCoordinates, setCollectedCoordinates] = useState<CollectedCoordinate[]>([]);
   const [clickedCoords, setClickedCoords] = useState<[number, number] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   // Map zoom and pan state
   const [isDragging, setIsDragging] = useState(false);
@@ -341,9 +341,11 @@ export default function CoordinateCollector() {
                   transition: isDragging ? 'none' : 'transform 0.1s ease-out'
                 }}
               >
-                <img 
+                <Image 
                   src="/bannerlord_clean_map.jpg" 
                   alt="Bannerlord Map" 
+                  width={1920}
+                  height={1080}
                   className="w-full h-full object-fill select-none"
                   draggable={false}
                 />

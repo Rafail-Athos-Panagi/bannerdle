@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function MedievalIndicator() {
   return (
     <div
@@ -41,9 +43,11 @@ export default function MedievalIndicator() {
         <div className="flex justify-between items-center">
           <div className="flex flex-col items-center">
             <div className="w-8 h-8 bg-[#292929] border-2 border-amber-900 rounded shadow-md mb-1 flex items-center justify-center">
-              <img
+              <Image
                 src="/sword4.png"
                 alt="Sword"
+                width={20}
+                height={24}
                 className="w-5 h-6 rotate-180"
               />
             </div>
@@ -52,14 +56,14 @@ export default function MedievalIndicator() {
 
           <div className="flex flex-col items-center">
             <div className="w-8 h-8 bg-[#292929] border-2 border-amber-900 rounded shadow-md mb-1 flex items-center justify-center">
-              <img src="/sword4.png" alt="Sword" className="w-5 h-6" />
+              <Image src="/sword4.png" alt="Sword" width={20} height={24} className="w-5 h-6" />
             </div>
             <span className="font-serif text-amber-900 text-[10px] text-center">Lower</span>
           </div>
 
           <div className="flex flex-col items-center">
             <div className="w-8 h-8 bg-[#292929] border-2 border-amber-900 rounded shadow-md mb-1 flex items-center justify-center">
-              <img src="/sword_same1.png" alt="Sword" className="w-6 h-6" />
+              <Image src="/sword_same1.png" alt="Sword" width={24} height={24} className="w-6 h-6" />
             </div>
             <span className="font-serif text-amber-900 text-[10px] text-center">Same</span>
           </div>
@@ -85,9 +89,11 @@ export default function MedievalIndicator() {
 
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 bg-[#292929] border-2 border-amber-900 rounded shadow-md mb-1 flex items-center justify-center">
-            <img
+            <Image
               src="/sword4.png"
               alt="Sword"
+              width={32}
+              height={40}
               className="w-8 h-10 rotate-180"
             />
           </div>
@@ -95,13 +101,13 @@ export default function MedievalIndicator() {
         </div>
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 bg-[#292929] border-2 border-amber-900 rounded shadow-md mb-1 flex items-center justify-center">
-            <img src="/sword4.png" alt="Sword" className="w-8 h-10" />
+            <Image src="/sword4.png" alt="Sword" width={32} height={40} className="w-8 h-10" />
           </div>
           <span className="font-serif text-amber-900 text-xs">Lower Tier</span>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 bg-[#292929] border-2 border-amber-900 rounded shadow-md mb-1 flex items-center justify-center">
-            <img src="/sword_same1.png" alt="Sword" className="w-10 h-10" />
+            <Image src="/sword_same1.png" alt="Sword" width={40} height={40} className="w-10 h-10" />
           </div>
           <span className="font-serif text-amber-900 text-xs">True Tier</span>
         </div>

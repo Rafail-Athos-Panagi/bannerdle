@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import React from "react";
 import ComboBox from "@/components/ComboBox";
 import IncorrectList from "@/components/IncorrectGuessesList";
 import { Troop } from "@/types/Troop.type";
@@ -14,7 +15,7 @@ interface CustomSelectProps {
   onToggleIndicator?: () => void;
 }
 
-const CustomSelect = ({
+const CustomSelect = React.memo(({
   scrollTo,
   troopGameState,
   setTroopGameState,
@@ -22,6 +23,18 @@ const CustomSelect = ({
 }: CustomSelectProps) => {
   const [availableTroops, setAvailableTroops] = useState<Troop[]>([]);
   const [, setCheckResult] = useState<unknown>(null);
+
+  // Memoize incorrect guesses to prevent unnecessary recalculations
+  const incorrectGuesses = useMemo(() => 
+    troopGameState.guesses.filter(guess => !guess.isCorrect),
+    [troopGameState.guesses]
+  );
+
+  // Memoize incorrect guesses for IncorrectList
+  const incorrectGuessesForList = useMemo(() => 
+    incorrectGuesses.map(guess => guess.troopStatus),
+    [incorrectGuesses]
+  );
 
   // Fetch troops from API on component mount
   useEffect(() => {
@@ -61,17 +74,16 @@ const CustomSelect = ({
     }
   }, [troopGameState, setTroopGameState]);
 
+  // Optimize troop filtering with useMemo
   useEffect(() => {
-    const incorrectGuesses = troopGameState.guesses.filter(guess => !guess.isCorrect);
     setAvailableTroops((prev) =>
       prev.filter(
         (t) => !incorrectGuesses.some((guess) => guess.troop.name === t.name)
       )
     );
-  }, [troopGameState.guesses]);
+  }, [incorrectGuesses]);
 
-
-  const handleSelect = async (troop: Troop) => {
+  const handleSelect = useCallback(async (troop: Troop) => {
     setAvailableTroops((prev) => prev.filter((t) => t.name !== troop.name));
 
     try {
@@ -80,18 +92,15 @@ const CustomSelect = ({
       if (result.success && result.gameState) {
         setTroopGameState(result.gameState);
         setCheckResult(result.guess);
-        console.log("Check result:", result.guess);
 
         if (!result.guess!.isCorrect) {
           // Trigger scroll after state update
           setTimeout(() => {
-            console.log("Direct scroll trigger after incorrect guess");
             scrollTo("bottom");
           }, 300);
         } else {
           // For correct guesses, scroll to top after a delay to ensure DOM updates
           setTimeout(() => {
-            console.log("Scrolling to top after correct guess");
             scrollTo("top");
           }, 100);
         }
@@ -99,7 +108,7 @@ const CustomSelect = ({
     } catch (error) {
       console.error("Error checking troop:", error);
     }
-  };
+  }, [scrollTo, setTroopGameState]);
 
   return (
     <div className="w-full mt-4 sm:mt-6 lg:mt-8 mb-8 sm:mb-12 lg:mb-16">
@@ -120,13 +129,15 @@ const CustomSelect = ({
       )}
 
       <IncorrectList 
-        incorrectGuesses={troopGameState.guesses.filter(guess => !guess.isCorrect).map(guess => guess.troopStatus)} 
+        incorrectGuesses={incorrectGuessesForList} 
         showIndicator={troopGameState.showIndicator}
         onToggleIndicator={onToggleIndicator}
       />
-      {troopGameState.guesses.filter(guess => !guess.isCorrect).length > 0 && troopGameState.showIndicator && <Indicator />}
+      {incorrectGuesses.length > 0 && troopGameState.showIndicator && <Indicator />}
     </div>
   );
-};
+});
+
+CustomSelect.displayName = 'CustomSelect';
 
 export default CustomSelect;

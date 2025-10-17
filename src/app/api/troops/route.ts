@@ -1,24 +1,18 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import type { Troop } from '@/types/Troop.type';
+import { DataService } from '@/services/DataCache';
 
 /**
  * Troops API
- * Provides access to troops data from JSON file
+ * Provides access to troops data from JSON file with caching
  */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const name = searchParams.get('name');
     
-    // Read troops data from JSON file
-    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'troops.json');
-    const troopsData: Troop[] = JSON.parse(fs.readFileSync(troopsFilePath, 'utf8'));
-    
     if (name) {
       // Get specific troop by name
-      const troop = troopsData.find(t => t.name.toLowerCase() === name.toLowerCase());
+      const troop = DataService.getTroopByName(name);
       
       if (!troop) {
         return NextResponse.json(
@@ -30,6 +24,7 @@ export async function GET(request: Request) {
       return NextResponse.json(troop);
     } else {
       // Get all troops
+      const troopsData = DataService.getTroops();
       return NextResponse.json(troopsData);
     }
   } catch (error) {

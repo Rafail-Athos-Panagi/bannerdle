@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import MapComponent from '@/components/MapComponent';
 import MedievalNavbar from '@/components/MedievalNavbar';
 import PageRefreshLoader from '@/components/PageRefreshLoader';
@@ -10,7 +11,7 @@ import MapQuestHowToPlayModal from '@/components/MapQuestHowToPlayModal';
 import { FaInfoCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
-import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
+import { MapAreaService, MapGameState } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
 import { CONFIG } from '@/config';
 
@@ -110,27 +111,6 @@ export default function CalradiaGlobuleGame() {
     }
   };
 
-  const getDistanceText = (distance: number): string => {
-    if (distance < 50) return 'Very close!';
-    if (distance < 100) return 'Close';
-    if (distance < 200) return 'Moderate distance';
-    if (distance < 300) return 'Far';
-    return 'Very far';
-  };
-
-  const getDirectionArrow = (direction: string): string => {
-    const arrows: { [key: string]: string } = {
-      'N': '↑',
-      'NE': '↗',
-      'E': '→',
-      'SE': '↘',
-      'S': '↓',
-      'SW': '↙',
-      'W': '←',
-      'NW': '↖'
-    };
-    return arrows[direction] || '?';
-  };
 
   if (!isClient || !mapGameState) {
     return <LoadingSpinner message="Loading Map Quest..." size="large" />;
@@ -238,9 +218,11 @@ export default function CalradiaGlobuleGame() {
                       onClick={() => window.open(CONFIG.DONATION_URL, '_blank', 'noopener,noreferrer')}
                       className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
                     >
-                      <img 
+                      <Image 
                         src="/kofi_symbol.png" 
                         alt="Ko-Fi" 
+                        width={16}
+                        height={16}
                         className="w-4 h-4"
                       />
                       <span>Support Development</span>

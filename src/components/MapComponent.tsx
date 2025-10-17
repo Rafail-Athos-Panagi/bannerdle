@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+import Image from 'next/image';
 import { Settlement, Guess } from '@/types/Settlement.type';
 import { MapArea } from '@/types/MapArea.type';
 import { MapGuess } from '@/services/MapAreaService';
@@ -388,8 +389,6 @@ const MapComponent: React.FC<MapComponentProps> = ({
     return 0;
   };
 
-  console.log('MapComponent rendering with bounds:', mapBounds);
-  console.log('Settlements count:', settlements.length);
 
   // Don't render during SSR
   if (!isClient) {
@@ -423,9 +422,11 @@ const MapComponent: React.FC<MapComponentProps> = ({
         }}
       >
         {/* Map image - zoomed in */}
-        <img 
+        <Image 
           src="/bannerlord_clean_map.jpg" 
           alt="Calradia Map" 
+          width={1920}
+          height={1080}
           className="w-full h-full object-fill select-none"
           draggable={false}
         />

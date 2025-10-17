@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { DataService } from '@/services/DataCache';
 import type { Troop, TroopStatus } from '@/types/Troop.type';
 
 // Mapping function to normalize faction and culture names
@@ -57,12 +56,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Read troops data from JSON file
-    const troopsFilePath = path.join(process.cwd(), 'src', 'data', 'troops.json');
-    const troopsData: Troop[] = JSON.parse(fs.readFileSync(troopsFilePath, 'utf8'));
-
-    // Find troop data from JSON
-    const troopData = troopsData.find(t => t.name.toLowerCase() === queryName.toLowerCase());
+    // Get troop data using cached service
+    const troopData = DataService.getTroopByName(queryName);
 
     if (!troopData) {
       return NextResponse.json(
@@ -71,10 +66,9 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get current selection from guessed_troops.json
+    // Get current selection from cached guessed troops
     const today = new Date().toISOString().split('T')[0]; // UTC date
-    const guessedTroopsFilePath = path.join(process.cwd(), 'src', 'data', 'guessed_troops.json');
-    const guessedTroopsData = JSON.parse(fs.readFileSync(guessedTroopsFilePath, 'utf8'));
+    const guessedTroopsData = DataService.getGuessedTroops();
 
     const currentSelection = guessedTroopsData[today];
 
@@ -86,7 +80,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Get the full troop data for the current selection
-    const currentTroopData = troopsData.find(t => t.name.toLowerCase() === currentSelection.name.toLowerCase());
+    const currentTroopData = DataService.getTroopByName(currentSelection.name);
 
     if (!currentTroopData) {
       return NextResponse.json(

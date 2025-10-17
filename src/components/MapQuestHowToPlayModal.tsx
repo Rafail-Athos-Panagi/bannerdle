@@ -68,7 +68,7 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
             <p className="text-[#D4C4A8] text-base">
               Explore the vast lands of Calradia! Discover map areas by typing their names and learn about 
               different locations, factions, and settlements across the continent. Track your exploration 
-              progress and become a true master of Calradia's geography.
+              progress and become a true master of Calradia&apos;s geography.
             </p>
           </section>
 
@@ -79,7 +79,7 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
               How to Play
             </h3>
             <div className="text-[#D4C4A8] space-y-2">
-              <p>1. <strong className="text-[#AF9767]">Type an area name</strong> in the search box (e.g., "Pravend", "Sargot", "Baltakhand")</p>
+              <p>1. <strong className="text-[#AF9767]">Type an area name</strong> in the search box (e.g., &quot;Pravend&quot;, &quot;Sargot&quot;, &quot;Baltakhand&quot;)</p>
               <p>2. <strong className="text-[#AF9767]">Select from suggestions</strong> that appear as you type</p>
               <p>3. <strong className="text-[#AF9767]">Explore the map</strong> to see where the area is located</p>
               <p>4. <strong className="text-[#AF9767]">Learn about factions</strong> and settlement types</p>
@@ -115,7 +115,7 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
                 <h4 className="font-bold text-[#AF9767] mb-2">Exploration History</h4>
                 <p className="text-[#D4C4A8] text-sm">
-                  Keep track of all the areas you've discovered during your exploration journey.
+                  Keep track of all the areas you&apos;ve discovered during your exploration journey.
                 </p>
               </div>
               <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
@@ -155,7 +155,7 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
                 </div>
               </div>
               <p className="text-[#B8A082] text-sm mt-3">
-                When arrows are hidden, you'll need to rely purely on your knowledge of Calradia's geography 
+                When arrows are hidden, you&apos;ll need to rely purely on your knowledge of Calradia&apos;s geography 
                 and settlement names to explore effectively. Perfect for experienced players seeking a greater challenge!
               </p>
             </div>
@@ -218,7 +218,7 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
                 <div>
                   <h4 className="font-bold text-[#AF9767] mb-1">Challenge Yourself</h4>
                   <p className="text-[#D4C4A8] text-sm">
-                    Once comfortable, try the "Hide Arrows" feature for a pure exploration challenge without directional hints.
+                    Once comfortable, try the &quot;Hide Arrows&quot; feature for a pure exploration challenge without directional hints.
                   </p>
                 </div>
               </div>
@@ -233,28 +233,28 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
             </h3>
             <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
               <p className="text-[#D4C4A8] mb-4">
-                Here's how a typical exploration session might work:
+                Here&apos;s how a typical exploration session might work:
               </p>
               
               <div className="space-y-4">
                 <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
                   <h4 className="font-bold text-[#AF9767] mb-2">Step 1: Search for an Area</h4>
                   <p className="text-[#D4C4A8] text-sm">
-                    Type "Pravend" in the search box. The system will show suggestions and you can select it to explore.
+                    Type &quot;Pravend&quot; in the search box. The system will show suggestions and you can select it to explore.
                   </p>
                 </div>
                 
                 <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
                   <h4 className="font-bold text-[#AF9767] mb-2">Step 2: Discover on Map</h4>
                   <p className="text-[#D4C4A8] text-sm">
-                    Pravend appears on the map with a marker showing it's a Town in the Kingdom of Vlandia faction.
+                    Pravend appears on the map with a marker showing it&apos;s a Town in the Kingdom of Vlandia faction.
                   </p>
                 </div>
                 
                 <div className="p-3 bg-[#2D1B0E] border border-[#AF9767] rounded">
                   <h4 className="font-bold text-[#AF9767] mb-2">Step 3: Continue Exploring</h4>
                   <p className="text-[#D4C4A8] text-sm">
-                    Search for nearby areas like "Sargot" or "Charas" to build your knowledge of Vlandian territories.
+                    Search for nearby areas like &quot;Sargot&quot; or &quot;Charas&quot; to build your knowledge of Vlandian territories.
                   </p>
                 </div>
                 
