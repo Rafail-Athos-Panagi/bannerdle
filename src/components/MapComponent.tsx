@@ -59,6 +59,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
   const [mapBounds] = useState<[[number, number], [number, number]]>([
     [0, 0], [1000, 1000]
   ]);
+  const [selectedMarkerIndex, setSelectedMarkerIndex] = useState<number | null>(null);
 
   // Map zoom and pan state
   const [isDragging, setIsDragging] = useState(false);
@@ -108,6 +109,34 @@ const MapComponent: React.FC<MapComponentProps> = ({
     return 'settlement' in guess;
   };
 
+  // Handle marker click
+  const handleMarkerClick = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent map panning when clicking marker
+    setSelectedMarkerIndex(selectedMarkerIndex === index ? null : index);
+  };
+
+  // Handle marker touch start for mobile
+  const handleMarkerTouchStart = (index: number, e: React.TouchEvent) => {
+    e.stopPropagation(); // Prevent map panning when touching marker
+  };
+
+  // Handle marker touch end for mobile
+  const handleMarkerTouchEnd = (index: number, e: React.TouchEvent) => {
+    e.preventDefault(); // Prevent default touch behavior
+    e.stopPropagation(); // Prevent map panning when touching marker
+    setSelectedMarkerIndex(selectedMarkerIndex === index ? null : index);
+  };
+
+  // Handle map click to deselect markers
+  const handleMapClick = () => {
+    setSelectedMarkerIndex(null);
+  };
+
+  // Handle map touch to deselect markers
+  const handleMapTouch = () => {
+    setSelectedMarkerIndex(null);
+  };
+
   // Zoom configuration
   const MIN_ZOOM = 1.1; // 110%
   const MAX_ZOOM = 3.0; // 300%
@@ -150,6 +179,12 @@ const MapComponent: React.FC<MapComponentProps> = ({
 
   // Touch event handlers for mobile
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    // Check if the touch is on a marker (has mobile-area-marker class)
+    const target = e.target as HTMLElement;
+    if (target.closest('.mobile-area-marker')) {
+      return; // Don't handle map dragging if touching a marker
+    }
+    
     if (e.touches.length === 1) {
       const touch = e.touches[0];
       setIsDragging(true);
@@ -160,6 +195,12 @@ const MapComponent: React.FC<MapComponentProps> = ({
 
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
     if (!isDragging || e.touches.length !== 1) return;
+    
+    // Check if the touch is on a marker
+    const target = e.target as HTMLElement;
+    if (target.closest('.mobile-area-marker')) {
+      return; // Don't handle map dragging if touching a marker
+    }
     
     const touch = e.touches[0];
     const newX = touch.clientX - dragStart.x;
@@ -178,8 +219,16 @@ const MapComponent: React.FC<MapComponentProps> = ({
     e.preventDefault();
   }, [isDragging, dragStart, zoomLevel]);
 
-  const handleTouchEnd = useCallback(() => {
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     setIsDragging(false);
+    
+    // Check if touch ended on map (not on a marker) and deselect markers after a short delay
+    const target = e.target as HTMLElement;
+    if (!target.closest('.mobile-area-marker')) {
+      setTimeout(() => {
+        setSelectedMarkerIndex(null);
+      }, 100); // Small delay to allow marker touch to complete first
+    }
   }, []);
 
   // Zoom functions
@@ -412,6 +461,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onClick={handleMapClick}
       style={{ touchAction: 'none' }}
     >
       {/* Zoomed map container */}
@@ -466,6 +516,8 @@ const MapComponent: React.FC<MapComponentProps> = ({
           const mapArea = (guess as MapGuess).mapArea;
           if (!mapArea || !mapArea.coordinates) return null;
           
+          const isSelected = selectedMarkerIndex === index;
+          
           // Determine pin color based on settlement type correctness and distance
           let pinColor: 'green' | 'orange' | 'yellow' | 'red';
           let iconColor: 'green' | 'orange' | 'yellow' | 'red';
@@ -517,12 +569,18 @@ const MapComponent: React.FC<MapComponentProps> = ({
           return (
             <div 
               key={`explored-${index}`} 
-              className="absolute pointer-events-none mobile-area-marker" 
+              className={`absolute mobile-area-marker cursor-pointer transition-all duration-200 ${
+                isSelected ? 'z-50' : 'z-10'
+              }`}
               style={{
                 left: `${mapArea.coordinates[0] / 10}%`,
                 top: `${mapArea.coordinates[1] / 10}%`,
-                transform: 'translate(-50%, -50%)'
+                transform: 'translate(-50%, -50%)',
+                touchAction: 'manipulation' // Enable touch interactions
               }}
+              onClick={(e) => handleMarkerClick(index, e)}
+              onTouchStart={(e) => handleMarkerTouchStart(index, e)}
+              onTouchEnd={(e) => handleMarkerTouchEnd(index, e)}
             >
               {/* Area name label with direction chip */}
               <div 
@@ -557,21 +615,23 @@ const MapComponent: React.FC<MapComponentProps> = ({
               
               {/* Area marker icon based on type */}
               <div 
-                className={`flex items-center justify-center w-4 h-4 rounded-full ${colorClass} shadow-lg mobile-area-icon`}
+              className={`flex items-center justify-center rounded-full ${colorClass} shadow-lg mobile-area-icon transition-all duration-200 ease-out ${
+                isSelected ? 'w-6 h-6 scale-110' : 'w-4 h-4 scale-100'
+              }`}
                 style={{
                   boxShadow: showSettlementTypeHint 
-                    ? `0 0 8px ${iconColor === 'green' ? '#10b981' : iconColor === 'orange' ? '#f97316' : iconColor === 'yellow' ? '#f59e0b' : '#ef4444'}`
-                    : `0 0 8px var(--bannerlord-custom-med-brown)` // Darker theme color shadow when hint is disabled
+                    ? `0 0 ${isSelected ? '12px' : '8px'} ${iconColor === 'green' ? '#10b981' : iconColor === 'orange' ? '#f97316' : iconColor === 'yellow' ? '#f59e0b' : '#ef4444'}`
+                    : `0 0 ${isSelected ? '12px' : '8px'} var(--bannerlord-custom-med-brown)` // Darker theme color shadow when hint is disabled
                 }}
               >
                 {mapArea.type === 'Village' && (
-                  <GiVillage className="text-white text-xs" />
+                  <GiVillage className={`text-white ${isSelected ? 'text-sm' : 'text-xs'}`} />
                 )}
                 {mapArea.type === 'Castle' && (
-                  <PiCastleTurretFill className="text-white text-xs" />
+                  <PiCastleTurretFill className={`text-white ${isSelected ? 'text-sm' : 'text-xs'}`} />
                 )}
                 {mapArea.type === 'Town' && (
-                  <GiCastle className="text-white text-xs" />
+                  <GiCastle className={`text-white ${isSelected ? 'text-sm' : 'text-xs'}`} />
                 )}
               </div>
             </div>

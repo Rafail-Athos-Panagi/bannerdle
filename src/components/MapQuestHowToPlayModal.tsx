@@ -179,6 +179,20 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
                   Use the zoom controls and pan gestures to explore every corner of Calradia's detailed map.
                 </p>
               </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
+                <h4 className="font-bold text-[#AF9767] mb-3">Interactive Markers</h4>
+                <div className="space-y-2 flex-1">
+                  <p className="text-[#D4C4A8] text-sm">
+                    <strong className="text-[#AF9767]">Click any marker</strong> to make it larger and bring it to the front for better visibility.
+                  </p>
+                  <p className="text-[#D4C4A8] text-sm">
+                    <strong className="text-[#AF9767]">Click again</strong> or click elsewhere on the map to deselect the marker.
+                  </p>
+                  <p className="text-[#D4C4A8] text-sm">
+                    Perfect for comparing different settlements or examining specific areas in detail!
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
