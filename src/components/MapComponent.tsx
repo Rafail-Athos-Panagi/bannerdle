@@ -51,8 +51,8 @@ const MapComponent: React.FC<MapComponentProps> = ({
   guesses,
   highlightedSettlement,
   selectedArea,
-  showArrows = true,
-  showSettlementTypeHint = true
+  showArrows = false,
+  showSettlementTypeHint = false
 }) => {
   const [isClient, setIsClient] = useState(false);
   const [settlements, setSettlements] = useState<Settlement[]>([]);

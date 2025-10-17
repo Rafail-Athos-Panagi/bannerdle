@@ -35,39 +35,39 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
 
   return (
     <div 
-      className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4 pt-20"
+      className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-2 sm:p-4 pt-16 sm:pt-20"
       onClick={handleOverlayClick}
     >
       <div 
-        className={`relative bg-[#2D1B0E] border-2 border-[#AF9767] rounded-lg shadow-xl max-w-4xl w-full max-h-[calc(90vh-5rem)] overflow-y-auto transform transition-all duration-300 ease-out ${
+        className={`relative bg-[#2D1B0E] border-2 border-[#AF9767] rounded-lg shadow-xl max-w-4xl w-full max-h-[calc(100vh-2rem)] sm:max-h-[calc(90vh-5rem)] transform transition-all duration-300 ease-out ${
           isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       >
-        {/* Close button */}
+        {/* Sticky Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-[#AF9767] hover:text-yellow-400 transition-colors duration-200 z-10"
+          className="fixed top-3 right-3 sm:top-6 sm:right-6 text-white hover:text-yellow-400 transition-colors duration-200 z-[70] bg-[#2D1B0E] border border-[#AF9767] rounded-full p-2 sm:p-2 shadow-lg flex items-center justify-center"
         >
-          <FaTimes size={20} />
+          <FaTimes size={16} className="sm:w-5 sm:h-5" />
         </button>
 
         {/* Header */}
-        <div className="border-b-2 border-[#AF9767] py-4 px-6 text-center">
+        <div className="border-b-2 border-[#AF9767] py-3 px-4 sm:py-4 sm:px-6 text-center">
           <div className="flex items-center justify-center mb-2">
-            <FaMapMarkerAlt className="text-[#AF9767] mr-2" size={24} />
-            <h2 className="text-2xl font-bold text-[#AF9767]">Map Quest - How to Play</h2>
+            <FaMapMarkerAlt className="text-[#AF9767] mr-2 sm:w-6 sm:h-6" size={20} />
+            <h2 className="text-lg sm:text-2xl font-bold text-[#AF9767]">Map Quest - How to Play</h2>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-h-[calc(100vh-8rem)] sm:max-h-[calc(90vh-12rem)] overflow-y-auto">
           {/* Objective */}
           <section>
-            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
-              <FaTrophy className="mr-2" />
+            <h3 className="text-lg sm:text-xl font-bold text-[#AF9767] mb-2 sm:mb-3 flex items-center">
+              <FaTrophy className="mr-2 sm:w-5 sm:h-5" size={16} />
               Objective
             </h3>
-            <p className="text-[#D4C4A8] text-base">
+            <p className="text-[#D4C4A8] text-sm sm:text-base">
               Explore the vast lands of Calradia! Discover map areas by typing their names and learn about 
               different locations, factions, and settlements across the continent. Track your exploration 
               progress and become a true master of Calradia&apos;s geography.
@@ -91,14 +91,14 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
 
           {/* Map Features */}
           <section>
-            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
-              <FaInfoCircle className="mr-2" />
+            <h3 className="text-lg sm:text-xl font-bold text-[#AF9767] mb-2 sm:mb-3 flex items-center">
+              <FaInfoCircle className="mr-2 sm:w-5 sm:h-5" size={16} />
               Map Features
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
-                <h4 className="font-bold text-[#AF9767] mb-3">Settlement Types & Icons</h4>
-                <div className="space-y-3 flex-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4 min-h-[180px] sm:min-h-[200px] flex flex-col">
+                <h4 className="font-bold text-[#AF9767] mb-2 sm:mb-3 text-sm sm:text-base">Settlement Types & Icons</h4>
+                <div className="space-y-2 sm:space-y-3 flex-1">
                   <div className="flex items-center space-x-3">
                     <div className="flex items-center justify-center w-8 h-8 bg-[#AF9767] rounded-full">
                       <GiCastle className="text-[#1A0F08] text-sm" />
@@ -359,13 +359,6 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
               </div>
             </div>
           </section>
-        </div>
-
-        {/* Footer */}
-        <div className="border-t-2 border-[#AF9767] py-4 px-6 text-center">
-          <p className="text-[#8B6F47] text-sm">
-            Happy exploring, traveler! May your journey across Calradia be filled with discovery and wonder!
-          </p>
         </div>
       </div>
     </div>

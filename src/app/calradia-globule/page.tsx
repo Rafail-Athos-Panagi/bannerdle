@@ -8,7 +8,7 @@ import PageRefreshLoader from '@/components/PageRefreshLoader';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import AboutModal from '@/components/AboutModal';
 import MapQuestHowToPlayModal from '@/components/MapQuestHowToPlayModal';
-import { FaInfoCircle, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaInfoCircle, FaEye, FaEyeSlash, FaCheck, FaTimes } from "react-icons/fa";
 import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState } from '@/services/MapAreaService';
@@ -20,8 +20,8 @@ export default function CalradiaGlobuleGame() {
   const [isClient, setIsClient] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
-  const [showArrows, setShowArrows] = useState(true);
-  const [showSettlementTypeHint, setShowSettlementTypeHint] = useState(true);
+  const [showArrows, setShowArrows] = useState(false);
+  const [showSettlementTypeHint, setShowSettlementTypeHint] = useState(false);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -178,31 +178,51 @@ export default function CalradiaGlobuleGame() {
                 </div>
 
                 {/* Calradic Trials */}
-                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Calradic Trials</h3>
+                <div className={`rounded-lg p-2 border transition-all duration-300 ${
+                  !showArrows && !showSettlementTypeHint 
+                    ? 'bg-gradient-to-br from-green-900/30 to-emerald-900/30 border-green-500/50 shadow-lg shadow-green-500/20' 
+                    : 'bg-[var(--bannerlord-custom-dark-brown)] border-[var(--bannerlord-custom-med-brown)]'
+                }`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-sm font-semibold text-[var(--bannerlord-patch-brassy-gold)]">Calradic Trials</h3>
+                    {!showArrows && !showSettlementTypeHint && (
+                      <div className="flex items-center space-x-1">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-xs font-bold text-green-400">CHALLENGE ACTIVE</span>
+                      </div>
+                    )}
+                  </div>
                   <div className="space-y-2">
                     <button
                       onClick={() => setShowArrows(!showArrows)}
-                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                      className={`w-full flex items-center justify-center space-x-2 px-3 py-2 font-semibold text-xs rounded border-2 transition-all duration-200 ${
+                        showArrows 
+                          ? 'bg-gradient-to-b from-[var(--bannerlord-patch-rust-orange)] to-[var(--bannerlord-patch-warm-tan)] border-[var(--bannerlord-patch-brassy-gold)] hover:from-[var(--bannerlord-patch-gold-text)] hover:to-[var(--bannerlord-patch-rust-orange)] text-[var(--bannerlord-patch-dark-text)] shadow-lg shadow-[var(--bannerlord-patch-rust-orange)]/30' 
+                          : 'bg-gradient-to-b from-[var(--bannerlord-custom-very-dark-brown)] to-[var(--bannerlord-custom-dark-brown)] border-[var(--bannerlord-custom-med-brown)] hover:from-[var(--bannerlord-custom-dark-brown)] hover:to-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-light-cream)] shadow-lg shadow-[var(--bannerlord-custom-very-dark-brown)]/30'
+                      }`}
                     >
                       {showArrows ? (
-                        <FaEyeSlash className="w-4 h-4" />
+                        <FaCheck className="w-4 h-4" />
                       ) : (
-                        <FaEye className="w-4 h-4" />
+                        <FaTimes className="w-4 h-4" />
                       )}
-                      <span>{showArrows ? 'Hide Arrows' : 'Show Arrows'}</span>
+                      <span>{showArrows ? 'Directions: ON' : 'Directions: OFF'}</span>
                     </button>
                     
                     <button
                       onClick={() => setShowSettlementTypeHint(!showSettlementTypeHint)}
-                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                      className={`w-full flex items-center justify-center space-x-2 px-3 py-2 font-semibold text-xs rounded border-2 transition-all duration-200 ${
+                        showSettlementTypeHint 
+                          ? 'bg-gradient-to-b from-[var(--bannerlord-patch-rust-orange)] to-[var(--bannerlord-patch-warm-tan)] border-[var(--bannerlord-patch-brassy-gold)] hover:from-[var(--bannerlord-patch-gold-text)] hover:to-[var(--bannerlord-patch-rust-orange)] text-[var(--bannerlord-patch-dark-text)] shadow-lg shadow-[var(--bannerlord-patch-rust-orange)]/30' 
+                          : 'bg-gradient-to-b from-[var(--bannerlord-custom-very-dark-brown)] to-[var(--bannerlord-custom-dark-brown)] border-[var(--bannerlord-custom-med-brown)] hover:from-[var(--bannerlord-custom-dark-brown)] hover:to-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-light-cream)] shadow-lg shadow-[var(--bannerlord-custom-very-dark-brown)]/30'
+                      }`}
                     >
                       {showSettlementTypeHint ? (
-                        <FaEyeSlash className="w-4 h-4" />
+                        <FaCheck className="w-4 h-4" />
                       ) : (
-                        <FaEye className="w-4 h-4" />
+                        <FaTimes className="w-4 h-4" />
                       )}
-                      <span>{showSettlementTypeHint ? 'Hide Settlement Type Hint' : 'Show Settlement Type Hint'}</span>
+                      <span>{showSettlementTypeHint ? 'Settlement Type: ON' : 'Settlement Type: OFF'}</span>
                     </button>
                   </div>
                 </div>

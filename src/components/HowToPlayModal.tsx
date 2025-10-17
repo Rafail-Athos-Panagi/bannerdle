@@ -36,39 +36,39 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4 pt-20"
+      className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-2 sm:p-4 pt-16 sm:pt-20"
       onClick={handleOverlayClick}
     >
       <div 
-        className={`relative bg-[#2D1B0E] border-2 border-[#AF9767] rounded-lg shadow-xl max-w-4xl w-full max-h-[calc(90vh-5rem)] overflow-y-auto transform transition-all duration-300 ease-out ${
+        className={`relative bg-[#2D1B0E] border-2 border-[#AF9767] rounded-lg shadow-xl max-w-4xl w-full max-h-[calc(100vh-2rem)] sm:max-h-[calc(90vh-5rem)] transform transition-all duration-300 ease-out ${
           isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       >
-        {/* Close button */}
+        {/* Sticky Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-[#AF9767] hover:text-yellow-400 transition-colors duration-200 z-10"
+          className="fixed top-3 right-3 sm:top-6 sm:right-6 text-white hover:text-yellow-400 transition-colors duration-200 z-[70] bg-[#2D1B0E] border border-[#AF9767] rounded-full p-2 sm:p-2 shadow-lg flex items-center justify-center"
         >
-          <FaTimes size={20} />
+          <FaTimes size={16} className="sm:w-5 sm:h-5" />
         </button>
 
         {/* Header */}
-        <div className="border-b-2 border-[#AF9767] py-4 px-6 text-center">
+        <div className="border-b-2 border-[#AF9767] py-3 px-4 sm:py-4 sm:px-6 text-center">
           <div className="flex items-center justify-center mb-2">
-            <FaInfoCircle className="text-[#AF9767] mr-2" size={24} />
-            <h2 className="text-2xl font-bold text-[#AF9767]">How to Play</h2>
+            <FaInfoCircle className="text-[#AF9767] mr-2 sm:w-6 sm:h-6" size={20} />
+            <h2 className="text-lg sm:text-2xl font-bold text-[#AF9767]">How to Play</h2>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-h-[calc(100vh-8rem)] sm:max-h-[calc(90vh-12rem)] overflow-y-auto">
           {/* Objective */}
           <section>
-            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
-              <FaTrophy className="mr-2" />
+            <h3 className="text-lg sm:text-xl font-bold text-[#AF9767] mb-2 sm:mb-3 flex items-center">
+              <FaTrophy className="mr-2 sm:w-5 sm:h-5" size={16} />
               Objective
             </h3>
-            <p className="text-[#D4C4A8] text-base">
+            <p className="text-[#D4C4A8] text-sm sm:text-base">
               Guess today&apos;s Bannerlord troop! Each day, a new troop is selected. Use the hints provided 
               by your incorrect guesses to narrow down the possibilities and find the correct troop.
             </p>
@@ -91,44 +91,44 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
 
           {/* Troop Attributes */}
           <section>
-            <h3 className="text-xl font-bold text-[#AF9767] mb-3 flex items-center">
-              <FaInfoCircle className="mr-2" />
+            <h3 className="text-lg sm:text-xl font-bold text-[#AF9767] mb-2 sm:mb-3 flex items-center">
+              <FaInfoCircle className="mr-2 sm:w-5 sm:h-5" size={16} />
               Troop Attributes
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Tier</h4>
-                <p className="text-[#D4C4A8] text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2 text-sm sm:text-base">Tier</h4>
+                <p className="text-[#D4C4A8] text-xs sm:text-sm">
                   The troop&apos;s level/rank (1-6). Higher tiers are more powerful and expensive.
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Type</h4>
-                <p className="text-[#D4C4A8] text-sm">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2 text-sm sm:text-base">Type</h4>
+                <p className="text-[#D4C4A8] text-xs sm:text-sm">
                   The troop&apos;s combat role (Infantry, Archer, Cavalry, etc.)
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Occupation</h4>
-                <p className="text-[#D4C4A8] text-sm">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2 text-sm sm:text-base">Occupation</h4>
+                <p className="text-[#D4C4A8] text-xs sm:text-sm">
                   The troop&apos;s profession or role in society (Soldier, Guard, Noble, etc.)
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Banner</h4>
-                <p className="text-[#D4C4A8] text-sm">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2 text-sm sm:text-base">Banner</h4>
+                <p className="text-[#D4C4A8] text-xs sm:text-sm">
                   The visual banner/flag associated with the troop&apos;s faction
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Culture</h4>
-                <p className="text-[#D4C4A8] text-sm">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2 text-sm sm:text-base">Culture</h4>
+                <p className="text-[#D4C4A8] text-xs sm:text-sm">
                   The cultural group the troop belongs to (Empire, Sturgia, Khuzait, etc.)
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Faction</h4>
-                <p className="text-[#D4C4A8] text-sm">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-3 sm:p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2 text-sm sm:text-base">Faction</h4>
+                <p className="text-[#D4C4A8] text-xs sm:text-sm">
                   The specific faction or kingdom the troop serves (Northern Empire, Kingdom of Vlandia, etc.)
                 </p>
               </div>
@@ -289,13 +289,6 @@ const HowToPlayModal = memo(({ isOpen, onClose }: HowToPlayModalProps) => {
               </div>
             </div>
           </section>
-        </div>
-
-        {/* Footer */}
-        <div className="border-t-2 border-[#AF9767] py-4 px-6 text-center">
-          <p className="text-[#8B6F47] text-sm">
-            Good luck, warrior! May your guesses be true and your victory swift!
-          </p>
         </div>
       </div>
     </div>
