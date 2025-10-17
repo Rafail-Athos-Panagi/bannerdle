@@ -1,5 +1,7 @@
 import { useState, useEffect, memo, useCallback } from "react";
 import { FaTimes, FaInfoCircle, FaTrophy, FaMapMarkerAlt, FaEye, FaEyeSlash } from "react-icons/fa";
+import { GiVillage, GiCastle } from 'react-icons/gi';
+import { PiCastleTurretFill } from 'react-icons/pi';
 
 interface MapQuestHowToPlayModalProps {
   isOpen: boolean;
@@ -93,41 +95,88 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
               <FaInfoCircle className="mr-2" />
               Map Features
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Settlement Types</h4>
-                <p className="text-[#D4C4A8] text-sm">
-                  Discover Towns, Castles, and Villages across Calradia. Each type has different characteristics and importance.
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
+                <h4 className="font-bold text-[#AF9767] mb-3">Settlement Types & Icons</h4>
+                <div className="space-y-3 flex-1">
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center w-8 h-8 bg-[#AF9767] rounded-full">
+                      <GiCastle className="text-[#1A0F08] text-sm" />
+                    </div>
+                    <div>
+                      <p className="text-[#AF9767] font-semibold text-sm">Towns</p>
+                      <p className="text-[#D4C4A8] text-xs">Major settlements with markets and governance</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center w-8 h-8 bg-[#AF9767] rounded-full">
+                      <PiCastleTurretFill className="text-[#1A0F08] text-sm" />
+                    </div>
+                    <div>
+                      <p className="text-[#AF9767] font-semibold text-sm">Castles</p>
+                      <p className="text-[#D4C4A8] text-xs">Fortified strongholds and military bases</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center w-8 h-8 bg-[#AF9767] rounded-full">
+                      <GiVillage className="text-[#1A0F08] text-sm" />
+                    </div>
+                    <div>
+                      <p className="text-[#AF9767] font-semibold text-sm">Villages</p>
+                      <p className="text-[#D4C4A8] text-xs">Small rural communities and farming settlements</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
                 <h4 className="font-bold text-[#AF9767] mb-2">Faction Territories</h4>
-                <p className="text-[#D4C4A8] text-sm">
+                <p className="text-[#D4C4A8] text-sm flex-1">
                   Learn which areas belong to which factions - from the Empire to the Khuzait Khanate.
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
                 <h4 className="font-bold text-[#AF9767] mb-2">Interactive Map</h4>
-                <p className="text-[#D4C4A8] text-sm">
+                <p className="text-[#D4C4A8] text-sm flex-1">
                   Zoom, pan, and explore the detailed map of Calradia with smooth controls.
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
                 <h4 className="font-bold text-[#AF9767] mb-2">Exploration History</h4>
-                <p className="text-[#D4C4A8] text-sm">
+                <p className="text-[#D4C4A8] text-sm flex-1">
                   Keep track of all the areas you&apos;ve discovered during your exploration journey.
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Visual Markers</h4>
-                <p className="text-[#D4C4A8] text-sm">
-                  Each discovered area shows with colored markers indicating settlement type and faction.
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
+                <h4 className="font-bold text-[#AF9767] mb-3">Distance-Based Colors</h4>
+                <div className="space-y-2 flex-1">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-4 h-4 bg-green-500 rounded-full border-2 border-green-700"></div>
+                    <p className="text-[#D4C4A8] text-xs"><strong className="text-[#AF9767]">Green:</strong> Correct guess - you found it!</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-4 h-4 bg-orange-500 rounded-full border-2 border-orange-700"></div>
+                    <p className="text-[#D4C4A8] text-xs"><strong className="text-[#AF9767]">Orange:</strong> Very close (within 30 units)</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-4 h-4 bg-yellow-500 rounded-full border-2 border-yellow-700"></div>
+                    <p className="text-[#D4C4A8] text-xs"><strong className="text-[#AF9767]">Yellow:</strong> Close to moderate distance (30-150 units)</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
+                    <p className="text-[#D4C4A8] text-xs"><strong className="text-[#AF9767]">Red:</strong> Far away (150+ units)</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
+                <h4 className="font-bold text-[#AF9767] mb-2">Search Suggestions</h4>
+                <p className="text-[#D4C4A8] text-sm flex-1">
+                  Smart search helps you find areas quickly with autocomplete suggestions.
                 </p>
               </div>
-              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-                <h4 className="font-bold text-[#AF9767] mb-2">Search Suggestions</h4>
-                <p className="text-[#D4C4A8] text-sm">
-                  Smart search helps you find areas quickly with autocomplete suggestions.
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4 min-h-[200px] flex flex-col">
+                <h4 className="font-bold text-[#AF9767] mb-2">Map Navigation</h4>
+                <p className="text-[#D4C4A8] text-sm flex-1">
+                  Use the zoom controls and pan gestures to explore every corner of Calradia's detailed map.
                 </p>
               </div>
             </div>
@@ -139,25 +188,54 @@ const MapQuestHowToPlayModal = memo(({ isOpen, onClose }: MapQuestHowToPlayModal
               <FaEye className="mr-2" />
               Calradic Trials
             </h3>
-            <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
-              <h4 className="font-bold text-[#AF9767] mb-2">Arrow Visibility Toggle</h4>
-              <p className="text-[#D4C4A8] mb-3">
-                Challenge yourself with the <strong className="text-[#AF9767]">Hide Arrows</strong> feature in the Calradic Trials section:
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <FaEye className="text-green-400" />
-                  <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Show Arrows:</strong> Direction hints are visible on the map</span>
+            <div className="space-y-4">
+              {/* Arrow Visibility Toggle */}
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Arrow Visibility Toggle</h4>
+                <p className="text-[#D4C4A8] mb-3">
+                  Challenge yourself with the <strong className="text-[#AF9767]">Hide Arrows</strong> feature:
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <FaEye className="text-green-400" />
+                    <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Show Arrows:</strong> Direction hints are visible on the map</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <FaEyeSlash className="text-red-400" />
+                    <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Hide Arrows:</strong> No direction hints - pure exploration challenge!</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <FaEyeSlash className="text-red-400" />
-                  <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Hide Arrows:</strong> No direction hints - pure exploration challenge!</span>
+                <p className="text-[#B8A082] text-sm mt-3">
+                  When arrows are hidden, you&apos;ll need to rely purely on your knowledge of Calradia&apos;s geography 
+                  and settlement names to explore effectively. Perfect for experienced players seeking a greater challenge!
+                </p>
+              </div>
+
+              {/* Settlement Type Hint */}
+              <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
+                <h4 className="font-bold text-[#AF9767] mb-2">Settlement Type Hint</h4>
+                <p className="text-[#D4C4A8] mb-3">
+                  Master the art of settlement recognition with the <strong className="text-[#AF9767]">Settlement Type Hint</strong> feature:
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <FaEye className="text-green-400" />
+                    <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Show Settlement Type Hint:</strong> Icons reveal settlement type correctness</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <FaEyeSlash className="text-red-400" />
+                    <span className="text-[#D4C4A8]"><strong className="text-[#AF9767]">Hide Settlement Type Hint:</strong> All icons use uniform theme colors</span>
+                  </div>
+                </div>
+                <div className="mt-3 space-y-2">
+                  <p className="text-[#B8A082] text-sm">
+                    <strong className="text-[#AF9767]">When enabled:</strong> Icons show green for correct settlement type, red for wrong type.
+                  </p>
+                  <p className="text-[#B8A082] text-sm">
+                    <strong className="text-[#AF9767]">When disabled:</strong> All settlement icons use the same Bannerlord theme color for a clean, immersive experience.
+                  </p>
                 </div>
               </div>
-              <p className="text-[#B8A082] text-sm mt-3">
-                When arrows are hidden, you&apos;ll need to rely purely on your knowledge of Calradia&apos;s geography 
-                and settlement names to explore effectively. Perfect for experienced players seeking a greater challenge!
-              </p>
             </div>
           </section>
 

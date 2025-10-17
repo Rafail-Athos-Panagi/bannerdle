@@ -21,6 +21,7 @@ export default function CalradiaGlobuleGame() {
   const [showAbout, setShowAbout] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showArrows, setShowArrows] = useState(true);
+  const [showSettlementTypeHint, setShowSettlementTypeHint] = useState(true);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -191,6 +192,18 @@ export default function CalradiaGlobuleGame() {
                       )}
                       <span>{showArrows ? 'Hide Arrows' : 'Show Arrows'}</span>
                     </button>
+                    
+                    <button
+                      onClick={() => setShowSettlementTypeHint(!showSettlementTypeHint)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      {showSettlementTypeHint ? (
+                        <FaEyeSlash className="w-4 h-4" />
+                      ) : (
+                        <FaEye className="w-4 h-4" />
+                      )}
+                      <span>{showSettlementTypeHint ? 'Hide Settlement Type Hint' : 'Show Settlement Type Hint'}</span>
+                    </button>
                   </div>
                 </div>
 
@@ -240,6 +253,7 @@ export default function CalradiaGlobuleGame() {
                 highlightedSettlement={null}
                 selectedArea={selectedArea}
                 showArrows={showArrows}
+                showSettlementTypeHint={showSettlementTypeHint}
               />
             </div>
           </div>

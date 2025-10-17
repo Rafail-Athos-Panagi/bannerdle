@@ -44,13 +44,15 @@ interface MapComponentProps {
   highlightedSettlement: Settlement | null;
   selectedArea: MapArea | null;
   showArrows?: boolean;
+  showSettlementTypeHint?: boolean;
 }
 
 const MapComponent: React.FC<MapComponentProps> = ({
   guesses,
   highlightedSettlement,
   selectedArea,
-  showArrows = true
+  showArrows = true,
+  showSettlementTypeHint = true
 }) => {
   const [isClient, setIsClient] = useState(false);
   const [settlements, setSettlements] = useState<Settlement[]>([]);
@@ -464,12 +466,38 @@ const MapComponent: React.FC<MapComponentProps> = ({
           const mapArea = (guess as MapGuess).mapArea;
           if (!mapArea || !mapArea.coordinates) return null;
           
-          // Determine pin color based on distance and correctness
-          const pinColor = MapAreaGameService.getPinColor(guess.distance, guess.isCorrect);
-          const colorClass = pinColor === 'green' ? 'bg-green-500 border-green-500' : 
-                           pinColor === 'orange' ? 'bg-orange-500 border-orange-500' :
-                           pinColor === 'yellow' ? 'bg-yellow-500 border-yellow-500' : 
-                           'bg-red-500 border-red-500';
+          // Determine pin color based on settlement type correctness and distance
+          let pinColor: 'green' | 'orange' | 'yellow' | 'red';
+          let iconColor: 'green' | 'orange' | 'yellow' | 'red';
+          
+          if (guess.isCorrect) {
+            pinColor = 'green'; // Correct guess - always green
+            iconColor = 'green';
+          } else if (showSettlementTypeHint && guess.correctSettlementType) {
+            pinColor = MapAreaGameService.getPinColor(guess.distance, false); // Name background uses distance-based color
+            iconColor = 'green'; // Icon is green for correct settlement type
+          } else if (showSettlementTypeHint && !guess.correctSettlementType) {
+            pinColor = MapAreaGameService.getPinColor(guess.distance, false); // Name background uses distance-based color
+            iconColor = 'red'; // Icon is red for wrong settlement type
+          } else {
+            // When settlement type hint is disabled, use distance-based color for name background
+            // but use the same color for all icons
+            pinColor = MapAreaGameService.getPinColor(guess.distance, false);
+            iconColor = 'orange'; // All icons use the same color when hint is disabled
+          }
+          
+          // Determine color class based on icon color and whether hint is enabled
+          let colorClass: string;
+          if (showSettlementTypeHint) {
+            // When hint is enabled, use standard colors
+            colorClass = iconColor === 'green' ? 'bg-green-500 border-green-500' : 
+                        iconColor === 'orange' ? 'bg-orange-500 border-orange-500' :
+                        iconColor === 'yellow' ? 'bg-yellow-500 border-yellow-500' : 
+                        'bg-red-500 border-red-500';
+          } else {
+            // When hint is disabled, use a single darker Bannerlord theme color for all icons
+            colorClass = 'bg-[var(--bannerlord-custom-med-brown)] border-[var(--bannerlord-custom-med-brown)]'; // Medium brown for all
+          }
           
           // Get direction rotation angle (reverse the API direction - show where guess is FROM target)
           const getDirectionRotation = (direction: string): number => {
@@ -500,7 +528,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
               <div 
                 className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-1 py-0.5 text-xs font-medium rounded border whitespace-nowrap shadow-lg mobile-area-label flex items-center gap-1 ${
                   pinColor === 'green' 
-                    ? 'bg-green-500 text-white border-green-600' 
+                    ? 'bg-green-500 text-white border-green-600'
                     : pinColor === 'orange'
                     ? 'bg-orange-500 text-white border-orange-600'
                     : pinColor === 'yellow' 
@@ -531,7 +559,9 @@ const MapComponent: React.FC<MapComponentProps> = ({
               <div 
                 className={`flex items-center justify-center w-4 h-4 rounded-full ${colorClass} shadow-lg mobile-area-icon`}
                 style={{
-                  boxShadow: `0 0 8px ${pinColor === 'green' ? '#10b981' : pinColor === 'yellow' ? '#f59e0b' : '#ef4444'}`
+                  boxShadow: showSettlementTypeHint 
+                    ? `0 0 8px ${iconColor === 'green' ? '#10b981' : iconColor === 'orange' ? '#f97316' : iconColor === 'yellow' ? '#f59e0b' : '#ef4444'}`
+                    : `0 0 8px var(--bannerlord-custom-med-brown)` // Darker theme color shadow when hint is disabled
                 }}
               >
                 {mapArea.type === 'Village' && (

@@ -6,6 +6,7 @@ export interface MapGuess {
   distance: number; // Distance from target in map units
   direction: 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW';
   isCorrect: boolean;
+  correctSettlementType: boolean; // Whether the settlement type matches
   timestamp: Date;
 }
 
@@ -104,6 +105,7 @@ export class MapAreaService {
         distance: data.distance,
         direction: data.direction,
         isCorrect: data.correct,
+        correctSettlementType: data.correctSettlementType,
         timestamp: new Date()
       };
 

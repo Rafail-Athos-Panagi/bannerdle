@@ -7,6 +7,7 @@ interface CheckMapAreaResponse {
   correct: boolean;
   distance: number;
   direction: 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW';
+  correctSettlementType: boolean;
 }
 
 // Calculate distance between two coordinate points
@@ -98,6 +99,10 @@ export async function GET(request: NextRequest) {
     const isCorrect: boolean = 
       currentMapAreaData.name.toLowerCase() === queryName.toLowerCase();
 
+    // Check if settlement type is correct
+    const correctSettlementType: boolean = 
+      mapAreaData.type.toLowerCase() === currentMapAreaData.type.toLowerCase();
+
     // Calculate distance and direction
     const distance = calculateDistance(
       mapAreaData.coordinates,
@@ -113,6 +118,7 @@ export async function GET(request: NextRequest) {
       correct: isCorrect,
       distance: Math.round(distance),
       direction,
+      correctSettlementType,
     };
 
     return NextResponse.json(responseData);
