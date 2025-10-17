@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import MapComponent from '@/components/MapComponent';
 import MedievalNavbar from '@/components/MedievalNavbar';
@@ -28,10 +28,25 @@ export default function CalradiaGlobuleGame() {
   const [areaSuggestions, setAreaSuggestions] = useState<MapArea[]>([]);
   const [showAreaSuggestions, setShowAreaSuggestions] = useState(false);
   const [selectedArea, setSelectedArea] = useState<MapArea | null>(null);
+  const areaInputRef = useRef<HTMLDivElement | null>(null);
 
   // Ensure we're on the client side before initializing
   useEffect(() => {
     setIsClient(true);
+  }, []);
+
+  // Handle click outside to close suggestions
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        areaInputRef.current &&
+        !areaInputRef.current.contains(event.target as Node)
+      ) {
+        setShowAreaSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -137,45 +152,57 @@ export default function CalradiaGlobuleGame() {
                     <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">
                       Guess Map Area
                     </h3>
-                    <form onSubmit={handleAreaSubmit} className="relative">
-                      <input
-                        type="text"
-                        value={areaInputValue}
-                        onChange={(e) => handleAreaInputChange(e.target.value)}
-                        placeholder="Type map area name..."
-                        className="w-full px-2 py-1.5 bg-[var(--bannerlord-custom-very-dark-brown)] border border-[var(--bannerlord-custom-med-brown)] rounded-lg text-sm text-[var(--bannerlord-custom-light-cream)] placeholder-[var(--bannerlord-custom-light-cream)] placeholder-opacity-50 focus:outline-none focus:border-[var(--bannerlord-patch-brassy-gold)] mobile-input"
-                        autoComplete="off"
-                      />
-                      
-                      {/* Map Area Suggestions Dropdown */}
-                      {showAreaSuggestions && areaSuggestions.length > 0 && (
-                        <div className="absolute top-full left-0 right-0 mt-1 bg-[var(--bannerlord-custom-dark-brown)] border border-[var(--bannerlord-custom-med-brown)] rounded-lg shadow-lg z-10 max-h-40 overflow-y-auto suggestions-dropdown">
-                          {areaSuggestions.map((area, index) => (
-                            <div
-                              key={index}
-                              onClick={() => handleAreaSelect(area)}
-                              className="px-2 py-1.5 hover:bg-[var(--bannerlord-custom-med-brown)] cursor-pointer text-xs border-b border-[var(--bannerlord-custom-med-brown)] last:border-b-0 text-[var(--bannerlord-custom-light-cream)] touch-manipulation"
-                            >
-                              <div className="font-medium">{area.name}</div>
-                              <div className="text-xs text-[var(--bannerlord-custom-light-cream)] opacity-70">{area.faction} • {area.type}</div>
-                            </div>
-                          ))}
+                    <div className="w-full">
+                      <div className="relative" ref={areaInputRef}>
+                        <div className="relative flex flex-row text-center justify-center items-center">
+                          <input
+                            type="text"
+                            value={areaInputValue}
+                            onChange={(e) => handleAreaInputChange(e.target.value)}
+                            placeholder="Type to find the map area..."
+                            className="w-full h-10 md:h-12 text-[#d7b587] font-semibold tracking-wide bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] border border-[#8A691F] shadow-md rounded-lg rounded-r-none px-2 md:px-3 focus:outline-none text-sm"
+                            autoComplete="off"
+                            onFocus={() => {
+                              if (areaInputValue !== "") {
+                                setShowAreaSuggestions(true);
+                              }
+                            }}
+                          />
+                          <img
+                            className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-none p-0 cursor-pointer z-10 transform transition duration-200 hover:scale-110 filter hover:brightness-125"
+                            src="/submit4.png"
+                            alt="submit_button"
+                            onClick={handleAreaSubmit}
+                          />
                         </div>
-                      )}
-                    </form>
+                        
+                        {/* Map Area Suggestions Dropdown */}
+                        {showAreaSuggestions && areaSuggestions.length > 0 && (
+                          <div className="absolute z-10 mt-2 w-full max-h-48 overflow-auto rounded-md bg-[radial-gradient(ellipse_at_center,_#3b372f_0%,_#2f2c25_100%)] py-1 text-sm shadow-lg">
+                            {areaSuggestions.length === 0 && areaInputValue !== "" ? (
+                              <div className="cursor-default select-none py-1.5 px-3 text-[#D7B587] flex justify-center text-sm">
+                                No area found.
+                              </div>
+                            ) : (
+                              areaSuggestions.map((area, index) => (
+                                <div
+                                  key={index}
+                                  onClick={() => handleAreaSelect(area)}
+                                  className="cursor-pointer select-none relative py-1.5 pl-2 pr-3 text-[#D7B587] text-sm hover:bg-[rgba(255,255,255,0.1)]"
+                                >
+                                  <div className="flex items-center">
+                                    <span className="ml-3 block truncate text-sm font-medium">
+                                      {area.name}
+                                    </span>
+                                  </div>
+                                </div>
+                              ))
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-
-
-                {/* Instructions */}
-                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">How to Explore</h3>
-                  <div className="text-xs text-[var(--bannerlord-custom-light-cream)] space-y-1">
-                    <div>• Type map area names to explore</div>
-                    <div>• Discover locations across Calradia</div>
-                    <div>• Track your exploration history</div>
-                    <div>• Learn about different areas and their locations</div>
-                  </div>
-                </div>
 
                 {/* Calradic Trials */}
                 <div className={`rounded-lg p-2 border transition-all duration-300 ${
