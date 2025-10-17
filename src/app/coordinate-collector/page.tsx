@@ -342,7 +342,7 @@ export default function CoordinateCollector() {
                 }}
               >
                 <img 
-                  src="/bannerlord_map1.jpg" 
+                  src="/bannerlord_clean_map.jpg" 
                   alt="Bannerlord Map" 
                   className="w-full h-full object-fill select-none"
                   draggable={false}

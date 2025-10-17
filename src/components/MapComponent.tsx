@@ -5,6 +5,7 @@ import { MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
 import { GiVillage, GiCastle } from 'react-icons/gi';
 import { PiCastleTurretFill } from 'react-icons/pi';
+import { FaLongArrowAltDown } from 'react-icons/fa';
 
 // Dynamic import for Leaflet to avoid SSR issues
 let L: typeof import('leaflet') | null = null;
@@ -421,7 +422,7 @@ const MapComponent: React.FC<MapComponentProps> = ({
       >
         {/* Map image - zoomed in */}
         <img 
-          src="/bannerlord_map1.jpg" 
+          src="/bannerlord_clean_map.jpg" 
           alt="Calradia Map" 
           className="w-full h-full object-fill select-none"
           draggable={false}
@@ -467,6 +468,21 @@ const MapComponent: React.FC<MapComponentProps> = ({
                            pinColor === 'yellow' ? 'bg-yellow-500 border-yellow-500' : 
                            'bg-red-500 border-red-500';
           
+          // Get direction rotation angle
+          const getDirectionRotation = (direction: string): number => {
+            const rotations: { [key: string]: number } = {
+              'N': 270,    // ↑ (rotate → 270°)
+              'NE': 315,   // ↗ (rotate → 315°)
+              'E': 0,      // → (no rotation)
+              'SE': 45,    // ↘ (rotate → 45°)
+              'S': 90,     // ↓ (rotate → 90°)
+              'SW': 135,   // ↙ (rotate → 135°)
+              'W': 180,    // ← (rotate → 180°)
+              'NW': 225    // ↖ (rotate → 225°)
+            };
+            return rotations[direction] || 0;
+          };
+          
           return (
             <div 
               key={`explored-${index}`} 
@@ -477,9 +493,9 @@ const MapComponent: React.FC<MapComponentProps> = ({
                 transform: 'translate(-50%, -50%)'
               }}
             >
-              {/* Area name label */}
+              {/* Area name label with direction chip */}
               <div 
-                className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-1 py-0.5 text-xs font-medium rounded border whitespace-nowrap shadow-lg mobile-area-label ${
+                className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-1 py-0.5 text-xs font-medium rounded border whitespace-nowrap shadow-lg mobile-area-label flex items-center gap-1 ${
                   pinColor === 'green' 
                     ? 'bg-green-500 text-white border-green-600' 
                     : pinColor === 'orange'
@@ -489,7 +505,17 @@ const MapComponent: React.FC<MapComponentProps> = ({
                     : 'bg-red-500 text-white border-red-600'
                 }`}
               >
-                {mapArea.name}
+                <span>{mapArea.name}</span>
+                {/* Direction chip */}
+                <span 
+                  className="inline-flex items-center justify-center w-3 h-3 text-xs font-bold rounded-full bg-black bg-opacity-60 border border-white border-opacity-50"
+                  title={`Direction: ${guess.direction}`}
+                  style={{
+                    transform: `rotate(${getDirectionRotation(guess.direction)}deg)`
+                  }}
+                >
+                  <FaLongArrowAltDown className="text-white text-xs" />
+                </span>
               </div>
               
               {/* Area marker icon based on type */}

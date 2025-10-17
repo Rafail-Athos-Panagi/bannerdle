@@ -6,14 +6,19 @@ import MedievalNavbar from '@/components/MedievalNavbar';
 import PageRefreshLoader from '@/components/PageRefreshLoader';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import AboutModal from '@/components/AboutModal';
+import HowToPlayModal from '@/components/HowToPlayModal';
+import { FaInfoCircle } from "react-icons/fa";
+import { IoIosHelpCircle } from "react-icons/io";
 import { MapArea } from '@/types/MapArea.type';
 import { MapAreaService, MapGameState, MapGuess } from '@/services/MapAreaService';
 import { MapAreaGameService } from '@/services/MapAreaGameService';
+import { CONFIG } from '@/config';
 
 export default function CalradiaGlobuleGame() {
   const [mapGameState, setMapGameState] = useState<MapGameState | null>(null);
   const [isClient, setIsClient] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
   
   // Area search state
   const [areaInputValue, setAreaInputValue] = useState('');
@@ -178,47 +183,6 @@ export default function CalradiaGlobuleGame() {
                     </form>
                   </div>
 
-                {/* Guesses History */}
-                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">
-                    Guessed Areas
-                  </h3>
-                  {mapGameState.guesses.length === 0 ? (
-                    <div className="text-[var(--bannerlord-custom-light-cream)] opacity-70 text-xs">
-                      No areas explored yet
-                    </div>
-                  ) : (
-                    <div className="space-y-1.5">
-                      {mapGameState.guesses.map((guess, index) => (
-                        <div
-                          key={index}
-                          className={`p-2 rounded-lg border ${
-                            guess.isCorrect
-                              ? 'bg-[var(--bannerlord-patch-brassy-gold)] bg-opacity-20 border-[var(--bannerlord-patch-brassy-gold)]'
-                              : 'bg-[var(--bannerlord-custom-very-dark-brown)] border-[var(--bannerlord-custom-med-brown)]'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="font-medium text-xs text-[var(--bannerlord-custom-light-cream)]">
-                              {(guess as MapGuess).mapArea.name}
-                            </div>
-                            <div className="text-xs">
-                              {guess.isCorrect ? '✅' : '❌'}
-                            </div>
-                          </div>
-                          {!guess.isCorrect && (
-                            <div className="text-xs text-[var(--bannerlord-custom-light-cream)] opacity-70 mt-1">
-                              <div>{getDistanceText(guess.distance)}</div>
-                              <div className="flex items-center">
-                                Direction: {getDirectionArrow(guess.direction)} {guess.direction}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
 
                 {/* Instructions */}
                 <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
@@ -231,22 +195,40 @@ export default function CalradiaGlobuleGame() {
                   </div>
                 </div>
 
-                {/* About Button */}
+                {/* Hint Buttons */}
                 <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                  <button
-                    onClick={() => setShowAbout(true)}
-                    className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="w-4 h-4"
+                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Help & Support</h3>
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => setShowHowToPlay(true)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
                     >
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                    </svg>
-                    <span>About Bannerdle</span>
-                  </button>
+                      <IoIosHelpCircle className="w-4 h-4" />
+                      <span>How to Play</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => setShowAbout(true)}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      <FaInfoCircle className="w-4 h-4" />
+                      <span>About Bannerdle</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => window.open(CONFIG.DONATION_URL, '_blank', 'noopener,noreferrer')}
+                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                    >
+                      <img 
+                        src="/kofi_symbol.png" 
+                        alt="Ko-Fi" 
+                        className="w-4 h-4"
+                      />
+                      <span>Support Development</span>
+                    </button>
+                  </div>
                 </div>
+
               </div>
             </div>
 
@@ -265,6 +247,11 @@ export default function CalradiaGlobuleGame() {
       <AboutModal 
         isOpen={showAbout} 
         onClose={() => setShowAbout(false)}
+      />
+      
+      <HowToPlayModal 
+        isOpen={showHowToPlay} 
+        onClose={() => setShowHowToPlay(false)}
       />
     </PageRefreshLoader>
   );
