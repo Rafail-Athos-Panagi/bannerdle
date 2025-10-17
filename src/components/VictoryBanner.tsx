@@ -77,11 +77,10 @@ const VictoryBanner = ({ correctGuess }: Props) => {
                     height={96}
                     className="w-18 h-18 md:w-24 md:h-24"
                     onError={(e) => {
-                      console.log('Image failed to load:', correctGuess.image);
                       e.currentTarget.style.display = 'none';
                     }}
                     onLoad={() => {
-                      console.log('Image loaded successfully:', correctGuess.image);
+                      // Image loaded successfully
                     }}
                   />
                 ) : (

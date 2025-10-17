@@ -78,7 +78,7 @@ const AboutModal = memo(({ isOpen, onClose }: AboutModalProps) => {
               Game Description
             </h3>
             <p className="text-[#D4C4A8] text-base">
-              Every day, guess a different troop from Mount & Blade II: Bannerlord. Test your knowledge of Calradia's 
+              Every day, guess a different troop from Mount & Blade II: Bannerlord. Test your knowledge of Calradia&apos;s 
               warriors, factions, and military units in this strategic guessing game inspired by the medieval world of Bannerlord.
             </p>
           </section>
@@ -91,7 +91,7 @@ const AboutModal = memo(({ isOpen, onClose }: AboutModalProps) => {
             </h3>
             <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-4">
               <p className="text-[#D4C4A8] text-sm mb-3">
-                Bannerdle was created in accordance with TaleWorlds Entertainment's Legal Fan Creations policy using 
+                Bannerdle was created in accordance with TaleWorlds Entertainment&apos;s Legal Fan Creations policy using 
                 assets that belong to TaleWorlds Entertainment. TaleWorlds Entertainment does not endorse or sponsor this project.
               </p>
             </div>

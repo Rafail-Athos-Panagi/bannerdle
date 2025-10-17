@@ -35,10 +35,9 @@ export default function HomePage() {
   return (
     <PageRefreshLoader loadingMessage="Preparing your adventure...">
       <div 
-        className="h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col"
+        className="h-screen bg-cover bg-center bg-no-repeat flex flex-col"
         style={{ 
-          backgroundImage: 'url(/bg-1.jpg)',
-          backgroundAttachment: 'fixed'
+          backgroundImage: 'url(/bg-1.jpg)'
         }}
       >
         <div className="h-full flex flex-col items-center justify-center text-[var(--bannerlord-custom-light-cream)] px-2 sm:px-4">

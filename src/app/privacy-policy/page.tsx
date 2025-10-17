@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
                       <div>
                         <h3 className="text-lg font-semibold text-[#AF9767] mb-2">Local Storage</h3>
                         <p className="text-[#D4C4A8] text-base">
-                          Bannerdle uses your browser's local storage to save your game progress, including:
+                          Bannerdle uses your browser&apos;s local storage to save your game progress, including:
                         </p>
                         <ul className="text-[#D4C4A8] text-base mt-2 ml-6 list-disc space-y-1">
                           <li>Your daily troop guesses and results</li>
@@ -149,7 +149,7 @@ export default function PrivacyPolicyPage() {
                   <div className="bg-[#1A0F08] border border-[#AF9767] rounded-lg p-6">
                     <p className="text-[#D4C4A8] text-base leading-relaxed">
                       Since Bannerdle stores all data locally on your device, your game progress is protected by your 
-                      browser's security measures. We do not have access to your personal game data, and it cannot be 
+                      browser&apos;s security measures. We do not have access to your personal game data, and it cannot be 
                       accessed by third parties through our servers.
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export default function PrivacyPolicyPage() {
                       <div>
                         <h3 className="text-lg font-semibold text-[#AF9767] mb-2">Data Control</h3>
                         <p className="text-[#D4C4A8] text-base">
-                          You have complete control over your game data. You can clear your browser's local storage 
+                          You have complete control over your game data. You can clear your browser&apos;s local storage 
                           at any time to reset your game progress.
                         </p>
                       </div>

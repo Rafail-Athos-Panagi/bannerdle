@@ -20,9 +20,6 @@ export function useLocalStorageInitializer() {
         const troopState = TroopService.getGameState();
         const mapAreaState = MapAreaService.getGameState();
         
-        console.log('🔄 [LOCALSTORAGE] Game data initialized');
-        console.log('📅 [TROOP GAME] Current day:', troopState.currentDay);
-        console.log('📅 [MAP AREA GAME] Current day:', mapAreaState.currentDay);
       } catch (error) {
         console.error('❌ Error initializing localStorage:', error);
       }

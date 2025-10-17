@@ -1,24 +1,18 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import type { MapArea } from '@/types/MapArea.type';
+import { DataService } from '@/services/DataCache';
 
 /**
  * Map Areas API
- * Provides access to map areas data from JSON file
+ * Provides access to map areas data from JSON file with caching
  */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const name = searchParams.get('name');
     
-    // Read map areas data from JSON file
-    const mapAreasFilePath = path.join(process.cwd(), 'src', 'data', 'map_areas.json');
-    const mapAreasData: MapArea[] = JSON.parse(fs.readFileSync(mapAreasFilePath, 'utf8'));
-    
     if (name) {
       // Get specific map area by name
-      const mapArea = mapAreasData.find(m => m.name.toLowerCase() === name.toLowerCase());
+      const mapArea = DataService.getMapAreaByName(name);
       
       if (!mapArea) {
         return NextResponse.json(
@@ -30,6 +24,7 @@ export async function GET(request: Request) {
       return NextResponse.json(mapArea);
     } else {
       // Get all map areas
+      const mapAreasData = DataService.getMapAreas();
       return NextResponse.json(mapAreasData);
     }
   } catch (error) {

@@ -218,7 +218,6 @@ export class MapAreaService {
     };
     
     this.saveGameState(newState);
-    console.log('🔄 [MAP AREA GAME] localStorage force cleared for:', today);
   }
 
   // Update lastSelection
