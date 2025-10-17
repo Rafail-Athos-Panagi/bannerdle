@@ -1,7 +1,7 @@
 import { Troop } from "@/types/Troop.type";
 import VictoryBanner from "./VictoryBanner";
 
-export const Home = ({ correctGuess }: { correctGuess: Troop }) => {
+export const Home = ({ correctGuess, triesCount }: { correctGuess: Troop; triesCount: number }) => {
   return (
     <>
       <div className="relative inline-block">
@@ -36,7 +36,7 @@ export const Home = ({ correctGuess }: { correctGuess: Troop }) => {
           <p className="text-sm md:text-md text-[var(--bannerlord-patch-gold-text)] mb-3 md:mb-4">
             Type any troop name to begin your quest!
           </p>
-          {correctGuess.name && <VictoryBanner correctGuess={correctGuess} />}
+          {correctGuess.name && <VictoryBanner correctGuess={correctGuess} triesCount={triesCount} />}
         </div>
       </div>
       <div className="relative inline-block text-left">

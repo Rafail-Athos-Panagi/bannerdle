@@ -15,6 +15,7 @@ export interface MapGameState {
   currentDay: string; // YYYY-MM-DD format
   correctGuess?: MapGuess; // Store the correct guess when found
   lastSelection?: LastMapArea;
+  triesCount: number; // Number of tries taken to find the correct answer
 }
 
 export class MapAreaService {
@@ -56,7 +57,8 @@ export class MapAreaService {
   private static initializeNewGame(): MapGameState {
     const newState: MapGameState = {
       guesses: [],
-      currentDay: this.getTodayString()
+      currentDay: this.getTodayString(),
+      triesCount: 0
     };
     
     this.saveGameState(newState);
@@ -116,7 +118,8 @@ export class MapAreaService {
         ...currentState,
         guesses: newGuesses,
         // Store the correct guess if this is the right answer
-        correctGuess: data.correct ? guess : currentState.correctGuess
+        correctGuess: data.correct ? guess : currentState.correctGuess,
+        triesCount: currentState.triesCount + 1
       };
 
       this.saveGameState(newGameState);
@@ -216,7 +219,8 @@ export class MapAreaService {
       guesses: [], // Clear all previous guesses
       currentDay: today,
       correctGuess: undefined, // Clear any previous correct guess
-      lastSelection: undefined // Clear previous last selection
+      lastSelection: undefined, // Clear previous last selection
+      triesCount: 0 // Reset tries count
     };
     
     this.saveGameState(newState);

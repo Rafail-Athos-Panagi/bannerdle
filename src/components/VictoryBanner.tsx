@@ -22,9 +22,10 @@ const isValidImageUrl = (url: string): boolean => {
 
 interface Props {
   correctGuess: Troop;
+  triesCount: number;
 }
 
-const VictoryBanner = ({ correctGuess }: Props) => {
+const VictoryBanner = ({ correctGuess, triesCount }: Props) => {
   const [isAnimated, setIsAnimated] = useState(false);
   const [showDonationPopup, setShowDonationPopup] = useState(false);
 
@@ -143,6 +144,15 @@ const VictoryBanner = ({ correctGuess }: Props) => {
                   </div>
                   <span className="text-yellow-200 text-sm md:text-base min-w-0 flex-shrink-0">CULTURE:</span>
                   <span className="text-gray-300 text-sm md:text-base ml-1">{correctGuess.culture || "Unknown"}</span>
+                </div>
+                <div className={`flex items-center justify-center md:justify-start transition-all duration-800 ease-out transform ${
+                  isAnimated ? "opacity-100 translate-x-0 delay-2600" : "opacity-0 -translate-x-4"
+                }`}>
+                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-yellow-900 flex items-center justify-center mr-2 md:mr-3">
+                    <span className="text-yellow-400 text-lg">🎯</span>
+                  </div>
+                  <span className="text-yellow-200 text-sm md:text-base min-w-0 flex-shrink-0">TRIES:</span>
+                  <span className="text-gray-300 text-sm md:text-base ml-1">{triesCount}</span>
                 </div>
               </div>
             </div>

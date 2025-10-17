@@ -306,7 +306,10 @@ export default function CalradiaGlobuleGame() {
 
                 {/* Victory Banner - Show when correct guess is found */}
                 {mapGameState.correctGuess && (
-                  <MapVictoryBanner correctGuess={mapGameState.correctGuess} />
+                  <MapVictoryBanner 
+                    correctGuess={mapGameState.correctGuess} 
+                    triesCount={mapGameState.triesCount}
+                  />
                 )}
 
               </div>

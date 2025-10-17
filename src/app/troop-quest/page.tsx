@@ -67,7 +67,7 @@ export default function TroopGuessGame() {
             <div className="flex items-center justify-center">
               <BannerHint scrollTo={scrollTo} />
             </div>
-            <Home correctGuess={troopGameState.correctGuess?.troop || {} as Troop} />
+            <Home correctGuess={troopGameState.correctGuess?.troop || {} as Troop} triesCount={troopGameState.triesCount} />
             <div className="flex flex-col">
               <CustomSelect
                 scrollTo={scrollTo}

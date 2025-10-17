@@ -9,9 +9,10 @@ import { CONFIG } from "@/config";
 
 interface Props {
   correctGuess: MapGuess;
+  triesCount: number;
 }
 
-const MapVictoryBanner = ({ correctGuess }: Props) => {
+const MapVictoryBanner = ({ correctGuess, triesCount }: Props) => {
   const [isAnimated, setIsAnimated] = useState(false);
   const [showDonationPopup, setShowDonationPopup] = useState(false);
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -127,6 +128,13 @@ const MapVictoryBanner = ({ correctGuess }: Props) => {
                   {getSettlementTypeIcon()}
                   <span className="text-[var(--bannerlord-custom-light-cream)]">
                     <strong>Map Area Type:</strong> {correctGuess.mapArea.type}
+                  </span>
+                </div>
+                
+                <div className="flex items-center justify-center space-x-2">
+                  <span className="text-[var(--bannerlord-patch-gold-text)]">🎯</span>
+                  <span className="text-[var(--bannerlord-custom-light-cream)]">
+                    <strong>Tries:</strong> {triesCount}
                   </span>
                 </div>
               </div>

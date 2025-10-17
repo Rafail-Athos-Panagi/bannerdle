@@ -13,6 +13,7 @@ export interface TroopGameState {
   correctGuess?: TroopGuess; // Store the correct guess when found
   showIndicator: boolean;
   lastSelection?: LastTroop;
+  triesCount: number; // Number of tries taken to find the correct answer
 }
 
 export class TroopService {
@@ -114,7 +115,8 @@ export class TroopService {
       currentDay: today,
       correctGuess,
       showIndicator,
-      lastSelection
+      lastSelection,
+      triesCount: guesses.length // Set tries count based on existing guesses
     };
     
     // Save new state and clear old keys
@@ -169,7 +171,8 @@ export class TroopService {
     const newState: TroopGameState = {
       guesses: [],
       currentDay: this.getTodayString(),
-      showIndicator: true
+      showIndicator: true,
+      triesCount: 0
     };
     
     this.saveGameState(newState);
@@ -211,7 +214,8 @@ export class TroopService {
         ...currentState,
         guesses: newGuesses,
         // Store the correct guess if this is the right answer
-        correctGuess: data.correct ? guess : currentState.correctGuess
+        correctGuess: data.correct ? guess : currentState.correctGuess,
+        triesCount: currentState.triesCount + 1
       };
 
       this.saveGameState(newGameState);
@@ -244,7 +248,8 @@ export class TroopService {
       currentDay: today,
       showIndicator: true,
       correctGuess: undefined, // Clear any previous correct guess
-      lastSelection: undefined // Clear previous last selection
+      lastSelection: undefined, // Clear previous last selection
+      triesCount: 0 // Reset tries count
     };
     
     this.saveGameState(newState);
