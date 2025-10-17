@@ -145,11 +145,12 @@ export default function CalradiaGlobuleGame() {
         <div className="h-full text-[var(--bannerlord-custom-light-cream)] flex flex-col bg-[var(--bannerlord-custom-dark-brown)]">
           <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
             {/* Game Info Panel - Responsive sidebar */}
-            <div className="mt-18 w-full lg:w-64 xl:w-72 bg-[var(--bannerlord-custom-very-dark-brown)] backdrop-blur-sm p-2 sm:p-3 lg:p-4 overflow-y-auto border-r border-[var(--bannerlord-custom-med-brown)] flex-shrink-0 max-h-64 lg:max-h-full mobile-sidebar mobile-scroll">
-              <div className="space-y-2">
+            <div className="mt-18 w-full lg:w-80 xl:w-96 bg-gradient-to-b from-[var(--bannerlord-custom-very-dark-brown)] to-[var(--bannerlord-patch-deep-bg)] backdrop-blur-md p-3 sm:p-4 lg:p-6 overflow-y-auto border-r-2 border-[var(--bannerlord-patch-brassy-gold)] flex-shrink-0 max-h-64 lg:max-h-full mobile-sidebar mobile-scroll shadow-2xl">
+              <div className="space-y-4">
                 {/* Input Section */}
-                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                    <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">
+                <div className="bg-gradient-to-br from-[var(--bannerlord-custom-dark-brown)] to-[var(--bannerlord-patch-deep-bg)] rounded-xl p-4 border-2 border-[var(--bannerlord-patch-brassy-gold)] shadow-lg">
+                    <h3 className="text-base font-bold mb-3 text-[var(--bannerlord-patch-brassy-gold)] flex items-center">
+                      <span className="w-2 h-2 bg-[var(--bannerlord-patch-brassy-gold)] rounded-full mr-2"></span>
                       Guess Map Area
                     </h3>
                     <div className="w-full">
@@ -205,13 +206,16 @@ export default function CalradiaGlobuleGame() {
                   </div>
 
                 {/* Calradic Trials */}
-                <div className={`rounded-lg p-2 border transition-all duration-300 ${
+                <div className={`rounded-xl p-4 border-2 transition-all duration-300 ${
                   !showArrows && !showSettlementTypeHint 
-                    ? 'bg-gradient-to-br from-green-900/30 to-emerald-900/30 border-green-500/50 shadow-lg shadow-green-500/20' 
-                    : 'bg-[var(--bannerlord-custom-dark-brown)] border-[var(--bannerlord-custom-med-brown)]'
+                    ? 'bg-gradient-to-br from-green-900/40 to-emerald-900/40 border-green-500/60 shadow-xl shadow-green-500/30' 
+                    : 'bg-gradient-to-br from-[var(--bannerlord-custom-dark-brown)] to-[var(--bannerlord-patch-deep-bg)] border-[var(--bannerlord-patch-brassy-gold)] shadow-lg'
                 }`}>
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-sm font-semibold text-[var(--bannerlord-patch-brassy-gold)]">Calradic Trials</h3>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-base font-bold text-[var(--bannerlord-patch-brassy-gold)] flex items-center">
+                      <span className="w-2 h-2 bg-[var(--bannerlord-patch-brassy-gold)] rounded-full mr-2"></span>
+                      Calradic Trials
+                    </h3>
                     {!showArrows && !showSettlementTypeHint && (
                       <div className="flex items-center space-x-1">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -219,7 +223,7 @@ export default function CalradiaGlobuleGame() {
                       </div>
                     )}
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <button
                       onClick={() => setShowArrows(!showArrows)}
                       className={`w-full flex items-center justify-center space-x-2 px-3 py-2 font-semibold text-xs rounded border-2 transition-all duration-200 ${
@@ -255,28 +259,31 @@ export default function CalradiaGlobuleGame() {
                 </div>
 
                 {/* Help & Support */}
-                <div className="bg-[var(--bannerlord-custom-dark-brown)] rounded-lg p-2 border border-[var(--bannerlord-custom-med-brown)]">
-                  <h3 className="text-sm font-semibold mb-2 text-[var(--bannerlord-patch-brassy-gold)]">Help & Support</h3>
-                  <div className="space-y-2">
+                <div className="bg-gradient-to-br from-[var(--bannerlord-custom-dark-brown)] to-[var(--bannerlord-patch-deep-bg)] rounded-xl p-4 border-2 border-[var(--bannerlord-patch-brassy-gold)] shadow-lg">
+                  <h3 className="text-base font-bold mb-3 text-[var(--bannerlord-patch-brassy-gold)] flex items-center">
+                    <span className="w-2 h-2 bg-[var(--bannerlord-patch-brassy-gold)] rounded-full mr-2"></span>
+                    Help & Support
+                  </h3>
+                  <div className="space-y-3">
                     <button
                       onClick={() => setShowHowToPlay(true)}
-                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                      className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-[var(--bannerlord-patch-brassy-gold)] to-[var(--bannerlord-patch-gold-text)] hover:from-[var(--bannerlord-patch-gold-text)] hover:to-[var(--bannerlord-patch-brassy-gold)] text-[var(--bannerlord-custom-very-dark-brown)] font-bold text-sm rounded-lg border-2 border-[var(--bannerlord-patch-brassy-gold)] shadow-lg hover:shadow-xl transition-all duration-200"
                     >
-                      <IoIosHelpCircle className="w-4 h-4" />
+                      <IoIosHelpCircle className="w-5 h-5" />
                       <span>How to Play</span>
                     </button>
                     
                     <button
                       onClick={() => setShowAbout(true)}
-                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                      className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-[var(--bannerlord-patch-brassy-gold)] to-[var(--bannerlord-patch-gold-text)] hover:from-[var(--bannerlord-patch-gold-text)] hover:to-[var(--bannerlord-patch-brassy-gold)] text-[var(--bannerlord-custom-very-dark-brown)] font-bold text-sm rounded-lg border-2 border-[var(--bannerlord-patch-brassy-gold)] shadow-lg hover:shadow-xl transition-all duration-200"
                     >
-                      <FaInfoCircle className="w-4 h-4" />
+                      <FaInfoCircle className="w-5 h-5" />
                       <span>About Bannerdle</span>
                     </button>
                     
                     <button
                       onClick={() => window.open(CONFIG.DONATION_URL, '_blank', 'noopener,noreferrer')}
-                      className="w-full flex items-center justify-center space-x-2 px-3 py-2 bg-[var(--bannerlord-patch-brassy-gold)] hover:bg-[var(--bannerlord-custom-med-brown)] text-[var(--bannerlord-custom-very-dark-brown)] hover:text-[var(--bannerlord-patch-brassy-gold)] font-semibold text-xs rounded transition-all duration-200"
+                      className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-[var(--bannerlord-patch-brassy-gold)] to-[var(--bannerlord-patch-gold-text)] hover:from-[var(--bannerlord-patch-gold-text)] hover:to-[var(--bannerlord-patch-brassy-gold)] text-[var(--bannerlord-custom-very-dark-brown)] font-bold text-sm rounded-lg border-2 border-[var(--bannerlord-patch-brassy-gold)] shadow-lg hover:shadow-xl transition-all duration-200"
                     >
                       <Image 
                         src="/kofi_symbol.png" 

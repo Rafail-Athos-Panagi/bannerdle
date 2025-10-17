@@ -172,6 +172,8 @@ export default function ContactPage() {
                   </h3>
                   <p className="text-[var(--bannerlord-custom-light-cream)] opacity-80">
                     Help us continue improving Bannerdle
+                    <br />
+                    <br />
                   </p>
                 </div>
 
