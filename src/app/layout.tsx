@@ -3,6 +3,7 @@ import "./globals.css";
 import LocalStorageInitializer from "@/components/LocalStorageInitializer";
 import ConsentProvider from "@/components/ConsentProvider";
 import { MedievalSharp } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const medievalSharp = MedievalSharp({
   weight: '400',
@@ -151,6 +152,7 @@ export default function RootLayout({
         <ConsentProvider>
           {children}
         </ConsentProvider>
+        <Analytics />
       </body>
     </html>
   );
